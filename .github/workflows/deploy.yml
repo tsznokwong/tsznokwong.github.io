@@ -19,14 +19,13 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
+      
+    - uses: fregante/setup-git-token@v1
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Prepare
       run: npm install
 
     - name: Deploy
-      run: |
-        git config --local user.name tsznokwong
-        git config --local user.email wong.tsznok@gmail.com
-        npm run deploy
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: npm run deploy
