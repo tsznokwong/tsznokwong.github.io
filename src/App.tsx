@@ -7,6 +7,8 @@ function App() {
       Tsznok Wong's Web.
       <br />
       Please wait for updates...
+      <br />
+      New Changes
     </div>
   );
 }
