@@ -23,9 +23,10 @@ jobs:
     - name: Prepare
       run: npm install
 
-    - name: GitHub Pages action
-      uses: peaceiris/actions-gh-pages@v3.6.1
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./build
-        publish_branch: master  # deploying branch
+    - name: Deploy
+      run: |
+        git config --local user.name tsznokwong
+        git config --local user.email wong.tsznok@gmail.com
+        npm run deploy
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
