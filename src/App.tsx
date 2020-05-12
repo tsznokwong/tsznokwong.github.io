@@ -8,7 +8,7 @@ function App() {
       <br />
       Please wait for updates...
       <br />
-      New Changes
+      He is working on it...
     </div>
   );
 }
