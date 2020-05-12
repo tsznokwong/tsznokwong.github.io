@@ -25,3 +25,5 @@ jobs:
 
     - name: Deploy
       run: npm run deploy
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
