@@ -32,7 +32,7 @@ const App = () => {
       </Grid>
       <Switch>
         {pages.map((page) => (
-          <Route exact={page.exactPath} path={page.path}>
+          <Route exact={page.exactPath} path={page.path} key={page.path}>
             {page.element}
           </Route>
         ))}
