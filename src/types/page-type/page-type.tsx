@@ -16,6 +16,27 @@ export const Home: PageMeta = {
   element: <HomePage />,
 };
 
+export const Study: PageMeta = {
+  title: "Study",
+  path: "/study",
+  exactPath: false,
+  element: <TestPage />,
+};
+
+export const Job: PageMeta = {
+  title: "Job",
+  path: "/job",
+  exactPath: false,
+  element: <TestPage />,
+};
+
+export const Contact: PageMeta = {
+  title: "Contact",
+  path: "/contact",
+  exactPath: false,
+  element: <TestPage />,
+};
+
 export const Test: PageMeta = {
   title: "Test",
   path: "/test",
@@ -23,7 +44,7 @@ export const Test: PageMeta = {
   element: <TestPage />,
 };
 
-export const AllValues = [Home, Test];
+export const AllValues = [Home, Study, Job, Contact, Test];
 
 export function fromPath(path?: string): PageMeta {
   const meta = AllValues.filter(

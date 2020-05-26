@@ -50,7 +50,7 @@ export default PageMenu;
 
 const useStyles = makeStyles((theme: Theme) => ({
   tab: {
-    minWidth: 72,
+    minWidth: 80,
     color: blueGrey[200],
     fontWeight: theme.typography.fontWeightRegular,
     "&:hover": {
