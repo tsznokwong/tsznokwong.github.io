@@ -24,7 +24,7 @@ let theme = createMuiTheme({
     ].join(","),
     h3: {
       fontSize: "2rem",
-      fontWeight: 400,
+      fontWeight: 500,
     },
     h4: {
       fontSize: "1.8rem",

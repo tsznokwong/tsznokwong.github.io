@@ -1,11 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { Switch, Route, Redirect, useLocation } from "react-router-dom";
-import { Grid, makeStyles, Theme, Box, Typography } from "@material-ui/core";
+import {
+  makeStyles,
+  Theme,
+  Box,
+  Typography,
+  Container,
+  Fade,
+  AppBar,
+  Slide,
+  useScrollTrigger,
+} from "@material-ui/core";
 
 import "./app.css";
 import * as PageType from "../../types/page-type";
 import PageMenu from "../../components/page-menu";
-import { blueGrey } from "@material-ui/core/colors";
 
 const pages: PageType.PageMeta[] = [
   PageType.Home,
@@ -29,33 +38,38 @@ const App = () => {
       document.title = title;
     }
   }, [currentPage]);
+  const trigger = useScrollTrigger();
   return (
     <div className={classes.root}>
-      <Grid className={classes.headerRow} container>
-        <Box className={classes.titleBox}>
-          <Box paddingX={1}>
-            <Typography variant="h3">{title}</Typography>
-          </Box>
-
-          {currentPage !== PageType.Home && (
-            <Box borderLeft={1} paddingX={1} borderColor={blueGrey[200]}>
-              <Typography className={classes.subtitle} variant="h5">
-                {currentPage.title}
-              </Typography>
+      <Slide appear={false} direction="down" in={!trigger}>
+        <AppBar color="inherit" position="sticky">
+          <Container className={classes.headerRow}>
+            <Box className={classes.titleBox}>
+              <Box paddingX={2}>
+                <Typography variant="h3">{title}</Typography>
+              </Box>
+              <Fade in={currentPage !== PageType.Home}>
+                <Box paddingX={2} borderLeft={1} borderColor="divider">
+                  <Typography className={classes.subtitle} variant="h5">
+                    {currentPage !== PageType.Home ? currentPage.title : ""}
+                  </Typography>
+                </Box>
+              </Fade>
             </Box>
-          )}
-        </Box>
 
-        <PageMenu
-          pages={pages}
-          currentPage={currentPage}
-          onPageChange={setCurrentPage}
-        />
-      </Grid>
+            <PageMenu
+              pages={pages}
+              currentPage={currentPage}
+              onPageChange={setCurrentPage}
+            />
+          </Container>
+        </AppBar>
+      </Slide>
+
       <Switch>
         {pages.map((page) => (
           <Route exact={page.exactPath} path={page.path} key={page.path}>
-            {page.element}
+            <Container className={classes.page}>{page.element}</Container>
           </Route>
         ))}
         <Redirect to={PageType.Home.path} />
@@ -86,5 +100,8 @@ const useStyles = makeStyles((theme: Theme) => ({
   title: {},
   subtitle: {
     color: theme.palette.primary.main,
+  },
+  page: {
+    padding: "1rem",
   },
 }));
