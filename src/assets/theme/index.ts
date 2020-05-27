@@ -38,6 +38,9 @@ let theme = createMuiTheme({
       fontSize: "1.6rem",
       fontWeight: 200,
     },
+    body2: {
+      fontSize: "0.9rem",
+    },
   },
   spacing: 8,
 });

@@ -6,42 +6,42 @@ export type PageMeta = {
   title: string;
   path: string;
   exactPath: boolean;
-  element: JSX.Element;
+  Page: React.ElementType;
 };
 
 export const Home: PageMeta = {
   title: "Home",
   path: "/",
   exactPath: true,
-  element: <HomePage />,
+  Page: HomePage,
 };
 
 export const Study: PageMeta = {
   title: "Study",
   path: "/study",
   exactPath: false,
-  element: <TestPage />,
+  Page: TestPage,
 };
 
 export const Job: PageMeta = {
   title: "Job",
   path: "/job",
   exactPath: false,
-  element: <TestPage />,
+  Page: TestPage,
 };
 
 export const Contact: PageMeta = {
   title: "Contact",
   path: "/contact",
   exactPath: false,
-  element: <TestPage />,
+  Page: TestPage,
 };
 
 export const Test: PageMeta = {
   title: "Test",
   path: "/test",
   exactPath: false,
-  element: <TestPage />,
+  Page: TestPage,
 };
 
 export const AllValues = [Home, Study, Job, Contact, Test];

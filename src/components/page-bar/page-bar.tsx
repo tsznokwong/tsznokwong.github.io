@@ -26,7 +26,7 @@ const PageBar = (props: PageBarProps) => {
   const expandedMenu = useMediaQuery(theme.breakpoints.up("sm"));
   const [openDrawer, setOpenDrawer] = useState(false);
   return (
-    <Slide appear={false} direction="down" in={!trigger}>
+    <Slide appear={true} direction="down" in={!trigger}>
       <AppBar color="inherit" position="sticky">
         <Container className={classes.root}>
           <PageTitle />
