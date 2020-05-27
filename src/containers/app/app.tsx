@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { Switch, Route, Redirect, useLocation } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Switch, Route, Redirect } from "react-router-dom";
 import {
   makeStyles,
   Theme,
@@ -15,66 +15,50 @@ import {
 import "./app.css";
 import * as PageType from "../../types/page-type";
 import PageMenu from "../../components/page-menu";
-
-const pages: PageType.PageMeta[] = [
-  PageType.Home,
-  PageType.Study,
-  PageType.Job,
-  PageType.Contact,
-];
+import { usePage, PageContext } from "./app-hooks";
 
 const title = "Joshua";
 
 const App = () => {
-  const location = useLocation();
-  const [currentPage, setCurrentPage] = useState(
-    PageType.fromPath(location.pathname)
-  );
+  const pageContext = usePage(title);
   const classes = useStyles();
-  useEffect(() => {
-    if (currentPage !== PageType.Home) {
-      document.title = `${title} | ${currentPage.title}`;
-    } else {
-      document.title = title;
-    }
-  }, [currentPage]);
   const trigger = useScrollTrigger();
   return (
-    <div className={classes.root}>
-      <Slide appear={false} direction="down" in={!trigger}>
-        <AppBar color="inherit" position="sticky">
-          <Container className={classes.headerRow}>
-            <Box className={classes.titleBox}>
-              <Box paddingX={2}>
-                <Typography variant="h3">{title}</Typography>
-              </Box>
-              <Fade in={currentPage !== PageType.Home}>
-                <Box paddingX={2} borderLeft={1} borderColor="divider">
-                  <Typography className={classes.subtitle} variant="h5">
-                    {currentPage !== PageType.Home ? currentPage.title : ""}
-                  </Typography>
+    <PageContext.Provider value={pageContext}>
+      <div className={classes.root}>
+        <Slide appear={false} direction="down" in={!trigger}>
+          <AppBar color="inherit" position="sticky">
+            <Container className={classes.headerRow}>
+              <Box className={classes.titleBox}>
+                <Box paddingX={2}>
+                  <Typography variant="h3">{title}</Typography>
                 </Box>
-              </Fade>
-            </Box>
+                <Fade in={pageContext.currentPage !== PageType.Home}>
+                  <Box paddingX={2} borderLeft={1} borderColor="divider">
+                    <Typography className={classes.subtitle} variant="h5">
+                      {pageContext.currentPage !== PageType.Home
+                        ? pageContext.currentPage.title
+                        : ""}
+                    </Typography>
+                  </Box>
+                </Fade>
+              </Box>
 
-            <PageMenu
-              pages={pages}
-              currentPage={currentPage}
-              onPageChange={setCurrentPage}
-            />
-          </Container>
-        </AppBar>
-      </Slide>
+              <PageMenu />
+            </Container>
+          </AppBar>
+        </Slide>
 
-      <Switch>
-        {pages.map((page) => (
-          <Route exact={page.exactPath} path={page.path} key={page.path}>
-            <Container className={classes.page}>{page.element}</Container>
-          </Route>
-        ))}
-        <Redirect to={PageType.Home.path} />
-      </Switch>
-    </div>
+        <Switch>
+          {pageContext.pages.map((page) => (
+            <Route exact={page.exactPath} path={page.path} key={page.path}>
+              <Container className={classes.page}>{page.element}</Container>
+            </Route>
+          ))}
+          <Redirect to={PageType.Home.path} />
+        </Switch>
+      </div>
+    </PageContext.Provider>
   );
 };
 

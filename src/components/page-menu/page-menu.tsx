@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Tabs, Tab } from "@material-ui/core";
 import { Theme, makeStyles } from "@material-ui/core/styles";
 
@@ -6,15 +6,12 @@ import "./page-menu.css";
 import * as PageType from "../../types/page-type";
 import { Link } from "react-router-dom";
 import { blueGrey } from "@material-ui/core/colors";
+import { PageContext } from "../../containers/app/app-hooks";
 
-type PageMenuProps = {
-  pages: PageType.PageMeta[];
-  currentPage: PageType.PageMeta;
-  onPageChange: (page: PageType.PageMeta) => void;
-};
+type PageMenuProps = {};
 
 const PageMenu = (props: PageMenuProps) => {
-  const { currentPage, onPageChange, pages } = props;
+  const { pages, currentPage, onPageChange } = useContext(PageContext);
   const classes = useStyles();
   return (
     <Tabs
