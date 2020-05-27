@@ -6,6 +6,8 @@ import {
   List,
   ListItem,
   ListItemText,
+  ListSubheader,
+  Typography,
 } from "@material-ui/core";
 
 import { PageContext } from "../../containers/app/app-hooks";
@@ -19,7 +21,7 @@ const PageDrawerList = (props: PageDrawerListProps) => {
   const { pages, currentPage, onPageChange } = useContext(PageContext);
   const classes = useStyles();
   return (
-    <List className={classes.root}>
+    <List className={classes.root} subheader={<Subheader />}>
       {pages.map((page) => (
         <ListItem
           className={classes.listItem}
@@ -58,4 +60,18 @@ const useStyles = makeStyles((theme: Theme) => ({
       color: theme.palette.primary.main,
     },
   },
+  subheader: {
+    color: theme.palette.primary.main,
+    margin: "1.3rem 0%",
+  },
 }));
+
+const Subheader = () => {
+  const classes = useStyles();
+  const title = "Content";
+  return (
+    <ListSubheader className={classes.subheader}>
+      <Typography variant="h2">{title}</Typography>
+    </ListSubheader>
+  );
+};
