@@ -1,12 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import {
   makeStyles,
   Theme,
-  Box,
-  Typography,
   Container,
-  Fade,
   AppBar,
   Slide,
   useScrollTrigger,
@@ -15,12 +12,11 @@ import {
 import "./app.css";
 import * as PageType from "../../types/page-type";
 import PageMenu from "../../components/page-menu";
+import PageTitle from "../../components/page-title";
 import { usePage, PageContext } from "./app-hooks";
 
-const title = "Joshua";
-
 const App = () => {
-  const pageContext = usePage(title);
+  const pageContext = usePage();
   const classes = useStyles();
   const trigger = useScrollTrigger();
   return (
@@ -29,20 +25,7 @@ const App = () => {
         <Slide appear={false} direction="down" in={!trigger}>
           <AppBar color="inherit" position="sticky">
             <Container className={classes.headerRow}>
-              <Box className={classes.titleBox}>
-                <Box paddingX={2}>
-                  <Typography variant="h3">{title}</Typography>
-                </Box>
-                <Fade in={pageContext.currentPage !== PageType.Home}>
-                  <Box paddingX={2} borderLeft={1} borderColor="divider">
-                    <Typography className={classes.subtitle} variant="h5">
-                      {pageContext.currentPage !== PageType.Home
-                        ? pageContext.currentPage.title
-                        : ""}
-                    </Typography>
-                  </Box>
-                </Fade>
-              </Box>
+              <PageTitle />
 
               <PageMenu />
             </Container>
@@ -76,16 +59,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     justifyContent: "space-between",
     alignItems: "center",
   },
-  titleBox: {
-    display: "flex",
-    flexDirection: "row",
-    alignItems: "center",
-  },
-  title: {},
-  subtitle: {
-    color: theme.palette.primary.main,
-  },
   page: {
-    padding: "1rem",
+    padding: "0% 1rem",
   },
 }));
