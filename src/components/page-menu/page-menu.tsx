@@ -29,7 +29,6 @@ const PageMenu = (props: PageMenuProps) => {
         <Tab
           selected={page === currentPage}
           className={classes.tab}
-          disableRipple
           label={page.title}
           value={page}
           component={Link}
@@ -54,7 +53,6 @@ const useStyles = makeStyles((theme: Theme) => ({
     },
     "&$selected": {
       color: theme.palette.primary.main,
-      fontWeight: theme.typography.fontWeightMedium,
     },
     "&:focus": {
       color: theme.palette.primary.main,
