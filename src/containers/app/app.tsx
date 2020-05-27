@@ -1,36 +1,19 @@
 import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
-import {
-  makeStyles,
-  Theme,
-  Container,
-  AppBar,
-  Slide,
-  useScrollTrigger,
-} from "@material-ui/core";
+import { makeStyles, Theme, Container } from "@material-ui/core";
 
 import "./app.css";
 import * as PageType from "../../types/page-type";
-import PageMenu from "../../components/page-menu";
-import PageTitle from "../../components/page-title";
+import PageBar from "../../components/page-bar";
 import { usePage, PageContext } from "./app-hooks";
 
 const App = () => {
   const pageContext = usePage();
   const classes = useStyles();
-  const trigger = useScrollTrigger();
   return (
     <PageContext.Provider value={pageContext}>
       <div className={classes.root}>
-        <Slide appear={false} direction="down" in={!trigger}>
-          <AppBar color="inherit" position="sticky">
-            <Container className={classes.headerRow}>
-              <PageTitle />
-
-              <PageMenu />
-            </Container>
-          </AppBar>
-        </Slide>
+        <PageBar />
 
         <Switch>
           {pageContext.pages.map((page) => (
@@ -50,14 +33,6 @@ export default App;
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
     textAlign: "center",
-  },
-  headerRow: {
-    height: "4rem",
-    padding: "0% 1rem",
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
   },
   page: {
     padding: "0% 1rem",
