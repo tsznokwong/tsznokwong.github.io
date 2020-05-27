@@ -9,7 +9,7 @@ type SocialLinksProps = {};
 const SocialLinks = (props: SocialLinksProps) => {
   const classes = useStyles();
   return (
-    <Box>
+    <Box className={classes.root}>
       {SocialLinkType.AllValues.map((socialLink) => (
         <SocialLink socialLink={socialLink} />
       ))}
