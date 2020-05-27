@@ -8,7 +8,6 @@ import {
   useScrollTrigger,
 } from "@material-ui/core";
 
-import "./page-bar.css";
 import PageTitle from "../page-title";
 import PageMenu from "../page-menu";
 

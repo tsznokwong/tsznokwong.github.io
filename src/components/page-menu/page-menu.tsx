@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import { Tabs, Tab } from "@material-ui/core";
 import { Theme, makeStyles } from "@material-ui/core/styles";
 
-import "./page-menu.css";
 import { Link } from "react-router-dom";
 import { blueGrey } from "@material-ui/core/colors";
 import { PageContext } from "../../containers/app/app-hooks";

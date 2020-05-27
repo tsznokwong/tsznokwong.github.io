@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { Box, Typography, Fade, makeStyles, Theme } from "@material-ui/core";
 
-import "./page-title.css";
 import * as PageType from "../../types/page-type";
 import { PageContext } from "../../containers/app/app-hooks";
 

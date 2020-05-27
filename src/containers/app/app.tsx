@@ -2,7 +2,6 @@ import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { makeStyles, Theme, Container } from "@material-ui/core";
 
-import "./app.css";
 import * as PageType from "../../types/page-type";
 import PageBar from "../../components/page-bar";
 import { usePage, PageContext } from "./app-hooks";
