@@ -20,5 +20,10 @@ const SocialLinks = (props: SocialLinksProps) => {
 export default SocialLinks;
 
 const useStyles = makeStyles((theme: Theme) => ({
-  root: {},
+  root: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+  },
 }));

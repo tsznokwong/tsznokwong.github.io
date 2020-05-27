@@ -23,7 +23,10 @@ export default SocialLink;
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
-    width: 48,
-    height: 48,
+    width: "3rem",
+    height: "3rem",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
   },
 }));
