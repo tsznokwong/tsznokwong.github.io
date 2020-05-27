@@ -22,5 +22,8 @@ const SocialLink = (props: SocialLinkProps) => {
 export default SocialLink;
 
 const useStyles = makeStyles((theme: Theme) => ({
-  root: {},
+  root: {
+    width: 48,
+    height: 48,
+  },
 }));

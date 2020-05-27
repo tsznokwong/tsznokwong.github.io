@@ -23,14 +23,26 @@ export default PageFooter;
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
     marginTop: "auto",
-    height: "4rem",
     padding: "0% 1rem",
+    [theme.breakpoints.down("sm")]: {
+      height: "6rem",
+    },
+    [theme.breakpoints.up("sm")]: {
+      height: "4rem",
+    },
   },
   container: {
     height: "100%",
     display: "flex",
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
+    [theme.breakpoints.down("sm")]: {
+      flexDirection: "column-reverse",
+      justifyContent: "center",
+      alignItems: "center",
+    },
+    [theme.breakpoints.up("sm")]: {
+      flexDirection: "row",
+      justifyContent: "space-between",
+      alignItems: "center",
+    },
   },
 }));
