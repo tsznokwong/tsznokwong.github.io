@@ -1,5 +1,11 @@
 import React from "react";
-import { makeStyles, Theme, IconButton } from "@material-ui/core";
+import {
+  makeStyles,
+  Theme,
+  IconButton,
+  Tooltip,
+  withStyles,
+} from "@material-ui/core";
 
 import * as SocialLinkType from "../../../types/social-link-type";
 
@@ -8,14 +14,16 @@ type SocialLinkProps = {
 };
 
 const SocialLink = (props: SocialLinkProps) => {
-  const { Icon, link } = props.socialLink;
+  const { Icon, link, title } = props.socialLink;
   const classes = useStyles();
   return (
-    <IconButton className={classes.root} disableRipple>
+    <CustomTooltip title={title} placement="top">
       <a href={link} target="_blank" rel="noopener noreferrer">
-        <Icon color="primary" />
+        <IconButton className={classes.root} disableRipple>
+          <Icon color="primary" />
+        </IconButton>
       </a>
-    </IconButton>
+    </CustomTooltip>
   );
 };
 
@@ -30,3 +38,12 @@ const useStyles = makeStyles((theme: Theme) => ({
     alignItems: "center",
   },
 }));
+
+const CustomTooltip = withStyles((theme: Theme) => ({
+  tooltip: {
+    backgroundColor: theme.palette.background.paper,
+    color: theme.palette.text.primary,
+    boxShadow: theme.shadows[1],
+    fontSize: theme.typography.body2.fontSize,
+  },
+}))(Tooltip);

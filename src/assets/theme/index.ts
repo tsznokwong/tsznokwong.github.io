@@ -38,6 +38,9 @@ let theme = createMuiTheme({
       fontSize: "1.6rem",
       fontWeight: 200,
     },
+    body1: {
+      fontSize: "1.1rem",
+    },
     body2: {
       fontSize: "0.9rem",
     },
