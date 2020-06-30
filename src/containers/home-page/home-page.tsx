@@ -1,21 +1,31 @@
 import React from "react";
+import { makeStyles, Theme, Container } from "@material-ui/core";
+
+import ParagraphSection from "../../components/paragraph-section/paragraph-section";
+import Data from "../../assets/data/home-page.json";
 
 type HomePageProps = {};
 
 const HomePage = (props: HomePageProps) => {
+  const classes = useStyles();
   return (
-    <div>
-      HomePage{" "}
-      {[...new Array(50)]
-        .map(
-          () => `Cras mattis consectetur purus sit amet fermentum.
-Cras justo odio, dapibus ac facilisis in, egestas eget quam.
-Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-Praesent commodo cursus magna, vel scelerisque nisl consectetur et.`
-        )
-        .join("\n")}
-    </div>
+    <Container className={classes.root}>
+      <ParagraphSection title={Data.title} subtitle={Data.subtitle} />
+    </Container>
   );
 };
 
 export default HomePage;
+
+const useStyles = makeStyles((theme: Theme) => ({
+  root: {
+    padding: "4rem 0",
+    display: "flex",
+    flexDirection: "column",
+    textAlign: "left",
+  },
+  title: {},
+  subtitle: {
+    padding: "2rem 0",
+  },
+}));

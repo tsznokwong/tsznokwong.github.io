@@ -11,7 +11,7 @@ const SocialLinks = (props: SocialLinksProps) => {
   return (
     <Box className={classes.root}>
       {SocialLinkType.AllValues.map((socialLink) => (
-        <SocialLink socialLink={socialLink} />
+        <SocialLink key={socialLink.link} socialLink={socialLink} />
       ))}
     </Box>
   );
