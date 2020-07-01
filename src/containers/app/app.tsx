@@ -1,6 +1,6 @@
 import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
-import { makeStyles, Theme, Container } from "@material-ui/core";
+import { makeStyles, Theme } from "@material-ui/core";
 
 import * as PageType from "../../types/page-type";
 import PageBar from "../../components/page-bar";
@@ -18,9 +18,7 @@ const App = () => {
         <Switch>
           {pageContext.pages.map((page) => (
             <Route exact={page.exactPath} path={page.path} key={page.path}>
-              <Container className={classes.page} component="main">
-                <page.Page />
-              </Container>
+              <page.Page />
             </Route>
           ))}
           <Redirect to={PageType.Home.path} />
