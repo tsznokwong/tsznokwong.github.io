@@ -54,13 +54,13 @@ export default PageBar;
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
-    height: "4rem",
     padding: "0% 1rem",
     justifyContent: "center",
     background: "rgba(255, 255, 255, 0.6)",
     position: "absolute",
   },
   bar: {
+    height: "4rem",
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
