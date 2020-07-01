@@ -26,7 +26,11 @@ const ParagraphSection = (props: ParagraphSectionProps) => {
           </Typography>
         )}
         {subtitle && (
-          <Typography className={classes.subtitle} variant="body1">
+          <Typography
+            className={classes.subtitle}
+            variant="body1"
+            color="textPrimary"
+          >
             {subtitle}
           </Typography>
         )}
@@ -39,14 +43,14 @@ export default ParagraphSection;
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
-    padding: "16vh 0",
+    padding: "20vh 0 16vh",
     display: "flex",
     flexDirection: "column",
     textAlign: "left",
     backgroundSize: "cover",
     backgroundPosition: "bottom",
   },
-  title: {},
+  title: { color: theme.palette.primary.dark },
   subtitle: {
     padding: "2rem 0",
     whiteSpace: "pre-line",

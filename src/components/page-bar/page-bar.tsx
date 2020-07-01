@@ -27,8 +27,8 @@ const PageBar = (props: PageBarProps) => {
   const [openDrawer, setOpenDrawer] = useState(false);
   return (
     <Slide appear={true} direction="down" in={!trigger}>
-      <AppBar color="inherit" position="sticky">
-        <Container className={classes.root}>
+      <AppBar className={classes.root} color="inherit" position="sticky">
+        <Container className={classes.bar}>
           <PageTitle />
           {expandedMenu ? (
             <PageMenu />
@@ -56,6 +56,11 @@ const useStyles = makeStyles((theme: Theme) => ({
   root: {
     height: "4rem",
     padding: "0% 1rem",
+    justifyContent: "center",
+    background: "rgba(255, 255, 255, 0.6)",
+    position: "absolute",
+  },
+  bar: {
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",

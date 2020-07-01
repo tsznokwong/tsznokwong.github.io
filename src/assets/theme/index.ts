@@ -3,7 +3,7 @@ import { createMuiTheme, responsiveFontSizes } from "@material-ui/core/styles";
 let theme = createMuiTheme({
   palette: {
     primary: {
-      main: "#413c69",
+      main: "#0b0767",
     },
     secondary: {
       main: "#f6d198",
@@ -24,7 +24,7 @@ let theme = createMuiTheme({
     ].join(","),
     h1: {
       fontSize: "4rem",
-      fontWeight: 400,
+      fontWeight: 700,
     },
     h2: {
       fontSize: "2.4rem",
@@ -43,10 +43,11 @@ let theme = createMuiTheme({
       fontWeight: 200,
     },
     body1: {
-      fontSize: "1.2rem",
+      fontSize: "1.4rem",
+      fontWeight: 600,
     },
     body2: {
-      fontSize: "1rem",
+      fontSize: "1.2rem",
     },
   },
   spacing: 8,

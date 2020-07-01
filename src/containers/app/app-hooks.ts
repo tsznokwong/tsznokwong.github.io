@@ -11,7 +11,7 @@ export interface IPageContext {
 }
 
 export const DefaultPageContext = {
-  pages: [PageType.Home, PageType.Study, PageType.Job, PageType.Contact],
+  pages: [PageType.Home],
   currentPage: PageType.Home,
   onPageChange: (page: PageType.PageMeta) => {},
   title: "Joshua",
