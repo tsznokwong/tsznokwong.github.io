@@ -18,7 +18,7 @@ const App = () => {
         <Switch>
           {pageContext.pages.map((page) => (
             <Route exact={page.exactPath} path={page.path} key={page.path}>
-              <page.Page className={classes.page} />
+              <page.Page />
             </Route>
           ))}
           <Redirect to={PageType.Home.path} />
@@ -37,8 +37,5 @@ const useStyles = makeStyles((theme: Theme) => ({
     minHeight: "100vh",
     display: "flex",
     flexDirection: "column",
-  },
-  page: {
-    // position: "absolute",
   },
 }));

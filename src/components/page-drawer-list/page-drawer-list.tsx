@@ -62,7 +62,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   subheader: {
     color: theme.palette.primary.main,
-    margin: "1.3rem 0%",
+    margin: "1.6rem 0%",
   },
 }));
 
