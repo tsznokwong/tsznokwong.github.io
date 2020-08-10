@@ -31,6 +31,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   root: {},
   oppositeContent: {
     flex: 0,
+    padding: "0",
   },
   connector: {
     backgroundColor: theme.palette.primary.main,
