@@ -51,6 +51,13 @@ let theme = createMuiTheme({
     },
   },
   spacing: 8,
+  overrides: {
+    // MuiTimeline: {
+    //   root: {
+    //     backgroundColor: "red",
+    //   },
+    // },
+  },
 });
 
 theme = responsiveFontSizes(theme);
