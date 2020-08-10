@@ -10,39 +10,46 @@ export type PageMeta = {
   Page: React.ElementType;
 };
 
-export const Home: PageMeta = {
+const Home: PageMeta = {
   title: "Home",
   path: "/",
   exactPath: true,
   Page: HomePage,
 };
 
-export const Experience: PageMeta = {
+const Experience: PageMeta = {
   title: "Experience",
   path: "/experience",
   exactPath: false,
   Page: ExperiencePage,
 };
 
-export const Test: PageMeta = {
+const Test: PageMeta = {
   title: "Test",
   path: "/test",
   exactPath: false,
   Page: TestPage,
 };
 
-export const AllValues = [Home, Experience, Test];
+const AllValues = [Home, Experience, Test];
 
-export function fromPath(path?: string): PageMeta {
-  const meta = AllValues.filter(
-    (value) => value.path === path || path?.startsWith(value.path + "/")
-  );
-  if (meta.length === 0) return Home;
-  return meta[0];
-}
+const PageType = {
+  Home: Home,
+  Experience: Experience,
+  Test: Test,
+  AllValues: AllValues,
+  fromPath(path?: string): PageMeta {
+    const meta = AllValues.filter(
+      (value) => value.path === path || path?.startsWith(value.path + "/")
+    );
+    if (meta.length === 0) return Home;
+    return meta[0];
+  },
+  fromTitle(title?: string): PageMeta {
+    const meta = AllValues.filter((value) => value.title === title);
+    if (meta.length === 0) return Home;
+    return meta[0];
+  },
+};
 
-export function fromTitle(title?: string): PageMeta {
-  const meta = AllValues.filter((value) => value.title === title);
-  if (meta.length === 0) return Home;
-  return meta[0];
-}
+export default PageType;

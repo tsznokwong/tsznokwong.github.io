@@ -2,7 +2,7 @@ import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { makeStyles, Theme } from "@material-ui/core";
 
-import * as PageType from "../../types/page-type";
+import PageType from "../../types/page-type";
 import PageBar from "../../components/page-bar";
 import PageFooter from "../../components/page-footer";
 import { usePage, PageContext } from "./app-hooks";

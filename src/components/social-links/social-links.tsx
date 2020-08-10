@@ -1,7 +1,7 @@
 import React from "react";
 import { makeStyles, Theme, Box } from "@material-ui/core";
 
-import * as SocialLinkType from "../../types/social-link-type";
+import SocialLinkType from "../../types/social-link-type";
 import SocialLink from "./social-link";
 
 type SocialLinksProps = {};
