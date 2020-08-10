@@ -4,6 +4,7 @@ import { Timeline as MUITimeline } from "@material-ui/lab";
 
 import PageContainer from "../page-container";
 import TimelineItem from "./timeline-item";
+import Data from "../../assets/data/home-page.json";
 
 type TimelineProps = {};
 
@@ -12,7 +13,11 @@ const Timeline = (props: TimelineProps) => {
   return (
     <PageContainer className={classes.root}>
       <MUITimeline>
-        <TimelineItem />
+        <TimelineItem
+          title="Title"
+          subtitle="Subtitle"
+          details={Data.subtitle}
+        />
         <TimelineItem />
         <TimelineItem />
         <TimelineItem />
