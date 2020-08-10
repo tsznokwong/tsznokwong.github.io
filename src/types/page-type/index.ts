@@ -1,5 +1,6 @@
 import React from "react";
 import HomePage from "../../containers/home-page";
+import ExperiencePage from "../../containers/experience-page";
 import TestPage from "../../containers/test-page";
 
 export type PageMeta = {
@@ -16,25 +17,11 @@ export const Home: PageMeta = {
   Page: HomePage,
 };
 
-export const Study: PageMeta = {
-  title: "Study",
-  path: "/study",
+export const Experience: PageMeta = {
+  title: "Experience",
+  path: "/experience",
   exactPath: false,
-  Page: TestPage,
-};
-
-export const Job: PageMeta = {
-  title: "Job",
-  path: "/job",
-  exactPath: false,
-  Page: TestPage,
-};
-
-export const Contact: PageMeta = {
-  title: "Contact",
-  path: "/contact",
-  exactPath: false,
-  Page: TestPage,
+  Page: ExperiencePage,
 };
 
 export const Test: PageMeta = {
@@ -44,7 +31,7 @@ export const Test: PageMeta = {
   Page: TestPage,
 };
 
-export const AllValues = [Home, Study, Job, Contact, Test];
+export const AllValues = [Home, Experience, Test];
 
 export function fromPath(path?: string): PageMeta {
   const meta = AllValues.filter(
