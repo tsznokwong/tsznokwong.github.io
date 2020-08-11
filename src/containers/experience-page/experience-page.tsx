@@ -11,7 +11,7 @@ const ExperiencePage = (props: ExperiencePageProps) => {
   return (
     <Container className={classes.root} maxWidth={false} disableGutters>
       <ParagraphSection title={Data.title} subtitle={Data.subtitle} />
-      <Timeline />
+      <Timeline items={Data.timeline} />
     </Container>
   );
 };

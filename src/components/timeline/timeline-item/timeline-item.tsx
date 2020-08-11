@@ -9,15 +9,16 @@ import {
   TimelineOppositeContent,
 } from "@material-ui/lab";
 
-type TimelineItemProps = {
+export type TimelineItemProps = {
   title?: string;
   subtitle?: string;
   details?: string;
+  timestamp?: string;
 };
 
 const TimelineItem = (props: TimelineItemProps) => {
   const classes = useStyles();
-  const { title, subtitle, details } = props;
+  const { title, subtitle, details, timestamp } = props;
   return (
     <MUITimelineItem>
       <TimelineOppositeContent className={classes.oppositeContent} />
@@ -35,6 +36,15 @@ const TimelineItem = (props: TimelineItemProps) => {
           {subtitle && (
             <Typography className={classes.subtitle} variant="h6">
               {subtitle}
+            </Typography>
+          )}
+          {timestamp && (
+            <Typography
+              className={classes.timestamp}
+              variant="body2"
+              color="textSecondary"
+            >
+              {timestamp}
             </Typography>
           )}
           {details && (
@@ -74,6 +84,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   title: { color: theme.palette.primary.dark },
   subtitle: { color: theme.palette.primary.light, fontStyle: "italic" },
+  timestamp: { fontStyle: "italic" },
   details: {
     padding: "1rem 0",
     whiteSpace: "pre-line",

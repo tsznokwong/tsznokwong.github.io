@@ -1,4 +1,12 @@
 {
   "title": "Experience Timeline",
-  "subtitle": "Presenting the history of Joshua."
+  "subtitle": "Presenting the history of Joshua.",
+  "timeline": [
+    {
+      "title": "Title",
+      "subtitle": "Subtitle",
+      "timestamp": "Timestamp",
+      "details": "Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long \n\n\nLong Long Long Long Long Long Long Long Long Long Long Long Long Long Details"
+    }
+  ]
 }
