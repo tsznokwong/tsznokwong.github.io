@@ -50,6 +50,9 @@ const Timeline = (props: TimelineProps) => {
       <MUITimeline>
         {items
           .filter((item) => {
+            if (item.category === "year stamp") {
+              return true;
+            }
             if (item.type && TimelineItemTypes.includes(item.type)) {
               return filter.includes(item.type);
             }

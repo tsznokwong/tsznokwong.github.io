@@ -2,7 +2,9 @@
   "title": "Journey Timeline",
   "subtitle": "Presenting the history of Joshua.",
   "timeline": [
+    { "category": "year stamp", "year": "Now" },
     {
+      "category": "normal",
       "title": "The Hong Kong University of Science and Technology",
       "subtitle": "Computer Science (BEng) & General Business Management (BBA) (Expected 2022)",
       "timestamp": "Since 2017",
@@ -11,6 +13,7 @@
       "infolink": "http://www.techmgmt.ust.hk/en/home/"
     },
     {
+      "category": "normal",
       "title": "USThing",
       "subtitle": "Senior iOS developer & Designer",
       "timestamp": "Since 2017",
@@ -19,6 +22,7 @@
       "infolink": "http://usthing.ust.hk"
     },
     {
+      "category": "normal",
       "title": "Dayta AI",
       "subtitle": "Software Engineer / Lead of Internal Control",
       "timestamp": "Apr - Jul 2020",
@@ -27,6 +31,7 @@
       "infolink": "https://dayta.ai"
     },
     {
+      "category": "normal",
       "title": "Dayta AI",
       "subtitle": "Software Engineer Intern",
       "timestamp": "Jan - Feb 2020",
@@ -35,6 +40,7 @@
       "infolink": "https://dayta.ai"
     },
     {
+      "category": "normal",
       "title": "Accenture",
       "subtitle": "Associate Software Engineer",
       "timestamp": "Jul - Dec 2019",
@@ -42,7 +48,9 @@
       "type": "Work",
       "infolink": "https://www.accenture.com/hk-en"
     },
+    { "category": "year stamp", "year": "2020" },
     {
+      "category": "normal",
       "title": "Dr. Knowledge Learning Centre",
       "subtitle": "Part-time Instructor",
       "timestamp": "Jun 2018 - Aug 2019",
@@ -50,6 +58,7 @@
       "type": "Work"
     },
     {
+      "category": "normal",
       "title": "St. Paul’s College",
       "subtitle": "Instructor",
       "timestamp": "Jun 2019",
@@ -58,6 +67,7 @@
       "infolink": "http://spc.edu.hk"
     },
     {
+      "category": "normal",
       "title": "Cyber Defenders Challenge 2019",
       "subtitle": "1st-runner up",
       "timestamp": "May 2019",
@@ -66,6 +76,7 @@
       "infolink": "https://www.ust.hk/news/student-development-and-bonding/hkust-collaborates-china-everbright-bank-nurture-cyber"
     },
     {
+      "category": "normal",
       "title": "Data Bay Academy",
       "subtitle": "Senior Teaching Assistant",
       "timestamp": "Jan - Mar 2019",
@@ -74,6 +85,7 @@
       "infolink": "https://www.databaysea.com"
     },
     {
+      "category": "normal",
       "title": "UBS Investment Banking",
       "subtitle": "Independent Study Project Leader",
       "timestamp": "Sep 2018 - Jan 2019",
@@ -81,7 +93,9 @@
       "type": "Projects",
       "infolink": "https://www.ubs.com/hk/en.html"
     },
+    { "category": "year stamp", "year": "2019" },
     {
+      "category": "normal",
       "title": "Wherami",
       "subtitle": "iOS Research Developer",
       "timestamp": "Jun - Dec 2018",
@@ -90,6 +104,7 @@
       "infolink": "http://egz160.ust.hk/lbs/"
     },
     {
+      "category": "normal",
       "title": "The Hong Kong University of Science and Technology",
       "subtitle": "IPO Ambassador",
       "timestamp": "Sep 2017 - Aug 2018",
@@ -98,6 +113,7 @@
       "infolink": "https://www.ipo.ust.hk/en/home/"
     },
     {
+      "category": "normal",
       "title": "Hackathon@UST 2018 — hardUST",
       "subtitle": "Champion & Creativity Award",
       "timestamp": "Apr 2018",
@@ -105,7 +121,9 @@
       "type": "Achievements",
       "infolink": "http://hack.ust.hk-cic.com/hack2018.htm#"
     },
+    { "category": "year stamp", "year": "2018" },
     {
+      "category": "normal",
       "title": "Hong Kong Book Centre",
       "subtitle": "Bookstore Retail Assistant",
       "timestamp": "Jun - Aug 2017",
@@ -114,6 +132,7 @@
       "infolink": "http://www.swindonbooks.com"
     },
     {
+      "category": "normal",
       "title": "St. Paul’s College, Hong Kong",
       "subtitle": "Graduated",
       "timestamp": "2017",
@@ -122,6 +141,7 @@
       "infolink": "http://spc.edu.hk"
     },
     {
+      "category": "normal",
       "title": "Hong Kong Olympiad in Informatics",
       "subtitle": "Silver — 2017 Senior Group",
       "timestamp": "2014 - 2017",
@@ -130,6 +150,7 @@
       "infolink": "https://hkoi.org/en/"
     },
     {
+      "category": "normal",
       "title": "Hong Kong Olympiad in Informatics",
       "subtitle": "Training Team Member",
       "timestamp": "2014 - 2017",
@@ -137,7 +158,9 @@
       "type": "Activities",
       "infolink": "https://hkoi.org/en/"
     },
+    { "category": "year stamp", "year": "2017" },
     {
+      "category": "normal",
       "title": "49th Joint School Science Exhibition 2016",
       "subtitle": "2nd runner-up",
       "timestamp": "Aug 2016",
@@ -146,6 +169,7 @@
       "infolink": "http://www.jsse.org.hk"
     },
     {
+      "category": "normal",
       "title": "St. Paul’s College Programming Team",
       "subtitle": "Captain",
       "timestamp": "2014 - 2016",
@@ -154,6 +178,7 @@
       "infolink": "http://spc.edu.hk"
     },
     {
+      "category": "normal",
       "title": "St. Paul’s College Computer Society",
       "subtitle": "Chairman",
       "timestamp": "2015 - 2016",
@@ -162,6 +187,7 @@
       "infolink": "https://www.facebook.com/spccompsoc"
     },
     {
+      "category": "normal",
       "title": "Canadian Computing Competition (Hong Kong Contest)",
       "subtitle": "Honourable Mention (Senior)",
       "timestamp": "2016",
@@ -169,7 +195,9 @@
       "type": "Achievements",
       "infolink": "https://i.cs.hku.hk/ccc2016/index.php"
     },
+    { "category": "year stamp", "year": "2016" },
     {
+      "category": "normal",
       "title": "International Mathematical Modelling Challenge Hong Kong",
       "subtitle": "Meritorious",
       "timestamp": "2015",
@@ -177,21 +205,27 @@
       "type": "Achievements",
       "infolink": "https://immchallenge.org"
     },
+    { "category": "year stamp", "year": "2015" },
     {
+      "category": "normal",
       "title": "S.K.H Tin Wan Chi Nam Primary School",
       "subtitle": "Graduated",
       "timestamp": "2011",
       "type": "Education",
       "infolink": "http://www.tcn.edu.hk"
     },
+    { "category": "year stamp", "year": "2011" },
     {
+      "category": "normal",
       "title": "Kau Yan School Kindergarten",
       "subtitle": "Graduated",
       "timestamp": "2005",
       "type": "Education",
       "infolink": "http://kauyan.edu.hk"
     },
+    { "category": "year stamp", "year": "2005" },
     {
+      "category": "normal",
       "title": "Born",
       "timestamp": "27 Apr 1999",
       "type": "Milestones"
