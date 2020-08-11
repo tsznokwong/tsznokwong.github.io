@@ -1,6 +1,6 @@
 import React from "react";
 import HomePage from "../../containers/home-page";
-import ExperiencePage from "../../containers/experience-page";
+import JourneyPage from "../../containers/journey-page";
 import TestPage from "../../containers/test-page";
 
 export type PageMeta = {
@@ -17,11 +17,11 @@ const Home: PageMeta = {
   Page: HomePage,
 };
 
-const Experience: PageMeta = {
-  title: "Experience",
-  path: "/experience",
+const Journey: PageMeta = {
+  title: "Journey",
+  path: "/journey",
   exactPath: false,
-  Page: ExperiencePage,
+  Page: JourneyPage,
 };
 
 const Test: PageMeta = {
@@ -31,11 +31,11 @@ const Test: PageMeta = {
   Page: TestPage,
 };
 
-const AllValues = [Home, Experience, Test];
+const AllValues = [Home, Journey];
 
 const PageType = {
   Home: Home,
-  Experience: Experience,
+  Experience: Journey,
   Test: Test,
   AllValues: AllValues,
   fromPath(path?: string): PageMeta {
