@@ -7,35 +7,40 @@
       "subtitle": "Computer Science (BEng) & General Business Management (BBA) (Expected 2022)",
       "timestamp": "Since 2017",
       "details": "CGA:  3.827 / 4.3 (As of 2018-19 Spring)\nDean’s List: 2017-18 Fall, 2018-19 Fall & Spring",
-      "type": "Education"
+      "type": "Education",
+      "infolink": "http://www.techmgmt.ust.hk/en/home/"
     },
     {
       "title": "USThing",
       "subtitle": "Senior iOS developer & Designer",
       "timestamp": "Since 2017",
       "details": "Developed mobile app & events for HKUST students\nApplication development with Swift and Objective-C in iOS\nUser Interface design using Sketch, Adobe XD\nFront-end development cycle, production and deployment to App Store\nCI/CD Pipelining\nWorking closely in a team as a lead developer\nCollaboration with University",
-      "type": "Projects"
+      "type": "Projects",
+      "infolink": "http://usthing.ust.hk"
     },
     {
       "title": "Dayta AI",
       "subtitle": "Software Engineer / Lead of Internal Control",
       "timestamp": "Apr - Jul 2020",
       "details": "Managed design, development & deployment of admin dashboard for internal usage\nDeveloped web and backend using TypeScript, React & GoLang\nDeveloped cache & cluster registry system using Redis Cluster\nManaged 2 summer interns",
-      "type": "Work"
+      "type": "Work",
+      "infolink": "https://dayta.ai"
     },
     {
       "title": "Dayta AI",
       "subtitle": "Software Engineer Intern",
       "timestamp": "Jan - Feb 2020",
       "details": "Developed automated testing on frontend web & backend server",
-      "type": "Work"
+      "type": "Work",
+      "infolink": "https://dayta.ai"
     },
     {
       "title": "Accenture",
       "subtitle": "Associate Software Engineer",
       "timestamp": "Jul - Dec 2019",
       "details": "Developed automated UI testing on iOS Application using Fastlane, Shell & Python",
-      "type": "Work"
+      "type": "Work",
+      "infolink": "https://www.accenture.com/hk-en"
     },
     {
       "title": "Dr. Knowledge Learning Centre",
@@ -49,124 +54,142 @@
       "subtitle": "Instructor",
       "timestamp": "Jun 2019",
       "details": "Prepared and taught secondary students using Python",
-      "type": "Work"
+      "type": "Work",
+      "infolink": "http://spc.edu.hk"
     },
     {
       "title": "Cyber Defenders Challenge 2019",
       "subtitle": "1st-runner up",
       "timestamp": "May 2019",
       "details": "Competition using cybersecurity principles to defend attack from the Internet",
-      "type": "Achievements"
+      "type": "Achievements",
+      "infolink": "https://www.ust.hk/news/student-development-and-bonding/hkust-collaborates-china-everbright-bank-nurture-cyber"
     },
     {
       "title": "Data Bay Academy",
       "subtitle": "Senior Teaching Assistant",
       "timestamp": "Jan - Mar 2019",
       "details": "Assisted instructor for teaching Python programming",
-      "type": "Work"
+      "type": "Work",
+      "infolink": "https://www.databaysea.com"
     },
     {
       "title": "UBS Investment Banking",
       "subtitle": "Independent Study Project Leader",
       "timestamp": "Sep 2018 - Jan 2019",
       "details": "Optimised cloud service used for computation",
-      "type": "Projects"
+      "type": "Projects",
+      "infolink": "https://www.ubs.com/hk/en.html"
     },
     {
       "title": "Wherami",
       "subtitle": "iOS Research Developer",
       "timestamp": "Jun - Dec 2018",
       "details": "Developed indoor localisation techniques through research project",
-      "type": "Projects"
+      "type": "Projects",
+      "infolink": "http://egz160.ust.hk/lbs/"
     },
     {
       "title": "The Hong Kong University of Science and Technology",
       "subtitle": "IPO Ambassador",
       "timestamp": "Sep 2017 - Aug 2018",
       "details": "Promoted interdisciplinary education through reach out events",
-      "type": "Team/Society"
+      "type": "Team/Society",
+      "infolink": "https://www.ipo.ust.hk/en/home/"
     },
     {
       "title": "Hackathon@UST 2018 — hardUST",
       "subtitle": "Champion & Creativity Award",
       "timestamp": "Apr 2018",
       "details": "Promoted interdisciplinary education through reach out events",
-      "type": "Achievements"
+      "type": "Achievements",
+      "infolink": "http://hack.ust.hk-cic.com/hack2018.htm#"
     },
     {
       "title": "Hong Kong Book Centre",
       "subtitle": "Bookstore Retail Assistant",
       "timestamp": "Jun - Aug 2017",
       "details": "Developed skills for customer services and stock management",
-      "type": "Work"
+      "type": "Work",
+      "infolink": "http://www.swindonbooks.com"
     },
     {
       "title": "St. Paul’s College, Hong Kong",
       "subtitle": "Graduated",
       "timestamp": "2017",
       "details": "The Hong Kong Diploma of Secondary Education Examination 2017 (Best 5: 33)",
-      "type": "Education"
+      "type": "Education",
+      "infolink": "http://spc.edu.hk"
     },
     {
       "title": "Hong Kong Olympiad in Informatics",
       "subtitle": "Silver — 2017 Senior Group",
       "timestamp": "2014 - 2017",
       "details": "Competition emphasising on problem-solving techniques & programming skills",
-      "type": "Achievements"
+      "type": "Achievements",
+      "infolink": "https://hkoi.org/en/"
     },
     {
       "title": "Hong Kong Olympiad in Informatics",
       "subtitle": "Training Team Member",
       "timestamp": "2014 - 2017",
       "details": "Extensive training on algorithms, data structures & programming skills",
-      "type": "Team/Society"
+      "type": "Team/Society",
+      "infolink": "https://hkoi.org/en/"
     },
     {
       "title": "49th Joint School Science Exhibition 2016",
       "subtitle": "2nd runner-up",
       "timestamp": "Aug 2016",
       "details": "Competition using scientific knowledge & “Connection” as theme to demonstrate novel ideas\nWorked as project holder and managed exhibition booth\nDeveloped an iOS application for demonstration",
-      "type": "Achievements"
+      "type": "Achievements",
+      "infolink": "http://www.jsse.org.hk"
     },
     {
       "title": "St. Paul’s College Programming Team",
       "subtitle": "Captain",
       "timestamp": "2014 - 2016",
       "details": "Organised programming workshop & participated in competitions",
-      "type": "Team/Society"
+      "type": "Team/Society",
+      "infolink": "http://spc.edu.hk"
     },
     {
       "title": "St. Paul’s College Computer Society",
       "subtitle": "Chairman",
       "timestamp": "2015 - 2016",
       "details": "CPromoted IT, organised events & recruited members to society",
-      "type": "Team/Society"
+      "type": "Team/Society",
+      "infolink": "https://www.facebook.com/spccompsoc"
     },
     {
       "title": "Canadian Computing Competition (Hong Kong Contest)",
-      "subtitle": "Honourable Mention",
+      "subtitle": "Honourable Mention (Senior)",
       "timestamp": "2016",
       "details": "Competition emphasising on problem-solving techniques & programming skills",
-      "type": "Achievements"
+      "type": "Achievements",
+      "infolink": "https://i.cs.hku.hk/ccc2016/index.php"
     },
     {
       "title": "International Mathematical Modelling Challenge Hong Kong",
       "subtitle": "Meritorious",
       "timestamp": "2015",
       "details": "Using mathematical modelling to solve existing problems",
-      "type": "Achievements"
+      "type": "Achievements",
+      "infolink": "https://immchallenge.org"
     },
     {
       "title": "S.K.H Tin Wan Chi Nam Primary School",
       "subtitle": "Graduated",
       "timestamp": "2011",
-      "type": "Education"
+      "type": "Education",
+      "infolink": "http://www.tcn.edu.hk"
     },
     {
       "title": "Kau Yan School Kindergarten",
       "subtitle": "Graduated",
       "timestamp": "2005",
-      "type": "Education"
+      "type": "Education",
+      "infolink": "http://kauyan.edu.hk"
     },
     {
       "title": "Born",
