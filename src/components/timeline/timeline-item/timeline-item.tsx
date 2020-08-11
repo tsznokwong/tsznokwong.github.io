@@ -9,12 +9,15 @@ import {
   TimelineOppositeContent,
 } from "@material-ui/lab";
 
+import TimelineItemIcon from "./timeline-item-icon";
+import TimelineItemType from "../../../types/timeline-item-type";
+
 export type TimelineItemProps = {
   title?: string;
   subtitle?: string;
   details?: string;
   timestamp?: string;
-  type?: string;
+  type?: TimelineItemType;
 };
 
 const TimelineItem = (props: TimelineItemProps) => {
@@ -24,7 +27,9 @@ const TimelineItem = (props: TimelineItemProps) => {
     <MUITimelineItem>
       <TimelineOppositeContent className={classes.oppositeContent} />
       <TimelineSeparator>
-        <TimelineDot color="primary" />
+        <TimelineDot color="primary">
+          <TimelineItemIcon type={type} defaultColor="primary" />
+        </TimelineDot>
         <TimelineConnector className={classes.connector} />
       </TimelineSeparator>
       <TimelineContent>
