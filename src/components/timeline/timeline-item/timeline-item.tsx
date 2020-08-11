@@ -105,5 +105,6 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   chip: {
     color: theme.palette.primary.main,
+    marginBottom: "1rem",
   },
 }));

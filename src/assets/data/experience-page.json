@@ -4,23 +4,23 @@
   "timeline": [
     {
       "title": "The Hong Kong University of Science and Technology",
-      "subtitle": "Computer Science (BEng) & General Business Management (BBA)",
+      "subtitle": "Computer Science (BEng) & General Business Management (BBA) (Expected 2022)",
       "timestamp": "Since 2017",
-      "details": "Expected 2022\nCGA:  3.827 / 4.3 (As of 2018-19 Spring)\nDean’s List: 2017-18 Fall, 2018-19 Fall & Spring",
+      "details": "CGA:  3.827 / 4.3 (As of 2018-19 Spring)\nDean’s List: 2017-18 Fall, 2018-19 Fall & Spring",
       "type": "Education"
     },
     {
       "title": "USThing",
-      "subtitle": "Core iOS Developer & Designer",
+      "subtitle": "Senior iOS developer & Designer",
       "timestamp": "Since 2017",
-      "details": "Developed mobile app & events for HKUST students",
+      "details": "Developed mobile app & events for HKUST students\nApplication development with Swift and Objective-C in iOS\nUser Interface design using Sketch, Adobe XD\nFront-end development cycle, production and deployment to App Store\nCI/CD Pipelining\nWorking closely in a team as a lead developer\nCollaboration with University",
       "type": "Projects"
     },
     {
       "title": "Dayta AI",
-      "subtitle": "Software Engineer",
+      "subtitle": "Software Engineer / Lead of Internal Control",
       "timestamp": "Apr - Jul 2020",
-      "details": "Lead of Internal Control\nManaged design, development & deployment of admin dashboard for internal usage\nDeveloped web and backend using TypeScript, React & GoLang\nDeveloped cache & cluster registry system using Redis Cluster\nManaged 2 summer interns",
+      "details": "Managed design, development & deployment of admin dashboard for internal usage\nDeveloped web and backend using TypeScript, React & GoLang\nDeveloped cache & cluster registry system using Redis Cluster\nManaged 2 summer interns",
       "type": "Work"
     },
     {
@@ -102,8 +102,8 @@
     },
     {
       "title": "St. Paul’s College, Hong Kong",
-      "subtitle": "Student",
-      "timestamp": "2011 - 2017",
+      "subtitle": "Graduated",
+      "timestamp": "2017",
       "details": "The Hong Kong Diploma of Secondary Education Examination 2017 (Best 5: 33)",
       "type": "Education"
     },
@@ -155,6 +155,18 @@
       "timestamp": "2015",
       "details": "Using mathematical modelling to solve existing problems",
       "type": "Achievements"
+    },
+    {
+      "title": "S.K.H Tin Wan Chi Nam Primary School",
+      "subtitle": "Graduated",
+      "timestamp": "2011",
+      "type": "Education"
+    },
+    {
+      "title": "Kau Yan School Kindergarten",
+      "subtitle": "Graduated",
+      "timestamp": "2005",
+      "type": "Education"
     },
     {
       "title": "Born",
