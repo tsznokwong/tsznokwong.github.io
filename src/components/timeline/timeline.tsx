@@ -4,9 +4,7 @@ import { Timeline as MUITimeline } from "@material-ui/lab";
 
 import PageContainer from "../page-container";
 import TimelineItem, { TimelineItemProps } from "./timeline-item";
-import TimelineItemType, {
-  TimelineItemTypes,
-} from "../../types/timeline-item-type";
+import { TimelineItemTypes } from "../../types/timeline-item-type";
 import TimelineItemIcon from "./timeline-item/timeline-item-icon";
 import Tooltip from "../tooltip";
 
@@ -31,16 +29,11 @@ const Timeline = (props: TimelineProps) => {
               }
               onClick={() => {
                 setFilter(
-                  TimelineItemTypes.reduce<TimelineItemType[]>(
-                    (newFilter, filterType) => {
-                      const isFiltered = filter.includes(filterType);
-                      const clicked = type === filterType;
-                      return !isFiltered !== clicked
-                        ? newFilter
-                        : [...newFilter, filterType];
-                    },
-                    []
-                  )
+                  TimelineItemTypes.filter((filterType) => {
+                    const isFiltered = filter.includes(filterType);
+                    const clicked = type === filterType;
+                    return !isFiltered === clicked;
+                  })
                 );
               }}
               disableRipple
