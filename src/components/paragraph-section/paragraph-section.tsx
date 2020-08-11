@@ -36,7 +36,7 @@ export default ParagraphSection;
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
-    padding: "16rem 0 4rem",
+    padding: "28vh 0 12vh",
     display: "flex",
     flexDirection: "column",
     textAlign: "left",
