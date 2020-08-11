@@ -1,9 +1,9 @@
 const ConstTimelineItemTypes = [
   "Education",
   "Work",
-  "Team/Society",
-  "Projects",
   "Achievements",
+  "Projects",
+  "Activities",
   "Milestones",
 ] as const;
 

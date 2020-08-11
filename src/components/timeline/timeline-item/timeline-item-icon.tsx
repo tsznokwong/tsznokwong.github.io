@@ -1,7 +1,7 @@
 import React, { ElementType } from "react";
 import SchoolIcon from "@material-ui/icons/School";
 import WorkIcon from "@material-ui/icons/Work";
-import PeopleAltIcon from "@material-ui/icons/PeopleAlt";
+import LocalActivityIcon from "@material-ui/icons/LocalActivity";
 import ExtensionIcon from "@material-ui/icons/Extension";
 import Brightness1Icon from "@material-ui/icons/Brightness1";
 import FlareIcon from "@material-ui/icons/Flare";
@@ -22,7 +22,7 @@ const Icons: { [type in TimelineItemType]: ElementType } = {
   Projects: ExtensionIcon,
   Achievements: FlareIcon,
   Milestones: ChangeHistoryIcon,
-  "Team/Society": PeopleAltIcon,
+  Activities: LocalActivityIcon,
 };
 
 const TimelineItemIcon = (props: TimelineItemIconsProps) => {
