@@ -72,14 +72,11 @@ const useStyles = makeStyles((theme: Theme) => ({
     backgroundColor: theme.palette.primary.main,
   },
   filterButton: {
-    // "&:hover": {
-    //   backgroundColor: theme.palette.secondary.main,
-    // },
     borderColor: theme.palette.primary.main,
   },
   filterButtonSelected: {
     "&:hover": {
-      backgroundColor: theme.palette.secondary.main,
+      backgroundColor: theme.palette.secondary.light,
     },
     backgroundColor: theme.palette.secondary.light,
     borderColor: theme.palette.primary.main,

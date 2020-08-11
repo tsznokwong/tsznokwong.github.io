@@ -2,10 +2,10 @@ import React from "react";
 import { makeStyles, Theme, IconButton } from "@material-ui/core";
 
 import Tooltip from "../../tooltip";
-import * as SocialLinkType from "../../../types/social-link-type";
+import { LinkMeta } from "../../../types/social-link-type";
 
 type SocialLinkProps = {
-  socialLink: SocialLinkType.LinkMeta;
+  socialLink: LinkMeta;
 };
 
 const SocialLink = (props: SocialLinkProps) => {
