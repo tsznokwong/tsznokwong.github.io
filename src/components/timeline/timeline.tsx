@@ -32,10 +32,13 @@ const Timeline = (props: TimelineProps) => {
               onClick={() => {
                 setFilter(
                   TimelineItemTypes.reduce<TimelineItemType[]>(
-                    (newFilter, filterType) =>
-                      type === filterType && filter.includes(type)
+                    (newFilter, filterType) => {
+                      const isFiltered = filter.includes(filterType);
+                      const clicked = type === filterType;
+                      return !isFiltered !== clicked
                         ? newFilter
-                        : [...newFilter, filterType],
+                        : [...newFilter, filterType];
+                    },
                     []
                   )
                 );
@@ -69,9 +72,9 @@ const useStyles = makeStyles((theme: Theme) => ({
     backgroundColor: theme.palette.primary.main,
   },
   filterButton: {
-    "&:hover": {
-      backgroundColor: theme.palette.secondary.main,
-    },
+    // "&:hover": {
+    //   backgroundColor: theme.palette.secondary.main,
+    // },
     borderColor: theme.palette.primary.main,
   },
   filterButtonSelected: {
