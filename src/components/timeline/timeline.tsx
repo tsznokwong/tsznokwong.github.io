@@ -1,15 +1,14 @@
 import React, { useState } from "react";
-import { makeStyles, Theme } from "@material-ui/core";
-import {
-  Timeline as MUITimeline,
-  ToggleButtonGroup,
-  ToggleButton,
-} from "@material-ui/lab";
+import { makeStyles, Theme, Button, ButtonGroup } from "@material-ui/core";
+import { Timeline as MUITimeline } from "@material-ui/lab";
 
 import PageContainer from "../page-container";
 import TimelineItem, { TimelineItemProps } from "./timeline-item";
-import { TimelineItemTypes } from "../../types/timeline-item-type";
+import TimelineItemType, {
+  TimelineItemTypes,
+} from "../../types/timeline-item-type";
 import TimelineItemIcon from "./timeline-item/timeline-item-icon";
+import Tooltip from "../tooltip";
 
 type TimelineProps = {
   items: TimelineItemProps[];
@@ -21,25 +20,33 @@ const Timeline = (props: TimelineProps) => {
   const [filter, setFilter] = useState(TimelineItemTypes);
   return (
     <PageContainer className={classes.root}>
-      <ToggleButtonGroup
-        value={filter}
-        onChange={(event, newFilter) => {
-          setFilter(newFilter);
-        }}
-        aria-label="timeline filtering"
-      >
+      <ButtonGroup>
         {TimelineItemTypes.map((type) => (
-          <ToggleButton
-            className={classes.filterButton}
-            key={type}
-            value={type}
-            aria-label={type}
-            disableRipple
-          >
-            <TimelineItemIcon type={type} color="primary" />
-          </ToggleButton>
+          <Tooltip title={type} aria-label={type}>
+            <Button
+              className={
+                filter.includes(type)
+                  ? classes.filterButtonSelected
+                  : classes.filterButton
+              }
+              onClick={() => {
+                setFilter(
+                  TimelineItemTypes.reduce<TimelineItemType[]>(
+                    (newFilter, filterType) =>
+                      type === filterType && filter.includes(type)
+                        ? newFilter
+                        : [...newFilter, filterType],
+                    []
+                  )
+                );
+              }}
+              disableRipple
+            >
+              <TimelineItemIcon type={type} color="primary" />
+            </Button>
+          </Tooltip>
         ))}
-      </ToggleButtonGroup>
+      </ButtonGroup>
       <MUITimeline>
         {items
           .filter((item) => (item.type ? filter.includes(item.type) : true))
@@ -63,13 +70,15 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   filterButton: {
     "&:hover": {
-      backgroundColor: `${theme.palette.secondary.main} !important`,
-      borderColor: theme.palette.primary.main,
+      backgroundColor: theme.palette.secondary.main,
     },
-    "&.Mui-selected": {
-      backgroundColor: theme.palette.secondary.light,
-      borderColor: theme.palette.primary.main,
+    borderColor: theme.palette.primary.main,
+  },
+  filterButtonSelected: {
+    "&:hover": {
+      backgroundColor: theme.palette.secondary.main,
     },
+    backgroundColor: theme.palette.secondary.light,
     borderColor: theme.palette.primary.main,
   },
 }));
