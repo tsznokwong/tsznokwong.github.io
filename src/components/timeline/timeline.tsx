@@ -19,8 +19,12 @@ const Timeline = (props: TimelineProps) => {
   return (
     <PageContainer className={classes.root}>
       <ButtonGroup>
-        {TimelineItemTypes.map((type) => (
-          <Tooltip title={type} aria-label={type}>
+        {TimelineItemTypes.map((type, index) => (
+          <Tooltip
+            key={`filter_button_${index}`}
+            title={type}
+            aria-label={type}
+          >
             <Button
               className={
                 filter.includes(type)
@@ -45,7 +49,12 @@ const Timeline = (props: TimelineProps) => {
       </ButtonGroup>
       <MUITimeline>
         {items
-          .filter((item) => (item.type ? filter.includes(item.type) : true))
+          .filter((item) => {
+            if (item.type && TimelineItemTypes.includes(item.type)) {
+              return filter.includes(item.type);
+            }
+            return true;
+          })
           .map((item, index) => (
             <TimelineItem key={`timeline_item_${index}`} {...item} />
           ))}

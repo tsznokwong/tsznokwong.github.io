@@ -8,7 +8,9 @@ import FlareIcon from "@material-ui/icons/Flare";
 import ChangeHistoryIcon from "@material-ui/icons/ChangeHistory";
 
 import MUIColor from "../../../types/mui-color";
-import TimelineItemType from "../../../types/timeline-item-type";
+import TimelineItemType, {
+  TimelineItemTypes,
+} from "../../../types/timeline-item-type";
 
 type TimelineItemIconsProps = {
   type?: TimelineItemType;
@@ -27,7 +29,7 @@ const Icons: { [type in TimelineItemType]: ElementType } = {
 
 const TimelineItemIcon = (props: TimelineItemIconsProps) => {
   const { type, color, defaultColor } = props;
-  if (!type) {
+  if (!type || !TimelineItemTypes.includes(type)) {
     return <Brightness1Icon color={defaultColor} />;
   }
   const Icon = Icons[type];
