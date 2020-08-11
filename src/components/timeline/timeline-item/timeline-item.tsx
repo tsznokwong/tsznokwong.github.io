@@ -1,5 +1,5 @@
 import React from "react";
-import { makeStyles, Theme, Paper, Typography } from "@material-ui/core";
+import { makeStyles, Theme, Paper, Typography, Chip } from "@material-ui/core";
 import {
   TimelineItem as MUITimelineItem,
   TimelineSeparator,
@@ -14,11 +14,12 @@ export type TimelineItemProps = {
   subtitle?: string;
   details?: string;
   timestamp?: string;
+  type?: string;
 };
 
 const TimelineItem = (props: TimelineItemProps) => {
   const classes = useStyles();
-  const { title, subtitle, details, timestamp } = props;
+  const { title, subtitle, details, timestamp, type } = props;
   return (
     <MUITimelineItem>
       <TimelineOppositeContent className={classes.oppositeContent} />
@@ -28,6 +29,14 @@ const TimelineItem = (props: TimelineItemProps) => {
       </TimelineSeparator>
       <TimelineContent>
         <Paper className={classes.content} elevation={3}>
+          {type && (
+            <Chip
+              className={classes.chip}
+              label={type}
+              color="secondary"
+              size="small"
+            />
+          )}
           {title && (
             <Typography className={classes.title} variant="h3">
               {title}
@@ -88,5 +97,8 @@ const useStyles = makeStyles((theme: Theme) => ({
   details: {
     padding: "1rem 0",
     whiteSpace: "pre-line",
+  },
+  chip: {
+    color: theme.palette.primary.main,
   },
 }));
