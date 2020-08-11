@@ -3,10 +3,163 @@
   "subtitle": "Presenting the history of Joshua.",
   "timeline": [
     {
-      "title": "Title",
-      "subtitle": "Subtitle",
-      "timestamp": "Timestamp",
-      "details": "Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long \n\n\nLong Long Long Long Long Long Long Long Long Long Long Long Long Long Details"
+      "title": "The Hong Kong University of Science and Technology",
+      "subtitle": "Computer Science (BEng) & General Business Management (BBA)",
+      "timestamp": "Since 2017",
+      "details": "Expected 2022\nCGA:  3.827 / 4.3 (As of 2018-19 Spring)\nDean’s List: 2017-18 Fall, 2018-19 Fall & Spring",
+      "type": "Education"
+    },
+    {
+      "title": "USThing",
+      "subtitle": "Core iOS Developer & Designer",
+      "timestamp": "Since 2017",
+      "details": "Developed mobile app & events for HKUST students",
+      "type": "Projects"
+    },
+    {
+      "title": "Dayta AI",
+      "subtitle": "Software Engineer",
+      "timestamp": "Apr - Jul 2020",
+      "details": "Lead of Internal Control\nManaged design, development & deployment of admin dashboard for internal usage\nDeveloped web and backend using TypeScript, React & GoLang\nDeveloped cache & cluster registry system using Redis Cluster\nManaged 2 summer interns",
+      "type": "Work"
+    },
+    {
+      "title": "Dayta AI",
+      "subtitle": "Software Engineer Intern",
+      "timestamp": "Jan - Feb 2020",
+      "details": "Developed automated testing on frontend web & backend server",
+      "type": "Work"
+    },
+    {
+      "title": "Accenture",
+      "subtitle": "Associate Software Engineer",
+      "timestamp": "Jul - Dec 2019",
+      "details": "Developed automated UI testing on iOS Application using Fastlane, Shell & Python",
+      "type": "Work"
+    },
+    {
+      "title": "Dr. Knowledge Learning Centre",
+      "subtitle": "Part-time Instructor",
+      "timestamp": "Jun 2018 - Aug 2019",
+      "details": "Developed skills for teaching and communication with student",
+      "type": "Work"
+    },
+    {
+      "title": "St. Paul’s College",
+      "subtitle": "Instructor",
+      "timestamp": "Jun 2019",
+      "details": "Prepared and taught secondary students using Python",
+      "type": "Work"
+    },
+    {
+      "title": "Cyber Defenders Challenge 2019",
+      "subtitle": "1st-runner up",
+      "timestamp": "May 2019",
+      "details": "Competition using cybersecurity principles to defend attack from the Internet",
+      "type": "Achievements"
+    },
+    {
+      "title": "Data Bay Academy",
+      "subtitle": "Senior Teaching Assistant",
+      "timestamp": "Jan - Mar 2019",
+      "details": "Assisted instructor for teaching Python programming",
+      "type": "Work"
+    },
+    {
+      "title": "UBS Investment Banking",
+      "subtitle": "Independent Study Project Leader",
+      "timestamp": "Sep 2018 - Jan 2019",
+      "details": "Optimised cloud service used for computation",
+      "type": "Projects"
+    },
+    {
+      "title": "Wherami",
+      "subtitle": "iOS Research Developer",
+      "timestamp": "Jun - Dec 2018",
+      "details": "Developed indoor localisation techniques through research project",
+      "type": "Projects"
+    },
+    {
+      "title": "The Hong Kong University of Science and Technology",
+      "subtitle": "IPO Ambassador",
+      "timestamp": "Sep 2017 - Aug 2018",
+      "details": "Promoted interdisciplinary education through reach out events",
+      "type": "Team/Society"
+    },
+    {
+      "title": "Hackathon@UST 2018 — hardUST",
+      "subtitle": "Champion & Creativity Award",
+      "timestamp": "Apr 2018",
+      "details": "Promoted interdisciplinary education through reach out events",
+      "type": "Achievements"
+    },
+    {
+      "title": "Hong Kong Book Centre",
+      "subtitle": "Bookstore Retail Assistant",
+      "timestamp": "Jun - Aug 2017",
+      "details": "Developed skills for customer services and stock management",
+      "type": "Work"
+    },
+    {
+      "title": "St. Paul’s College, Hong Kong",
+      "subtitle": "Student",
+      "timestamp": "2011 - 2017",
+      "details": "The Hong Kong Diploma of Secondary Education Examination 2017 (Best 5: 33)",
+      "type": "Education"
+    },
+    {
+      "title": "Hong Kong Olympiad in Informatics",
+      "subtitle": "Silver — 2017 Senior Group",
+      "timestamp": "2014 - 2017",
+      "details": "Competition emphasising on problem-solving techniques & programming skills",
+      "type": "Achievements"
+    },
+    {
+      "title": "Hong Kong Olympiad in Informatics",
+      "subtitle": "Training Team Member",
+      "timestamp": "2014 - 2017",
+      "details": "Extensive training on algorithms, data structures & programming skills",
+      "type": "Team/Society"
+    },
+    {
+      "title": "49th Joint School Science Exhibition 2016",
+      "subtitle": "2nd runner-up",
+      "timestamp": "Aug 2016",
+      "details": "Competition using scientific knowledge & “Connection” as theme to demonstrate novel ideas\nWorked as project holder and managed exhibition booth\nDeveloped an iOS application for demonstration",
+      "type": "Achievements"
+    },
+    {
+      "title": "St. Paul’s College Programming Team",
+      "subtitle": "Captain",
+      "timestamp": "2014 - 2016",
+      "details": "Organised programming workshop & participated in competitions",
+      "type": "Team/Society"
+    },
+    {
+      "title": "St. Paul’s College Computer Society",
+      "subtitle": "Chairman",
+      "timestamp": "2015 - 2016",
+      "details": "CPromoted IT, organised events & recruited members to society",
+      "type": "Team/Society"
+    },
+    {
+      "title": "Canadian Computing Competition (Hong Kong Contest)",
+      "subtitle": "Honourable Mention",
+      "timestamp": "2016",
+      "details": "Competition emphasising on problem-solving techniques & programming skills",
+      "type": "Achievements"
+    },
+    {
+      "title": "International Mathematical Modelling Challenge Hong Kong",
+      "subtitle": "Meritorious",
+      "timestamp": "2015",
+      "details": "Using mathematical modelling to solve existing problems",
+      "type": "Achievements"
+    },
+    {
+      "title": "Born",
+      "timestamp": "27 Apr 1999",
+      "type": "Milestones"
     }
   ]
 }
