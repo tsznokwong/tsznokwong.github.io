@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   makeStyles,
   Theme,
@@ -8,6 +8,7 @@ import {
   CardContent,
   CardActions,
   IconButton,
+  Slide,
 } from "@material-ui/core";
 import {
   TimelineItem as MUITimelineItem,
@@ -18,6 +19,7 @@ import {
   TimelineOppositeContent,
 } from "@material-ui/lab";
 import InfoIcon from "@material-ui/icons/Info";
+import VisibilitySensor from "react-visibility-sensor";
 
 import TimelineItemIcon from "./timeline-item-icon";
 import TimelineItemType from "../../../types/timeline-item-type";
@@ -43,17 +45,28 @@ export type TimelineItemProps =
 
 const TimelineItem = (props: TimelineItemProps) => {
   const classes = useStyles();
+  const [isVisible, setVisible] = useState(false);
   return (
-    <MUITimelineItem>
-      <TimelineOppositeContent className={classes.oppositeContent} />
-      <TimelineSeparator>
-        <TimelineDotContent {...props} />
-        <TimelineConnector className={classes.connector} />
-      </TimelineSeparator>
-      <MUITimelineContent>
-        <TimelineContent {...props} />
-      </MUITimelineContent>
-    </MUITimelineItem>
+    <VisibilitySensor
+      partialVisibility
+      scrollCheck
+      onChange={(isVisible) => {
+        setVisible(isVisible);
+      }}
+    >
+      <MUITimelineItem>
+        <TimelineOppositeContent className={classes.oppositeContent} />
+        <TimelineSeparator>
+          <TimelineDotContent {...props} />
+          <TimelineConnector className={classes.connector} />
+        </TimelineSeparator>
+        <Slide in={isVisible} direction="left" timeout={800} appear>
+          <MUITimelineContent>
+            <TimelineContent {...props} />
+          </MUITimelineContent>
+        </Slide>
+      </MUITimelineItem>
+    </VisibilitySensor>
   );
 };
 
