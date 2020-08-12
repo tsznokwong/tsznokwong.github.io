@@ -59,6 +59,14 @@
     },
     {
       "category": "normal",
+      "title": "Talent Development Scholarship 2018/19",
+      "subtitle": "Hong Kong Special Administrative Region Government Scholarship Fund",
+      "timestamp": "Jul 2019",
+      "type": "Achievements",
+      "infolink": "https://www.edb.gov.hk/en/edu-system/postsecondary/local-higher-edu/publicly-funded-programmmes/scholarship.html"
+    },
+    {
+      "category": "normal",
       "title": "St. Paul’s College",
       "subtitle": "Instructor",
       "timestamp": "Jun 2019",
@@ -74,6 +82,13 @@
       "details": "Competition using cybersecurity principles to defend attack from the Internet",
       "type": "Achievements",
       "infolink": "https://www.ust.hk/news/student-development-and-bonding/hkust-collaborates-china-everbright-bank-nurture-cyber"
+    },
+    {
+      "category": "normal",
+      "title": "Students' Academic Excellence 2019",
+      "subtitle": "The Hong Kong University of Science and Technology Interdisciplinary Program",
+      "timestamp": "Apr 2019",
+      "type": "Achievements"
     },
     {
       "category": "normal",
@@ -121,7 +136,23 @@
       "type": "Achievements",
       "infolink": "http://hack.ust.hk-cic.com/hack2018.htm#"
     },
+    {
+      "category": "normal",
+      "title": "HKUST University Scholarship",
+      "subtitle": "The Hong Kong University of Science and Technology",
+      "timestamp": "Jan 2018",
+      "type": "Achievements",
+      "infolink": "https://www.ust.hk"
+    },
     { "category": "year-stamp", "year": "2018" },
+    {
+      "category": "normal",
+      "title": "The Dr. Paul Cheung Kwong Yan Scholarship",
+      "subtitle": "St. Paul's College",
+      "timestamp": "Dec 2017",
+      "type": "Achievements",
+      "infolink": "http://spc.edu.hk"
+    },
     {
       "category": "normal",
       "title": "Hong Kong Book Centre",
@@ -145,7 +176,7 @@
       "title": "Hong Kong Olympiad in Informatics",
       "subtitle": "Silver — 2017 Senior Group",
       "timestamp": "2014 - 2017",
-      "details": "Competition emphasising on problem-solving techniques & programming skills",
+      "details": "Competition emphasising on problem-solving techniques & programming skills\nBronze - 2016 Senior Group\nBronze - 2015 Junior Group\nBronze - 2014 Junior Group",
       "type": "Achievements",
       "infolink": "https://hkoi.org/en/"
     },
@@ -161,12 +192,43 @@
     { "category": "year-stamp", "year": "2017" },
     {
       "category": "normal",
+      "title": "The Dr. Paul Cheung Kwong Yan Scholarship",
+      "subtitle": "St. Paul's College",
+      "timestamp": "Dec 2016",
+      "type": "Achievements",
+      "infolink": "http://spc.edu.hk"
+    },
+    {
+      "category": "normal",
+      "title": "The Mr. and Mrs. Fung Ho Por Scholarship",
+      "subtitle": "St. Paul's College",
+      "timestamp": "Dec 2016",
+      "type": "Achievements",
+      "infolink": "http://spc.edu.hk"
+    },
+    {
+      "category": "normal",
       "title": "49th Joint School Science Exhibition 2016",
       "subtitle": "2nd runner-up",
       "timestamp": "Aug 2016",
       "details": "Competition using scientific knowledge & “Connection” as theme to demonstrate novel ideas\nWorked as project holder and managed exhibition booth\nDeveloped an iOS application for demonstration",
       "type": "Achievements",
       "infolink": "http://www.jsse.org.hk"
+    },
+    {
+      "category": "normal",
+      "title": "Secondary School Mathematics & Science Competition 2016",
+      "subtitle": "High Distinction in Chemistry & Physics",
+      "timestamp": "Jul 2016",
+      "type": "Achievements"
+    },
+    {
+      "category": "normal",
+      "title": "Stanton Scholarship",
+      "subtitle": "St. Paul's College",
+      "timestamp": "Jul 2016",
+      "type": "Achievements",
+      "infolink": "http://spc.edu.hk"
     },
     {
       "category": "normal",
@@ -182,7 +244,7 @@
       "title": "St. Paul’s College Computer Society",
       "subtitle": "Chairman",
       "timestamp": "2015 - 2016",
-      "details": "CPromoted IT, organised events & recruited members to society",
+      "details": "Promoted IT, organised events & recruited members to society",
       "type": "Activities",
       "infolink": "https://www.facebook.com/spccompsoc"
     },
@@ -198,6 +260,22 @@
     { "category": "year-stamp", "year": "2016" },
     {
       "category": "normal",
+      "title": "The Dr. Paul Cheung Kwong Yan Scholarship",
+      "subtitle": "St. Paul's College",
+      "timestamp": "Nov 2015",
+      "type": "Achievements",
+      "infolink": "http://spc.edu.hk"
+    },
+    {
+      "category": "normal",
+      "title": "The Wong Yun Tong Scholarship",
+      "subtitle": "St. Paul's College",
+      "timestamp": "Nov 2015",
+      "type": "Achievements",
+      "infolink": "http://spc.edu.hk"
+    },
+    {
+      "category": "normal",
       "title": "International Mathematical Modelling Challenge Hong Kong",
       "subtitle": "Meritorious",
       "timestamp": "2015",
@@ -205,7 +283,31 @@
       "type": "Achievements",
       "infolink": "https://immchallenge.org"
     },
+    {
+      "category": "normal",
+      "title": "Stanton Scholarship",
+      "subtitle": "St. Paul's College",
+      "timestamp": "Jul 2015",
+      "type": "Achievements",
+      "infolink": "http://spc.edu.hk"
+    },
+    {
+      "category": "normal",
+      "title": "Hong Kong Physics Olympiad 2015",
+      "subtitle": "Honourable Mention",
+      "timestamp": "May 2015",
+      "type": "Achievements",
+      "infolink": "https://www.hkage.org.hk/en/competitions/detail/2076"
+    },
     { "category": "year-stamp", "year": "2015" },
+    {
+      "category": "normal",
+      "title": "The Associated Board of the Royal Schools of Music",
+      "subtitle": "Grade 3 Trumpet",
+      "timestamp": "2013",
+      "type": "Activities"
+    },
+    { "category": "year-stamp", "year": "2013" },
     {
       "category": "normal",
       "title": "S.K.H Tin Wan Chi Nam Primary School",
@@ -215,6 +317,14 @@
       "infolink": "http://www.tcn.edu.hk"
     },
     { "category": "year-stamp", "year": "2011" },
+    {
+      "category": "normal",
+      "title": "Potential Taekwondo Hong Kong Association",
+      "subtitle": "1st Poom",
+      "timestamp": "2010",
+      "type": "Activities"
+    },
+    { "category": "year-stamp", "year": "2010" },
     {
       "category": "normal",
       "title": "Kau Yan School Kindergarten",
