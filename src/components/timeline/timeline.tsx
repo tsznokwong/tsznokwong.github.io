@@ -47,7 +47,7 @@ const Timeline = (props: TimelineProps) => {
           </Tooltip>
         ))}
       </ButtonGroup>
-      <MUITimeline>
+      <MUITimeline className={classes.timeline}>
         {items
           .filter((item) => {
             if (item.category === "year-stamp") {
@@ -94,5 +94,8 @@ const useStyles = makeStyles((theme: Theme) => ({
     },
     backgroundColor: theme.palette.secondary.light,
     borderColor: theme.palette.primary.main,
+  },
+  timeline: {
+    padding: "6px 6px",
   },
 }));

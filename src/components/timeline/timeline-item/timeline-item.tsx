@@ -61,7 +61,7 @@ const TimelineItem = (props: TimelineItemProps) => {
           <TimelineConnector className={classes.connector} />
         </TimelineSeparator>
         <Slide in={isVisible} direction="left" timeout={800} appear>
-          <MUITimelineContent>
+          <MUITimelineContent className={classes.timelineContent}>
             <TimelineContent {...props} />
           </MUITimelineContent>
         </Slide>
@@ -106,14 +106,17 @@ const useStyles = makeStyles((theme: Theme) => ({
     justifyContent: "flex-end",
     alignItems: "center",
   },
-  yearStamp: {
+  yearstamp: {
     color: theme.palette.primary.main,
     width: "36px",
     display: "flex",
     justifyContent: "center",
   },
-  yearStampContent: {
+  yearstampContent: {
     marginBottom: "6rem",
+  },
+  timelineContent: {
+    paddingRight: 0,
   },
 }));
 
@@ -128,7 +131,7 @@ const TimelineDotContent = (props: TimelineItemProps) => {
       );
     case "year-stamp":
       return (
-        <Typography className={classes.yearStamp} variant="h2">
+        <Typography className={classes.yearstamp} variant="h2">
           {props.year}
         </Typography>
       );
@@ -198,6 +201,6 @@ const TimelineContent = (props: TimelineItemProps) => {
         </Card>
       );
     default:
-      return <div className={classes.yearStampContent} />;
+      return <div className={classes.yearstampContent} />;
   }
 };
