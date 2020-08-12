@@ -1,19 +1,19 @@
 import { useState, createContext, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
-import * as PageType from "../../types/page-type";
+import PageType, { PageMeta } from "../../types/page-type";
 
 export interface IPageContext {
-  pages: PageType.PageMeta[];
-  currentPage: PageType.PageMeta;
-  onPageChange: (page: PageType.PageMeta) => void;
+  pages: PageMeta[];
+  currentPage: PageMeta;
+  onPageChange: (page: PageMeta) => void;
   title: string;
 }
 
 export const DefaultPageContext = {
-  pages: [PageType.Home],
+  pages: [PageType.Home, PageType.Experience],
   currentPage: PageType.Home,
-  onPageChange: (page: PageType.PageMeta) => {},
+  onPageChange: (page: PageMeta) => {},
   title: "Joshua",
 };
 

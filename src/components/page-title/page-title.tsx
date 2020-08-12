@@ -8,7 +8,7 @@ import {
   Divider,
 } from "@material-ui/core";
 
-import * as PageType from "../../types/page-type";
+import PageType from "../../types/page-type";
 import { PageContext } from "../../containers/app/app-hooks";
 
 type PageTitleProps = {};

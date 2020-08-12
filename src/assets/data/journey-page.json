@@ -1,0 +1,359 @@
+{
+  "title": "Journey Timeline",
+  "subtitle": "Presenting the history of Joshua.",
+  "timeline": [
+    { "category": "year-stamp", "year": "Now" },
+    {
+      "category": "normal",
+      "title": "The Hong Kong University of Science and Technology",
+      "subtitle": "Computer Science (BEng) & General Business Management (BBA) (Expected 2022)",
+      "timestamp": "Since 2017",
+      "details": "CGA:  3.827 / 4.3 (As of 2018-19 Spring)\nDean’s List: 2017-18 Fall, 2018-19 Fall & Spring",
+      "type": "Education",
+      "infolink": "http://www.techmgmt.ust.hk/en/home/"
+    },
+    {
+      "category": "normal",
+      "title": "USThing",
+      "subtitle": "Senior iOS developer & Designer",
+      "timestamp": "Since 2017",
+      "details": "Developed mobile app & events for HKUST students\nApplication development with Swift and Objective-C in iOS\nUser Interface design using Sketch, Adobe XD\nFront-end development cycle, production and deployment to App Store\nCI/CD Pipelining\nWorking closely in a team as a lead developer\nCollaboration with University",
+      "type": "Projects",
+      "infolink": "http://usthing.ust.hk"
+    },
+    {
+      "category": "normal",
+      "title": "Dayta AI",
+      "subtitle": "Software Engineer / Lead of Internal Control",
+      "timestamp": "Apr - Jul 2020",
+      "details": "Managed design, development & deployment of admin dashboard for internal usage\nDeveloped web and backend using TypeScript, React & GoLang\nDeveloped cache & cluster registry system using Redis Cluster\nManaged 2 summer interns",
+      "type": "Work",
+      "infolink": "https://dayta.ai"
+    },
+    {
+      "category": "normal",
+      "title": "Dayta AI",
+      "subtitle": "Software Engineer Intern",
+      "timestamp": "Jan - Feb 2020",
+      "details": "Developed automated testing on frontend web & backend server",
+      "type": "Work",
+      "infolink": "https://dayta.ai"
+    },
+    {
+      "category": "normal",
+      "title": "Accenture",
+      "subtitle": "Associate Software Engineer",
+      "timestamp": "Jul - Dec 2019",
+      "details": "Developed automated UI testing on iOS Application using Fastlane, Shell & Python",
+      "type": "Work",
+      "infolink": "https://www.accenture.com/hk-en"
+    },
+    { "category": "year-stamp", "year": "2020" },
+    {
+      "category": "normal",
+      "title": "Dr. Knowledge Learning Centre",
+      "subtitle": "Part-time Instructor",
+      "timestamp": "Jun 2018 - Aug 2019",
+      "details": "Developed skills for teaching and communication with student",
+      "type": "Work"
+    },
+    {
+      "category": "normal",
+      "title": "Talent Development Scholarship 2018/19",
+      "subtitle": "Hong Kong Special Administrative Region Government Scholarship Fund",
+      "timestamp": "Jul 2019",
+      "type": "Achievements",
+      "infolink": "https://www.edb.gov.hk/en/edu-system/postsecondary/local-higher-edu/publicly-funded-programmmes/scholarship.html"
+    },
+    {
+      "category": "normal",
+      "title": "St. Paul’s College",
+      "subtitle": "Instructor",
+      "timestamp": "Jun 2019",
+      "details": "Prepared and taught secondary students using Python",
+      "type": "Work",
+      "infolink": "http://spc.edu.hk"
+    },
+    {
+      "category": "normal",
+      "title": "Cyber Defenders Challenge 2019",
+      "subtitle": "1st-runner up",
+      "timestamp": "May 2019",
+      "details": "Competition using cybersecurity principles to defend attack from the Internet",
+      "type": "Achievements",
+      "infolink": "https://www.ust.hk/news/student-development-and-bonding/hkust-collaborates-china-everbright-bank-nurture-cyber"
+    },
+    {
+      "category": "normal",
+      "title": "Students' Academic Excellence 2019",
+      "subtitle": "The Hong Kong University of Science and Technology Interdisciplinary Program",
+      "timestamp": "Apr 2019",
+      "type": "Achievements"
+    },
+    {
+      "category": "normal",
+      "title": "Data Bay Academy",
+      "subtitle": "Senior Teaching Assistant",
+      "timestamp": "Jan - Mar 2019",
+      "details": "Assisted instructor for teaching Python programming",
+      "type": "Work",
+      "infolink": "https://www.databaysea.com"
+    },
+    {
+      "category": "normal",
+      "title": "UBS Investment Banking",
+      "subtitle": "Independent Study Project Leader",
+      "timestamp": "Sep 2018 - Jan 2019",
+      "details": "Optimised cloud service used for computation",
+      "type": "Projects",
+      "infolink": "https://www.ubs.com/hk/en.html"
+    },
+    { "category": "year-stamp", "year": "2019" },
+    {
+      "category": "normal",
+      "title": "Wherami",
+      "subtitle": "iOS Research Developer",
+      "timestamp": "Jun - Dec 2018",
+      "details": "Developed indoor localisation techniques through research project",
+      "type": "Projects",
+      "infolink": "http://egz160.ust.hk/lbs/"
+    },
+    {
+      "category": "normal",
+      "title": "The Hong Kong University of Science and Technology",
+      "subtitle": "IPO Ambassador",
+      "timestamp": "Sep 2017 - Aug 2018",
+      "details": "Promoted interdisciplinary education through reach out events",
+      "type": "Activities",
+      "infolink": "https://www.ipo.ust.hk/en/home/"
+    },
+    {
+      "category": "normal",
+      "title": "Hackathon@UST 2018 — hardUST",
+      "subtitle": "Champion & Creativity Award",
+      "timestamp": "Apr 2018",
+      "details": "Promoted interdisciplinary education through reach out events",
+      "type": "Achievements",
+      "infolink": "http://hack.ust.hk-cic.com/hack2018.htm#"
+    },
+    {
+      "category": "normal",
+      "title": "HKUST University Scholarship",
+      "subtitle": "The Hong Kong University of Science and Technology",
+      "timestamp": "Jan 2018",
+      "type": "Achievements",
+      "infolink": "https://www.ust.hk"
+    },
+    { "category": "year-stamp", "year": "2018" },
+    {
+      "category": "normal",
+      "title": "The Dr. Paul Cheung Kwong Yan Scholarship",
+      "subtitle": "St. Paul's College",
+      "timestamp": "Dec 2017",
+      "type": "Achievements",
+      "details": "The scholarship is awarded in recognition of outstanding results in Computer Studies",
+      "infolink": "http://spc.edu.hk"
+    },
+    {
+      "category": "normal",
+      "title": "Hong Kong Book Centre",
+      "subtitle": "Bookstore Retail Assistant",
+      "timestamp": "Jun - Aug 2017",
+      "details": "Developed skills for customer services and stock management",
+      "type": "Work",
+      "infolink": "http://www.swindonbooks.com"
+    },
+    {
+      "category": "normal",
+      "title": "St. Paul’s College, Hong Kong",
+      "subtitle": "Graduated",
+      "timestamp": "2017",
+      "details": "The Hong Kong Diploma of Secondary Education Examination 2017 (Best 5: 33)",
+      "type": "Education",
+      "infolink": "http://spc.edu.hk"
+    },
+    {
+      "category": "normal",
+      "title": "Hong Kong Olympiad in Informatics",
+      "subtitle": "Silver — 2017 Senior Group",
+      "timestamp": "2014 - 2017",
+      "details": "Competition emphasising on problem-solving techniques & programming skills\nBronze - 2016 Senior Group\nBronze - 2015 Junior Group\nBronze - 2014 Junior Group",
+      "type": "Achievements",
+      "infolink": "https://hkoi.org/en/"
+    },
+    {
+      "category": "normal",
+      "title": "Hong Kong Olympiad in Informatics",
+      "subtitle": "Training Team Member",
+      "timestamp": "2014 - 2017",
+      "details": "Extensive training on algorithms, data structures & programming skills",
+      "type": "Activities",
+      "infolink": "https://hkoi.org/en/"
+    },
+    { "category": "year-stamp", "year": "2017" },
+    {
+      "category": "normal",
+      "title": "The Dr. Paul Cheung Kwong Yan Scholarship",
+      "subtitle": "St. Paul's College",
+      "timestamp": "Dec 2016",
+      "type": "Achievements",
+      "details": "The scholarship is awarded in recognition of outstanding results in Computer Studies",
+      "infolink": "http://spc.edu.hk"
+    },
+    {
+      "category": "normal",
+      "title": "The Mr. and Mrs. Fung Ho Por Scholarship",
+      "subtitle": "St. Paul's College",
+      "timestamp": "Dec 2016",
+      "type": "Achievements",
+      "details": "The scholarship is awarded in recognition of outstanding results in Form 5",
+      "infolink": "http://spc.edu.hk"
+    },
+    {
+      "category": "normal",
+      "title": "49th Joint School Science Exhibition 2016",
+      "subtitle": "2nd runner-up",
+      "timestamp": "Aug 2016",
+      "details": "Competition using scientific knowledge & “Connection” as theme to demonstrate novel ideas\nWorked as project holder and managed exhibition booth\nDeveloped an iOS application for demonstration",
+      "type": "Achievements",
+      "infolink": "http://www.jsse.org.hk"
+    },
+    {
+      "category": "normal",
+      "title": "Secondary School Mathematics & Science Competition 2016",
+      "subtitle": "High Distinction in Chemistry & Physics",
+      "timestamp": "Jul 2016",
+      "type": "Achievements"
+    },
+    {
+      "category": "normal",
+      "title": "Stanton Scholarship",
+      "subtitle": "St. Paul's College",
+      "timestamp": "Jul 2016",
+      "type": "Achievements",
+      "details": "The scholarship is awarded in recognition of outstanding academic results",
+      "infolink": "http://spc.edu.hk"
+    },
+    {
+      "category": "normal",
+      "title": "St. Paul’s College Programming Team",
+      "subtitle": "Captain",
+      "timestamp": "2014 - 2016",
+      "details": "Organised programming workshop & participated in competitions",
+      "type": "Activities",
+      "infolink": "http://spc.edu.hk"
+    },
+    {
+      "category": "normal",
+      "title": "St. Paul’s College Computer Society",
+      "subtitle": "Chairman",
+      "timestamp": "2015 - 2016",
+      "details": "Promoted IT, organised events & recruited members to society",
+      "type": "Activities",
+      "infolink": "https://www.facebook.com/spccompsoc"
+    },
+    {
+      "category": "normal",
+      "title": "Canadian Computing Competition (Hong Kong Contest)",
+      "subtitle": "Honourable Mention (Senior)",
+      "timestamp": "2016",
+      "details": "Competition emphasising on problem-solving techniques & programming skills",
+      "type": "Achievements",
+      "infolink": "https://i.cs.hku.hk/ccc2016/index.php"
+    },
+    { "category": "year-stamp", "year": "2016" },
+    {
+      "category": "normal",
+      "title": "The Dr. Paul Cheung Kwong Yan Scholarship",
+      "subtitle": "St. Paul's College",
+      "timestamp": "Nov 2015",
+      "type": "Achievements",
+      "details": "The scholarship is awarded in recognition of outstanding results in Computer Studies",
+      "infolink": "http://spc.edu.hk"
+    },
+    {
+      "category": "normal",
+      "title": "The Wong Yun Tong Scholarship",
+      "subtitle": "St. Paul's College",
+      "timestamp": "Nov 2015",
+      "type": "Achievements",
+      "details": "The scholarship is awarded in recognition of outstanding results in Form 4",
+      "infolink": "http://spc.edu.hk"
+    },
+    {
+      "category": "normal",
+      "title": "International Mathematical Modelling Challenge Hong Kong",
+      "subtitle": "Meritorious",
+      "timestamp": "2015",
+      "details": "Using mathematical modelling to solve existing problems",
+      "type": "Achievements",
+      "infolink": "https://immchallenge.org"
+    },
+    {
+      "category": "normal",
+      "title": "Stanton Scholarship",
+      "subtitle": "St. Paul's College",
+      "timestamp": "Jul 2015",
+      "type": "Achievements",
+      "details": "The scholarship is awarded in recognition of outstanding academic results",
+      "infolink": "http://spc.edu.hk"
+    },
+    {
+      "category": "normal",
+      "title": "Hong Kong Physics Olympiad 2015",
+      "subtitle": "Honourable Mention",
+      "timestamp": "May 2015",
+      "type": "Achievements",
+      "infolink": "https://www.hkage.org.hk/en/competitions/detail/2076"
+    },
+    { "category": "year-stamp", "year": "2015" },
+    {
+      "category": "normal",
+      "title": "The Associated Board of the Royal Schools of Music",
+      "subtitle": "Grade 3 Trumpet",
+      "timestamp": "2013",
+      "type": "Activities"
+    },
+    { "category": "year-stamp", "year": "2013" },
+    {
+      "category": "normal",
+      "title": "Potential Taekwondo Hong Kong Association",
+      "subtitle": "2nd Poom",
+      "timestamp": "2012",
+      "type": "Activities"
+    },
+    { "category": "year-stamp", "year": "2012" },
+    {
+      "category": "normal",
+      "title": "S.K.H Tin Wan Chi Nam Primary School",
+      "subtitle": "Graduated",
+      "timestamp": "2011",
+      "type": "Education",
+      "infolink": "http://www.tcn.edu.hk"
+    },
+    { "category": "year-stamp", "year": "2011" },
+    {
+      "category": "normal",
+      "title": "Potential Taekwondo Hong Kong Association",
+      "subtitle": "1st Poom",
+      "timestamp": "2010",
+      "type": "Activities"
+    },
+    { "category": "year-stamp", "year": "2010" },
+    {
+      "category": "normal",
+      "title": "Kau Yan School Kindergarten",
+      "subtitle": "Graduated",
+      "timestamp": "2005",
+      "type": "Education",
+      "infolink": "http://kauyan.edu.hk"
+    },
+    { "category": "year-stamp", "year": "2005" },
+    {
+      "category": "normal",
+      "title": "Born",
+      "timestamp": "27 Apr 1999",
+      "type": "Milestones"
+    }
+  ]
+}

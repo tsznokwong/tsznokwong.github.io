@@ -8,16 +8,24 @@ export type LinkMeta = {
   title: string;
 };
 
-export const LinkedIn: LinkMeta = {
+const LinkedIn: LinkMeta = {
   Icon: LinkedInIcon,
   link: "https://www.linkedin.com/in/joshua-wong-8b5101171/",
   title: "LinkedIn",
 };
 
-export const GitHub: LinkMeta = {
+const GitHub: LinkMeta = {
   Icon: GitHubIcon,
   link: "https://github.com/tsznokwong",
   title: "GitHub",
 };
 
-export const AllValues: LinkMeta[] = [LinkedIn, GitHub];
+const AllValues: LinkMeta[] = [LinkedIn, GitHub];
+
+const SocialLinkType = {
+  LinkedIn: LinkedIn,
+  GitHub: GitHub,
+  AllValues: AllValues,
+};
+
+export default SocialLinkType;
