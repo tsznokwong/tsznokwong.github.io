@@ -33,7 +33,7 @@ type TimelineItemNormalProps = {
 };
 
 type TimelineItemYearStampProps = {
-  category: "year stamp";
+  category: "year-stamp";
   year: string;
 };
 
@@ -113,14 +113,18 @@ const TimelineDotContent = (props: TimelineItemProps) => {
           <TimelineItemIcon type={props.type} defaultColor="primary" />
         </TimelineDot>
       );
-    case "year stamp":
+    case "year-stamp":
       return (
         <Typography className={classes.yearStamp} variant="h2">
           {props.year}
         </Typography>
       );
     default:
-      return null;
+      return (
+        <TimelineDot color="primary">
+          <TimelineItemIcon defaultColor="primary" />
+        </TimelineDot>
+      );
   }
 };
 
