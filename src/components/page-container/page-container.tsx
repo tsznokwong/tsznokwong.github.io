@@ -28,7 +28,7 @@ export default PageContainer;
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
-    overflow: "hidden",
+    overflowX: "hidden",
     backgroundSize: "cover",
     backgroundPosition: "bottom",
   },

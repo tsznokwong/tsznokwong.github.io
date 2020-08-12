@@ -25,9 +25,20 @@ const PageBar = (props: PageBarProps) => {
   const trigger = useScrollTrigger();
   const expandedMenu = useMediaQuery(theme.breakpoints.up("sm"));
   const [openDrawer, setOpenDrawer] = useState(false);
+  console.log(trigger);
   return (
-    <Slide appear={true} direction="down" in={!trigger}>
-      <AppBar className={classes.root} color="inherit" position="sticky">
+    <Slide direction="down" in={!trigger} appear>
+      <AppBar
+        className={classes.root}
+        color="transparent"
+        position="sticky"
+        style={
+          {
+            // backgroundColor: "rgba(255, 255, 255, 0.8)",
+            // backdropFilter: "blur(2rem)",
+          }
+        }
+      >
         <Container className={classes.bar}>
           <PageTitle />
           {expandedMenu ? (
@@ -56,8 +67,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   root: {
     padding: "0% 1rem",
     justifyContent: "center",
-    background: "rgba(255, 255, 255, 0.6)",
-    position: "absolute",
+    backgroundColor: "rgba(255, 255, 255, 0.9)",
   },
   bar: {
     height: "4rem",
@@ -65,5 +75,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
+    backdropFilter: "blur(4px)",
+    WebkitBackdropFilter: "blur(4px)",
   },
 }));
