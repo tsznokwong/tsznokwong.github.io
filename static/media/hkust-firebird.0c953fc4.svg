@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1920" height="1080" viewBox="0 0 1920 1080">
   <defs>
     <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
-      <stop offset="0" stop-color="#f4fdff"/>
-      <stop offset="1" stop-color="#adecff"/>
+      <stop offset="0" stop-color="#f4fdff" stop-opacity="0.455"/>
+      <stop offset="1" stop-color="#adecff" stop-opacity="0.424"/>
     </linearGradient>
     <clipPath id="clip-hkust-firebird">
       <rect width="1920" height="1080"/>
@@ -10,7 +10,7 @@
   </defs>
   <g id="hkust-firebird" clip-path="url(#clip-hkust-firebird)">
     <rect width="1920" height="1080" fill="url(#linear-gradient)"/>
-    <g id="Firebird" transform="translate(43 34)" opacity="0.248">
+    <g id="Firebird" transform="translate(43 34)" opacity="0.298" style="isolation: isolate">
       <ellipse id="Ellipse_1" data-name="Ellipse 1" cx="172.5" cy="15.5" rx="172.5" ry="15.5" transform="translate(917 914)" fill="#585858"/>
       <g id="Back_Wing" data-name="Back Wing">
         <path id="Path_15" data-name="Path 15" d="M1148.089,681.875S1096.169,755.054,1076.4,784.3s-19.591,66.96-19.591,66.96l37.517,8.572L1120.8,784.3Z" transform="translate(-19 -14)" fill="#ff1d23" stroke="#94080c" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
