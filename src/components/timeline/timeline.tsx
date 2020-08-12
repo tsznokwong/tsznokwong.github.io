@@ -58,6 +58,15 @@ const Timeline = (props: TimelineProps) => {
             }
             return true;
           })
+          .filter((item, index, items) => {
+            if (item.category === "normal") {
+              return true;
+            }
+            return (
+              items[index - 1]?.category !== "year stamp" ||
+              items[index + 1]?.category !== "year stamp"
+            );
+          })
           .map((item, index) => (
             <TimelineItem key={`timeline_item_${index}`} {...item} />
           ))}
