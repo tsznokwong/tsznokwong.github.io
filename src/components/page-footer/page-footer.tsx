@@ -25,11 +25,12 @@ const useStyles = makeStyles((theme: Theme) => ({
     marginTop: "auto",
     padding: "0% 1rem",
     [theme.breakpoints.down("sm")]: {
-      height: "6rem",
+      height: "calc(env(safe-area-inset-bottom) + 6rem)",
     },
     [theme.breakpoints.up("sm")]: {
       height: "4rem",
     },
+    paddingBottom: "env(safe-area-inset-bottom)",
   },
   container: {
     height: "100%",

@@ -39,7 +39,7 @@ export default ScrollToTop;
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
     position: "fixed",
-    bottom: "4rem",
+    bottom: "calc(env(safe-area-inset-bottom) + 2rem)",
     right: "2rem",
     zIndex: 2000,
   },
