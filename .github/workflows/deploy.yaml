@@ -6,7 +6,7 @@ name: Deployment
 # events but only for the master branch
 on:
   push:
-    branches: [ development ]
+    branches: [development]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -17,15 +17,15 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - uses: actions/checkout@v2
-      
-    - uses: fregante/setup-git-token@v1
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
 
-    - name: Prepare
-      run: npm install
+      - uses: fregante/setup-git-token@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Deploy
-      run: npm run deploy
+      - name: Prepare
+        run: npm ci
+
+      - name: Deploy
+        run: npm run deploy
