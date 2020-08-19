@@ -32,6 +32,7 @@ type TimelineItemNormalProps = {
   timestamp?: string;
   type?: TimelineItemType;
   infolink?: string;
+  highlights?: { title?: string; subtitle?: string }[];
 };
 
 type TimelineItemYearStampProps = {
@@ -118,6 +119,17 @@ const useStyles = makeStyles((theme: Theme) => ({
   timelineContent: {
     paddingRight: 0,
   },
+  highlightRow: {
+    display: "flex",
+    flexDirection: "row",
+  },
+  highlightTitle: {
+    marginRight: "1rem",
+    fontWeight: "bold",
+  },
+  highlightSubtitle: {
+    fontStyle: "italic",
+  },
 }));
 
 const TimelineDotContent = (props: TimelineItemProps) => {
@@ -148,7 +160,15 @@ const TimelineContent = (props: TimelineItemProps) => {
   const classes = useStyles();
   switch (props.category) {
     case "normal":
-      const { title, subtitle, type, timestamp, details, infolink } = props;
+      const {
+        title,
+        subtitle,
+        type,
+        timestamp,
+        details,
+        infolink,
+        highlights,
+      } = props;
       return (
         <Card className={classes.content} elevation={3}>
           <CardContent>
@@ -179,6 +199,32 @@ const TimelineContent = (props: TimelineItemProps) => {
                 {timestamp}
               </Typography>
             )}
+            {highlights &&
+              highlights.map(({ title, subtitle }, index) => (
+                <div
+                  key={`highlight_${index}`}
+                  className={classes.highlightRow}
+                >
+                  {title && (
+                    <Typography
+                      className={classes.highlightTitle}
+                      variant="body2"
+                      color="primary"
+                    >
+                      {title}
+                    </Typography>
+                  )}
+                  {subtitle && (
+                    <Typography
+                      className={classes.highlightSubtitle}
+                      variant="body2"
+                      color="textPrimary"
+                    >
+                      {subtitle}
+                    </Typography>
+                  )}
+                </div>
+              ))}
             {details && (
               <Typography
                 className={classes.details}

@@ -8,7 +8,13 @@
       "title": "The Hong Kong University of Science and Technology",
       "subtitle": "Computer Science (BEng) & General Business Management (BBA) (Expected 2022)",
       "timestamp": "Since 2017",
-      "details": "CGA:  3.827 / 4.3 (As of 2018-19 Spring)\nDean’s List: 2017-18 Fall, 2018-19 Fall & Spring",
+      "highlights": [
+        { "title": "CGA", "subtitle": "3.827 / 4.3 (As of 2018-19 Spring)" },
+        {
+          "title": "Dean's List",
+          "subtitle": "2017-18 Fall, 2018-19 Fall & Spring"
+        }
+      ],
       "type": "Education",
       "infolink": "http://www.techmgmt.ust.hk/en/home/"
     },
@@ -177,7 +183,12 @@
       "title": "Hong Kong Olympiad in Informatics",
       "subtitle": "Silver — 2017 Senior Group",
       "timestamp": "2014 - 2017",
-      "details": "Competition emphasising on problem-solving techniques & programming skills\nBronze - 2016 Senior Group\nBronze - 2015 Junior Group\nBronze - 2014 Junior Group",
+      "highlights": [
+        { "title": "2016 Senior Group", "subtitle": "Bronze" },
+        { "title": "2015 Junior Group", "subtitle": "Bronze" },
+        { "title": "2014 Junior Group", "subtitle": "Bronze" }
+      ],
+      "details": "Competition emphasising on problem-solving techniques & programming skills",
       "type": "Achievements",
       "infolink": "https://hkoi.org/en/"
     },
