@@ -365,6 +365,7 @@
       "title": "Born",
       "timestamp": "27 Apr 1999",
       "type": "Milestones"
-    }
+    },
+    { "category": "year-stamp", "year": "1999" }
   ]
 }
