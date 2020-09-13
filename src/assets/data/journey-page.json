@@ -23,7 +23,7 @@
       "title": "USThing",
       "subtitle": "Senior iOS developer & Designer",
       "timestamp": "Since 2017",
-      "details": "Developed mobile app & events for HKUST students\nApplication development with Swift and Objective-C in iOS\nUser Interface design using Sketch, Adobe XD\nFront-end development cycle, production and deployment to App Store\nCI/CD Pipelining\nWorking closely in a team as a lead developer\nCollaboration with University",
+      "details": "Developed mobile app & events for HKUST students\nApplication development with Swift and Objective-C in iOS\nPlanned team development & administrated the team of size 30\nDesigned architectures, models & pipelines for mobile application development\nUser Interface design using Sketch, Adobe XD\nFront-end development cycle, production and deployment to App Store\nCI/CD Pipelining\nWorking closely in a team as a lead developer\nCollaboration with University",
       "type": "Projects",
       "infolink": "http://usthing.ust.hk"
     },
@@ -32,7 +32,7 @@
       "title": "Dayta AI",
       "subtitle": "Software Engineer / Lead of Internal Control",
       "timestamp": "Apr - Jul 2020",
-      "details": "Managed design, development & deployment of admin dashboard for internal usage\nDeveloped web and backend using TypeScript, React & GoLang\nDeveloped cache & cluster registry system using Redis Cluster\nManaged 2 summer interns",
+      "details": "Coordinated & participated in the development of admin dashboard project\nDeveloped 2 web applications using Typescript with React within 2 months\nReduced responding time by 10-fold by migrating a backend service to Go\nEngineered cache & cluster registry system using Redis Cluster\nManaged 2 summer interns",
       "type": "Work",
       "infolink": "https://dayta.ai"
     },
@@ -41,7 +41,7 @@
       "title": "Dayta AI",
       "subtitle": "Software Engineer Intern",
       "timestamp": "Jan - Feb 2020",
-      "details": "Developed automated testing on frontend web & backend server",
+      "details": "Developed unit tests on the main backend module with 80% code coverage individually",
       "type": "Work",
       "infolink": "https://dayta.ai"
     },
@@ -50,7 +50,7 @@
       "title": "Accenture",
       "subtitle": "Associate Software Engineer",
       "timestamp": "Jul - Dec 2019",
-      "details": "Developed automated UI testing on iOS Application using Fastlane, Shell & Python",
+      "details": "Completed mobile test automation project ahead of time in a team of 4\nImplemented over 100 regression UI test cases on iOS Application using Swift\nStreamlined test automation using Fastlane, Shell & Python",
       "type": "Work",
       "infolink": "https://www.accenture.com/hk-en"
     },
@@ -85,7 +85,7 @@
       "title": "Cyber Defenders Challenge 2019",
       "subtitle": "1st-runner up",
       "timestamp": "May 2019",
-      "details": "Competition using cybersecurity principles to defend attack from the Internet",
+      "details": "Defended attack from the Internet using cybersecurity principles in a team of 2 within 3 hours",
       "type": "Achievements",
       "infolink": "https://www.ust.hk/news/student-development-and-bonding/hkust-collaborates-china-everbright-bank-nurture-cyber"
     },
@@ -110,7 +110,7 @@
       "title": "UBS Investment Banking",
       "subtitle": "Independent Study Project Leader",
       "timestamp": "Sep 2018 - Jan 2019",
-      "details": "Optimised cloud service used for computation",
+      "details": "Optimised cloud computation service usage in a group of 2\nReduced cost of 3 million USD (30%) per year\nContributed 100 hours in development",
       "type": "Projects",
       "infolink": "https://www.ubs.com/hk/en.html"
     },
@@ -120,7 +120,7 @@
       "title": "Wherami",
       "subtitle": "iOS Research Developer",
       "timestamp": "Jun - Dec 2018",
-      "details": "Developed indoor localisation techniques through research project",
+      "details": "Developed indoor localisation techniques through research project\nCreated & maintained CocoaPods framework of the user interface & engines individually\nContributed 120 hours in development",
       "type": "Projects",
       "infolink": "http://egz160.ust.hk/lbs/"
     },
@@ -129,7 +129,7 @@
       "title": "The Hong Kong University of Science and Technology",
       "subtitle": "IPO Ambassador",
       "timestamp": "Sep 2017 - Aug 2018",
-      "details": "Promoted interdisciplinary education through reach out events",
+      "details": "Hosted a reach out event to promote interdisciplinary education",
       "type": "Activities",
       "infolink": "https://www.ipo.ust.hk/en/home/"
     },
@@ -138,7 +138,7 @@
       "title": "Hackathon@UST 2018 — hardUST",
       "subtitle": "Champion & Creativity Award",
       "timestamp": "Apr 2018",
-      "details": "Promoted interdisciplinary education through reach out events",
+      "details": "Redesigned the airplane using “Detachable Fuselage” in a team of 5\nDesigned demo airplane & animations for presentation within 48 hours\nReduced airplane turn-time by 6-fold",
       "type": "Achievements",
       "infolink": "http://hack.ust.hk-cic.com/hack2018.htm#"
     },
@@ -188,7 +188,7 @@
         { "title": "2015 Junior Group", "subtitle": "Bronze" },
         { "title": "2014 Junior Group", "subtitle": "Bronze" }
       ],
-      "details": "Competition emphasising on problem-solving techniques & programming skills",
+      "details": "Analysed & solved 4-5 algorithmic problems within 5 hours individually",
       "type": "Achievements",
       "infolink": "https://hkoi.org/en/"
     },
@@ -225,7 +225,7 @@
       "title": "49th Joint School Science Exhibition 2016",
       "subtitle": "2nd runner-up",
       "timestamp": "Aug 2016",
-      "details": "Competition using scientific knowledge & “Connection” as theme to demonstrate novel ideas\nWorked as project holder and managed exhibition booth\nDeveloped an iOS application for demonstration",
+      "details": "Demonstrated novel ideas with scientific knowledge in a group of 4\nIntroduced “Botanical Circuit” which uses plants as part of circuit\nSupervised the 1-week exhibition booth as a project holder\nDeveloped an iOS application for demonstration",
       "type": "Achievements",
       "infolink": "http://www.jsse.org.hk"
     },
