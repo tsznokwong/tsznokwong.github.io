@@ -29,6 +29,24 @@
     },
     {
       "category": "normal",
+      "title": "Electronic Trading Challenge 2020 - Jane Street",
+      "subtitle": "Champion (Last Hour) & 1st Runner-up (Overall)",
+      "timestamp": "Oct 2020",
+      "details": "Competed against each other team in a simulated market in a team of 4",
+      "type": "Achievements",
+      "infolink": "https://www.janestreet.com"
+    },
+    {
+      "category": "normal",
+      "title": "CodeIT Suisse 2020 - Credit Suisse",
+      "subtitle": "1st Runner-up",
+      "timestamp": "Sep 2020",
+      "details": "Solved 13 out of 19 algorithmic questions completely in a team of 3 within 27 hours",
+      "type": "Achievements",
+      "infolink": "https://www.credit-suisse.com/international/en.html"
+    },
+    {
+      "category": "normal",
       "title": "Dayta AI",
       "subtitle": "Software Engineer / Lead of Internal Control",
       "timestamp": "Apr - Jul 2020",
@@ -83,7 +101,7 @@
     {
       "category": "normal",
       "title": "Cyber Defenders Challenge 2019",
-      "subtitle": "1st-runner up",
+      "subtitle": "1st Runner-Up",
       "timestamp": "May 2019",
       "details": "Defended attack from the Internet using cybersecurity principles in a team of 2 within 3 hours",
       "type": "Achievements",
@@ -94,7 +112,8 @@
       "title": "Students' Academic Excellence 2019",
       "subtitle": "The Hong Kong University of Science and Technology Interdisciplinary Program",
       "timestamp": "Apr 2019",
-      "type": "Achievements"
+      "type": "Achievements",
+      "infolink": "https://www.ust.hk"
     },
     {
       "category": "normal",
@@ -223,7 +242,7 @@
     {
       "category": "normal",
       "title": "49th Joint School Science Exhibition 2016",
-      "subtitle": "2nd runner-up",
+      "subtitle": "2nd Runner-Up",
       "timestamp": "Aug 2016",
       "details": "Demonstrated novel ideas with scientific knowledge in a group of 4\nIntroduced “Botanical Circuit” which uses plants as part of circuit\nSupervised the 1-week exhibition booth as a project holder\nDeveloped an iOS application for demonstration",
       "type": "Achievements",
@@ -234,7 +253,8 @@
       "title": "Secondary School Mathematics & Science Competition 2016",
       "subtitle": "High Distinction in Chemistry & Physics",
       "timestamp": "Jul 2016",
-      "type": "Achievements"
+      "type": "Achievements",
+      "infolink": "https://www6.polyu.edu.hk/fast/ssmsc/"
     },
     {
       "category": "normal",
@@ -323,7 +343,8 @@
       "title": "The Associated Board of the Royal Schools of Music",
       "subtitle": "Grade 3 Trumpet",
       "timestamp": "2013",
-      "type": "Activities"
+      "type": "Activities",
+      "infolink": "https://hk.abrsm.org/en/"
     },
     { "category": "year-stamp", "year": "2013" },
     {
