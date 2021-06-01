@@ -19,6 +19,7 @@ const JourneyPage = (props: JourneyPageProps) => {
         background={Portrait1}
       />
       <Timeline
+        className={classes.timelineContainer}
         items={Data.timeline.map((item) => item as TimelineItemProps)}
       />
     </Container>
@@ -35,9 +36,13 @@ const useStyles = makeStyles((theme: Theme) => {
       flexDirection: "column",
     },
     introContainer: {
+      marginTop: "1rem",
       backgroundSize: "contain",
       backgroundRepeat: "no-repeat",
       backgroundPositionX: "75%",
+    },
+    timelineContainer: {
+      marginTop: "1rem",
     },
   };
 });

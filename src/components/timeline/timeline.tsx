@@ -1,5 +1,12 @@
 import React, { useState } from "react";
-import { makeStyles, Theme, Button, ButtonGroup } from "@material-ui/core";
+import {
+  makeStyles,
+  Theme,
+  Button,
+  ButtonGroup,
+  useTheme,
+  useMediaQuery,
+} from "@material-ui/core";
 import { Timeline as MUITimeline } from "@material-ui/lab";
 
 import PageContainer from "../page-container";
@@ -10,15 +17,21 @@ import Tooltip from "../tooltip";
 
 type TimelineProps = {
   items: TimelineItemProps[];
+  className?: string;
 };
 
 const Timeline = (props: TimelineProps) => {
   const classes = useStyles();
-  const { items } = props;
+  const { items, className } = props;
+  const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("xs"));
+  const isLargeScreen = useMediaQuery(theme.breakpoints.up("xl"));
   const [filter, setFilter] = useState(TimelineItemTypes);
   return (
-    <PageContainer className={classes.root}>
-      <ButtonGroup>
+    <PageContainer className={`${classes.root} ${className}`}>
+      <ButtonGroup
+        size={isSmallScreen ? "small" : isLargeScreen ? "large" : "medium"}
+      >
         {TimelineItemTypes.map((type, index) => (
           <Tooltip
             key={`filter_button_${index}`}
