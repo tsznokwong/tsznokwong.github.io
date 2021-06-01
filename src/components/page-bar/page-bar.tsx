@@ -25,20 +25,9 @@ const PageBar = (props: PageBarProps) => {
   const trigger = useScrollTrigger();
   const expandedMenu = useMediaQuery(theme.breakpoints.up("sm"));
   const [openDrawer, setOpenDrawer] = useState(false);
-  console.log(trigger);
   return (
     <Slide direction="down" in={!trigger} appear>
-      <AppBar
-        className={classes.root}
-        color="transparent"
-        position="sticky"
-        style={
-          {
-            // backgroundColor: "rgba(255, 255, 255, 0.8)",
-            // backdropFilter: "blur(2rem)",
-          }
-        }
-      >
+      <AppBar className={classes.root} color="transparent" position="sticky">
         <Container className={classes.bar}>
           <PageTitle />
           {expandedMenu ? (

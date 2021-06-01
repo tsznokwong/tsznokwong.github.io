@@ -13,11 +13,11 @@ const PageContainer = (props: PageContainerProps) => {
   return (
     <Container
       className={`${classes.root} ${className}`}
+      maxWidth={false}
+      disableGutters
       style={{
         backgroundImage: background ? `url(${background})` : undefined,
       }}
-      maxWidth={false}
-      disableGutters
     >
       <Container maxWidth="md">{children}</Container>
     </Container>
