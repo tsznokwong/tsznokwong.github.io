@@ -7,13 +7,17 @@ type ParagraphSectionProps = {
   title?: string;
   subtitle?: string;
   background?: string;
+  className?: string;
 };
 
 const ParagraphSection = (props: ParagraphSectionProps) => {
-  const { title, subtitle, background } = props;
+  const { title, subtitle, background, className } = props;
   const classes = useStyles();
   return (
-    <PageContainer className={classes.root} background={background}>
+    <PageContainer
+      className={`${classes.root} ${className}`}
+      background={background}
+    >
       {title && (
         <Typography className={classes.title} variant="h1">
           {title}
