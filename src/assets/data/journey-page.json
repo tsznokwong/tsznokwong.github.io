@@ -9,10 +9,10 @@
       "subtitle": "Computer Science (BEng) & General Business Management (BBA) (Expected 2022)",
       "timestamp": "Since 2017",
       "highlights": [
-        { "title": "CGA", "subtitle": "3.813 / 4.3 (As of 2020-21 Winter)" },
+        { "title": "CGA", "subtitle": "3.832 / 4.3 (As of 2020-21 Winter)" },
         {
           "title": "Dean's List",
-          "subtitle": "2017-18 Fall, 2018-19 Fall & Spring, 2020-21 Fall"
+          "subtitle": "2017-18 Fall, 2018-19 Fall & Spring, 2020-21 Fall & Spring"
         }
       ],
       "type": "Education",
@@ -21,9 +21,19 @@
     {
       "category": "normal",
       "title": "USThing",
-      "subtitle": "Senior iOS developer & Designer",
+      "subtitle": "Senior Developer & Designer",
       "timestamp": "Since 2017",
-      "details": "Developed mobile app & events for HKUST students\nApplication development with Swift and Objective-C in iOS\nPlanned team development & administrated the team of size 30\nDesigned architectures, models & pipelines for mobile application development\nUser Interface design using Sketch, Adobe XD\nFront-end development cycle, production and deployment to App Store\nCI/CD Pipelining\nWorking closely in a team as a lead developer\nCollaboration with University",
+      "highlights": [
+        {
+          "title": "Programming Languages",
+          "subtitle": "Swift, Objective-C, Fastlane"
+        },
+        {
+          "title": "Skills",
+          "subtitle": "Software Design & Development, Team Development, CI/CD Pipelining, UITest, UI/UX Design (Sketch, Adobe XD)"
+        }
+      ],
+      "details": "USThing is a student-developed campus app for HKUST, in collaborating with the University. I work closely in a team as a lead developer, focusing on iOS development, architectural design and DevOps. Other than these focus, I participate in HR, UI/UX Design, Public Relation and other development tasks in Android & Backend. Being the PIC of USThing, I have adminstrated the team of size 30.",
       "type": "Projects",
       "infolink": "http://usthing.ust.hk"
     },
@@ -33,7 +43,10 @@
       "title": "Electronic Trading Challenge 2020 - Jane Street",
       "subtitle": "Champion (Last Hour) & 1st Runner-up (Overall)",
       "timestamp": "Oct 2020",
-      "details": "Competed against each other team in a simulated market in a team of 4",
+      "highlights": [
+        { "title": "Programming Languages", "subtitle": "Python" }
+      ],
+      "details": "Participants compete against each other teams in a simulated market in a team of 4",
       "type": "Achievements",
       "infolink": "https://www.janestreet.com"
     },
@@ -42,6 +55,9 @@
       "title": "CodeIT Suisse 2020 - Credit Suisse",
       "subtitle": "1st Runner-up",
       "timestamp": "Sep 2020",
+      "highlights": [
+        { "title": "Programming Languages", "subtitle": "JavaScript, Python" }
+      ],
       "details": "Solved 13 out of 19 algorithmic questions completely in a team of 3 within 27 hours",
       "type": "Achievements",
       "infolink": "https://www.credit-suisse.com/international/en.html"
@@ -51,6 +67,16 @@
       "title": "Dayta AI",
       "subtitle": "Software Engineer / Lead of Internal Control",
       "timestamp": "Apr - Jul 2020",
+      "highlights": [
+        {
+          "title": "Programming Languages",
+          "subtitle": "TypeScript, JavaScript, Go"
+        },
+        {
+          "title": "Skills",
+          "subtitle": "React, GitHub Actions, Redis, Kubernetes"
+        }
+      ],
       "details": "Coordinated & participated in the development of admin dashboard project\nDeveloped 2 web applications using Typescript with React within 2 months\nReduced responding time by 10-fold by migrating a backend service to Go\nEngineered cache & cluster registry system using Redis Cluster\nManaged 2 summer interns",
       "type": "Work",
       "infolink": "https://dayta.ai"
@@ -69,6 +95,16 @@
       "title": "Accenture",
       "subtitle": "Associate Software Engineer",
       "timestamp": "Jul - Dec 2019",
+      "highlights": [
+        {
+          "title": "Programming Languages",
+          "subtitle": "Swift, Fastlane, Python, Shell"
+        },
+        {
+          "title": "Skills",
+          "subtitle": "UITest"
+        }
+      ],
       "details": "Completed mobile test automation project ahead of time in a team of 4\nImplemented over 100 regression UI test cases on iOS Application using Swift\nStreamlined test automation using Fastlane, Shell & Python",
       "type": "Work",
       "infolink": "https://www.accenture.com/hk-en"
@@ -130,6 +166,12 @@
       "title": "UBS Investment Banking",
       "subtitle": "Independent Study Project Leader",
       "timestamp": "Sep 2018 - Jan 2019",
+      "highlights": [
+        {
+          "title": "Programming Languages",
+          "subtitle": "Java"
+        }
+      ],
       "details": "Optimised cloud computation service usage in a group of 2\nReduced cost of 3 million USD (30%) per year\nContributed 100 hours in development",
       "type": "Projects",
       "infolink": "https://www.ubs.com/hk/en.html"
@@ -140,6 +182,12 @@
       "title": "Wherami",
       "subtitle": "iOS Research Developer",
       "timestamp": "Jun - Dec 2018",
+      "highlights": [
+        {
+          "title": "Programming Languages",
+          "subtitle": "Swift"
+        }
+      ],
       "details": "Developed indoor localisation techniques through research project\nCreated & maintained CocoaPods framework of the user interface & engines individually\nContributed 120 hours in development",
       "type": "Projects",
       "infolink": "http://egz160.ust.hk/lbs/"
