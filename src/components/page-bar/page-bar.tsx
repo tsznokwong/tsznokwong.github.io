@@ -5,7 +5,6 @@ import {
   Container,
   makeStyles,
   Theme,
-  useScrollTrigger,
   useMediaQuery,
   useTheme,
   Button,
@@ -16,17 +15,18 @@ import MenuIcon from "@material-ui/icons/Menu";
 import PageTitle from "../page-title";
 import PageMenu from "../page-menu";
 import PageDrawerList from "../page-drawer-list";
+import { usePageBarTrigger } from "./page-bar-hooks";
 
 type PageBarProps = {};
 
 const PageBar = (props: PageBarProps) => {
   const theme = useTheme();
   const classes = useStyles();
-  const trigger = useScrollTrigger();
+  const trigger = usePageBarTrigger();
   const expandedMenu = useMediaQuery(theme.breakpoints.up("sm"));
   const [openDrawer, setOpenDrawer] = useState(false);
   return (
-    <Slide direction="down" in={!trigger} appear>
+    <Slide direction="down" in={trigger} appear>
       <AppBar className={classes.root} color="transparent" position="sticky">
         <Container className={classes.bar}>
           <PageTitle />

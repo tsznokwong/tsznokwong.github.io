@@ -15,6 +15,7 @@ import TimelineItem, { TimelineItemProps } from "./timeline-item";
 import { TimelineItemTypes } from "../../types/timeline-item-type";
 import TimelineItemIcon from "./timeline-item/timeline-item-icon";
 import Tooltip from "../tooltip";
+import { usePageBarTrigger } from "../page-bar/page-bar-hooks";
 
 type TimelineProps = {
   items: TimelineItemProps[];
@@ -28,10 +29,12 @@ const Timeline = (props: TimelineProps) => {
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("xs"));
   const isLargeScreen = useMediaQuery(theme.breakpoints.up("xl"));
   const [filter, setFilter] = useState(TimelineItemTypes);
+  const trigger = usePageBarTrigger();
+  console.log(trigger);
   return (
     <StickyContainer>
       <PageContainer className={`${classes.root} ${className}`}>
-        <Sticky topOffset={-80}>
+        <Sticky>
           {({ style }) => (
             <div className={classes.sticky}>
               <ButtonGroup
@@ -39,7 +42,12 @@ const Timeline = (props: TimelineProps) => {
                 size={
                   isSmallScreen ? "small" : isLargeScreen ? "large" : "medium"
                 }
-                style={{ ...style, left: undefined, width: undefined }}
+                style={{
+                  ...style,
+                  left: undefined,
+                  width: undefined,
+                  top: trigger ? "5rem" : "1rem",
+                }}
               >
                 {TimelineItemTypes.map((type, index) => (
                   <Tooltip
@@ -126,6 +134,8 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   filterButton: {
     borderColor: theme.palette.primary.main,
+    backgroundColor: "rgba(1, 1, 1, 0.05)",
+    backdropFilter: "blur(5px)",
   },
   filterButtonSelected: {
     "&:hover": {
