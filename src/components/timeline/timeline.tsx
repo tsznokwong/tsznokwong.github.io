@@ -45,13 +45,17 @@ const Timeline = (props: TimelineProps) => {
                   : classes.filterButton
               }
               onClick={() => {
-                setFilter(
-                  TimelineItemTypes.filter((filterType) => {
-                    const isFiltered = filter.includes(filterType);
-                    const clicked = type === filterType;
-                    return !isFiltered === clicked;
-                  })
-                );
+                if (filter.length === TimelineItemTypes.length) {
+                  setFilter([type]);
+                } else {
+                  setFilter(
+                    TimelineItemTypes.filter((filterType) => {
+                      const isFiltered = filter.includes(filterType);
+                      const clicked = type === filterType;
+                      return !isFiltered === clicked;
+                    })
+                  );
+                }
               }}
               disableRipple
             >
