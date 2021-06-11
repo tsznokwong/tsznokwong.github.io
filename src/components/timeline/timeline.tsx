@@ -30,7 +30,6 @@ const Timeline = (props: TimelineProps) => {
   const isLargeScreen = useMediaQuery(theme.breakpoints.up("xl"));
   const [filter, setFilter] = useState(TimelineItemTypes);
   const trigger = usePageBarTrigger();
-  console.log(trigger);
   return (
     <StickyContainer>
       <PageContainer className={`${classes.root} ${className}`}>
