@@ -9,10 +9,14 @@
       "subtitle": "Computer Science (BEng) & General Business Management (BBA) (Expected 2022)",
       "timestamp": "Since 2017",
       "highlights": [
-        { "title": "CGA", "subtitle": "3.832 / 4.3 (As of 2020-21 Winter)" },
+        { "title": "CGA", "subtitle": "3.832 / 4.3 (As of 2020-21 Spring)" },
         {
           "title": "Dean's List",
           "subtitle": "2017-18 Fall, 2018-19 Fall & Spring, 2020-21 Fall & Spring"
+        },
+        {
+          "title": "Highlighted Courses",
+          "subtitle": "Machine Learning, Practicing Cybersecurity, Quantum Information, Independent Work (Algorithmic Game Theory), Applied Game Theory, Cases-based Problem Solving, Innovation Protection"
         }
       ],
       "type": "Education",
@@ -36,6 +40,23 @@
       "details": "USThing is a student-developed campus app for HKUST, in collaborating with the University. I work closely in a team as a lead developer, focusing on iOS development, architectural design and DevOps. Other than these focus, I participate in HR, UI/UX Design, Public Relation and other development tasks in Android & Backend. Being the PIC of USThing, I have adminstrated the team of size 30.",
       "type": "Projects",
       "infolink": "http://usthing.ust.hk"
+    },
+    {
+      "category": "normal",
+      "title": "Bloomberg Marketing Concept",
+      "subtitle": "Completion",
+      "timestamp": "Jun 2021",
+      "type": "Achievements",
+      "infolink": "pdf/bmc_162355331268.pdf"
+    },
+    {
+      "category": "normal",
+      "title": "International Business Plan Competition 2021",
+      "subtitle": "Reimagine Education during COVID-19 and Beyond",
+      "timestamp": "Jan 2021",
+      "type": "Activities",
+      "details": "Redesigned experience of tutors with \"Tutorg\" in a team of 5",
+      "infolink": "https://news.ust.hk/news/reimagine-education-during-covid-19-and-beyond-2021-winter-technology-management-international"
     },
     { "category": "year-stamp", "year": "2021" },
     {
