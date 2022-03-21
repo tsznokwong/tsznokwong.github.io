@@ -9,14 +9,14 @@
       "subtitle": "Computer Science (BEng) & General Business Management (BBA) (Expected 2022)",
       "timestamp": "Since 2017",
       "highlights": [
-        { "title": "CGA", "subtitle": "3.832 / 4.3 (As of 2020-21 Spring)" },
+        { "title": "CGA", "subtitle": "3.871 / 4.3 (As of 2020-21 Spring)" },
         {
           "title": "Dean's List",
-          "subtitle": "2017-18 Fall, 2018-19 Fall & Spring, 2020-21 Fall & Spring"
+          "subtitle": "2017-18 Fall, 2018-19 Fall & Spring, 2020-21 Fall & Spring, 2021-22 Fall"
         },
         {
           "title": "Highlighted Courses",
-          "subtitle": "Machine Learning, Practicing Cybersecurity, Quantum Information, Independent Work (Algorithmic Game Theory), Applied Game Theory, Cases-based Problem Solving, Innovation Protection"
+          "subtitle": "Introduction to Advanced Algorithmic Techniques, Theory of Computation, Machine Learning, Practicing Cybersecurity: Attacks and Counter-measures, Computer Language Processing and Compiler Design, Quantum Information, Independent Work - Algorithmic Game Theory, Applied Game Theory, Cases-based Problem Solving, Managerial Microeconomics, Negotiation, Derivatives Securities, Innovation Protection, Psychology and Everyday Life, World Religions"
         }
       ],
       "type": "Education",
@@ -26,7 +26,7 @@
       "category": "normal",
       "title": "USThing",
       "subtitle": "Senior Developer & Designer",
-      "timestamp": "Since 2017",
+      "timestamp": "2017 - 2022 May",
       "highlights": [
         {
           "title": "Programming Languages",
@@ -43,9 +43,44 @@
     },
     {
       "category": "normal",
+      "title": "Kaifong Tour",
+      "subtitle": "Student Marketing Consultant - Community Services Project (HKUST)",
+      "timestamp": "Jan 2022 - May 2022",
+      "details": "",
+      "type": "Projects",
+      "infolink": "https://kaifongtour.com"
+    },
+    {
+      "category": "normal",
+      "title": "Pearson PTE Academic",
+      "subtitle": "Awarded overall 77 points ",
+      "timestamp": "Mar 2022",
+      "highlights": [
+        { "title": "Listening", "subtitle": "68" },
+        { "title": "Reading", "subtitle": "90" },
+        { "title": "Speaking", "subtitle": "73" },
+        { "title": "Writing", "subtitle": "73" }
+      ],
+      "type": "Achievements",
+      "infolink": "https://www.pearsonpte.com"
+    },
+    { "category": "year-stamp", "year": "2022" },
+    {
+      "category": "normal",
       "title": "Bloomberg LP",
-      "subtitle": "Summer Engineering Intern",
+      "subtitle": "Summer Engineering Intern (Software Infrastructure - APAC Market Data Feeds Team)",
       "timestamp": "Since Jun 2021",
+      "highlights": [
+        {
+          "title": "Programming Languages",
+          "subtitle": "C++, Shell"
+        },
+        {
+          "title": "Skills",
+          "subtitle": "Software Development, Testing, Deployment, Volunteering"
+        }
+      ],
+      "details": "Worked 10 weeks for Software Infrastructure Market Data Feeds Team using C++\nIntroduced open/closing auction data & automated tick size for Shenzhen parser\nMigrated business logics of real-time bond data using new exchange bond platform\nParticipated over 10 hours of BOB volunteering events, including Bread-run for Foodlink Foundation and Marketing Consulting Servicie for Habitat for Humanity Hong Kong",
       "type": "Work",
       "infolink": "https://www.bloomberg.com/company/"
     },
@@ -56,6 +91,14 @@
       "timestamp": "Jun 2021",
       "type": "Achievements",
       "infolink": "pdf/bmc_162355331268.pdf"
+    },
+    {
+      "category": "normal",
+      "title": "Talent Development Scholarship 2020/21",
+      "subtitle": "Hong Kong Special Administrative Region Government Scholarship Fund",
+      "timestamp": "Jun 2021",
+      "type": "Achievements",
+      "infolink": "https://www.edb.gov.hk/en/edu-system/postsecondary/local-higher-edu/publicly-funded-programmmes/scholarship.html"
     },
     {
       "category": "normal",
@@ -193,7 +236,7 @@
     {
       "category": "normal",
       "title": "UBS Investment Banking",
-      "subtitle": "Independent Study Project Leader",
+      "subtitle": "Student Developer (Leader) - Independent Study Project (HKUST)",
       "timestamp": "Sep 2018 - Jan 2019",
       "highlights": [
         {
@@ -209,7 +252,7 @@
     {
       "category": "normal",
       "title": "Wherami",
-      "subtitle": "iOS Research Developer",
+      "subtitle": "Student iOS Research Developer",
       "timestamp": "Jun - Dec 2018",
       "highlights": [
         {
@@ -274,6 +317,18 @@
       "details": "The Hong Kong Diploma of Secondary Education Examination 2017 (Best 5: 33)",
       "type": "Education",
       "infolink": "http://spc.edu.hk"
+    },
+    {
+      "category": "normal",
+      "title": "The Hong Kong Diploma of Secondary Education Examinaation",
+      "subtitle": "Awarded 33 points in best 5",
+      "timestamp": "2017",
+      "highlights": [
+        { "title": "Awarded 5**", "subtitle": "Physics, Mathematics (Core) & Information and Communication Technology" },
+        { "title": "Awarded 5*", "subtitle": "Mathematics (Module II) & Chemistry" }
+      ],
+      "type": "Achievements",
+      "infolink": "https://www.hkeaa.edu.hk/tc/hkdse/"
     },
     {
       "category": "normal",
