@@ -1,22 +1,15 @@
 {
   "files": {
-    "main.css": "/static/css/main.6dea0f05.chunk.css",
-    "main.js": "/static/js/main.fb555f75.chunk.js",
-    "main.js.map": "/static/js/main.fb555f75.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.fe7d233c.js",
-    "runtime-main.js.map": "/static/js/runtime-main.fe7d233c.js.map",
-    "static/js/2.c3f9294c.chunk.js": "/static/js/2.c3f9294c.chunk.js",
-    "static/js/2.c3f9294c.chunk.js.map": "/static/js/2.c3f9294c.chunk.js.map",
+    "main.css": "/static/css/main.e6c13ad2.css",
+    "main.js": "/static/js/main.58213e7a.js",
+    "static/media/portrait-1.svg": "/static/media/portrait-1.4666f920fc85f3665019c0dfccd4b79c.svg",
+    "static/media/hkust-firebird.svg": "/static/media/hkust-firebird.f791fc5f79a4d635525e7f44a057dfcd.svg",
     "index.html": "/index.html",
-    "static/css/main.6dea0f05.chunk.css.map": "/static/css/main.6dea0f05.chunk.css.map",
-    "static/js/2.c3f9294c.chunk.js.LICENSE.txt": "/static/js/2.c3f9294c.chunk.js.LICENSE.txt",
-    "static/media/hkust-firebird.f791fc5f.svg": "/static/media/hkust-firebird.f791fc5f.svg",
-    "static/media/portrait-1.4666f920.svg": "/static/media/portrait-1.4666f920.svg"
+    "main.e6c13ad2.css.map": "/static/css/main.e6c13ad2.css.map",
+    "main.58213e7a.js.map": "/static/js/main.58213e7a.js.map"
   },
   "entrypoints": [
-    "static/js/runtime-main.fe7d233c.js",
-    "static/js/2.c3f9294c.chunk.js",
-    "static/css/main.6dea0f05.chunk.css",
-    "static/js/main.fb555f75.chunk.js"
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.58213e7a.js"
   ]
 }
