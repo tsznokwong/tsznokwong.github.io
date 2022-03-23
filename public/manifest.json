@@ -1,6 +1,6 @@
 {
-  "short_name": "Tsznok Wong",
-  "name": "Tsznok Wong Personal Web",
+  "short_name": "Joshua",
+  "name": "Joshua Wong's Personal Web",
   "icons": [
     {
       "src": "favicon.ico",
@@ -10,6 +10,6 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
+  "theme_color": "#0b0767",
   "background_color": "#ffffff"
 }
