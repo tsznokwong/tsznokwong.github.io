@@ -7,9 +7,9 @@
       "category": "normal",
       "title": "The Hong Kong University of Science and Technology",
       "subtitle": "Computer Science (BEng) & General Business Management (BBA) (Expected 2022)",
-      "timestamp": "Since 2017",
+      "timestamp": "Since Sep 2017",
       "highlights": [
-        { "title": "CGA", "subtitle": "3.871 / 4.3 (As of 2020-21 Spring)" },
+        { "title": "CGA", "subtitle": "3.871 / 4.3 (As of 2021-22 Winter)" },
         {
           "title": "Dean's List",
           "subtitle": "2017-18 Fall, 2018-19 Fall & Spring, 2020-21 Fall & Spring, 2021-22 Fall"
@@ -26,7 +26,7 @@
       "category": "normal",
       "title": "USThing",
       "subtitle": "Senior Developer & Designer",
-      "timestamp": "2017 - 2022 May",
+      "timestamp": "Oct 2017 - May 2022",
       "highlights": [
         {
           "title": "Programming Languages",
@@ -46,7 +46,7 @@
       "title": "Kaifong Tour",
       "subtitle": "Student Marketing Consultant - Community Services Project (HKUST)",
       "timestamp": "Jan 2022 - May 2022",
-      "details": "",
+      "details": "Researched on the market of local tourism\nDeveloped marketing strategies and plans for the local tourism project",
       "type": "Projects",
       "infolink": "https://kaifongtour.com"
     },
