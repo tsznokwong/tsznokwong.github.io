@@ -1,6 +1,7 @@
 import React from "react";
 import HomePage from "../../containers/home-page";
 import JourneyPage from "../../containers/journey-page";
+import BlogPage from "../../containers/blog-page";
 import TestPage from "../../containers/test-page";
 
 export type PageMeta = {
@@ -24,6 +25,13 @@ const Journey: PageMeta = {
   Page: JourneyPage,
 };
 
+const Blog: PageMeta = {
+  title: "Blog",
+  path: "/blog",
+  exactPath: false,
+  Page: BlogPage,
+};
+
 const Test: PageMeta = {
   title: "Test",
   path: "/test",
@@ -31,11 +39,12 @@ const Test: PageMeta = {
   Page: TestPage,
 };
 
-const AllValues = [Home, Journey];
+const AllValues = [Home, Journey, Blog];
 
 const PageType = {
   Home: Home,
   Experience: Journey,
+  Blog: Blog,
   Test: Test,
   AllValues: AllValues,
   fromPath(path?: string): PageMeta {
