@@ -2,17 +2,38 @@
   "title": "Journey Timeline",
   "subtitle": "Presenting the history of Joshua.",
   "timeline": [
-    { "category": "year-stamp", "year": "Now" },
+    {
+      "category": "year-stamp",
+      "year": "Now"
+    },
+    {
+      "category": "normal",
+      "title": "Bloomberg LP",
+      "subtitle": "Software Engineer (Financial Analytics - Derivatives Structuring Platform, London)",
+      "timestamp": "Since Aug 2022",
+      "highlights": [
+        {
+          "title": "Programming Languages",
+          "subtitle": "C++, Python"
+        }
+      ],
+      "details": "Delivered a full-stack internal tool to reduce human errors when handling deal transfer request\nMigrating applications/scripts from SunOS to Linux\nDeveloping micro services architected Derivatives API to save, load & update deals",
+      "type": "Work",
+      "infolink": "https://www.bloomberg.com/company/"
+    },
     {
       "category": "normal",
       "title": "The Hong Kong University of Science and Technology",
-      "subtitle": "Computer Science (BEng) & General Business Management (BBA) (Expected 2022)",
-      "timestamp": "Since Sep 2017",
+      "subtitle": "Computer Science (BEng) & General Business Management (BBA) with First Class Honour",
+      "timestamp": "Sep 2017 - Jun 2022",
       "highlights": [
-        { "title": "CGA", "subtitle": "3.871 / 4.3 (As of 2021-22 Winter)" },
+        {
+          "title": "CGA",
+          "subtitle": "3.872 / 4.3"
+        },
         {
           "title": "Dean's List",
-          "subtitle": "2017-18 Fall, 2018-19 Fall & Spring, 2020-21 Fall & Spring, 2021-22 Fall"
+          "subtitle": "2017-18 Fall, 2018-19 Fall & Spring, 2020-21 Fall & Spring, 2021-22 Fall & Spring"
         },
         {
           "title": "Highlighted Courses",
@@ -64,15 +85,30 @@
       "subtitle": "Awarded overall 77 points ",
       "timestamp": "Mar 2022",
       "highlights": [
-        { "title": "Listening", "subtitle": "68" },
-        { "title": "Reading", "subtitle": "90" },
-        { "title": "Speaking", "subtitle": "73" },
-        { "title": "Writing", "subtitle": "73" }
+        {
+          "title": "Listening",
+          "subtitle": "68"
+        },
+        {
+          "title": "Reading",
+          "subtitle": "90"
+        },
+        {
+          "title": "Speaking",
+          "subtitle": "73"
+        },
+        {
+          "title": "Writing",
+          "subtitle": "73"
+        }
       ],
       "type": "Achievements",
       "infolink": "https://www.pearsonpte.com"
     },
-    { "category": "year-stamp", "year": "2022" },
+    {
+      "category": "year-stamp",
+      "year": "2022"
+    },
     {
       "category": "normal",
       "title": "Bloomberg LP",
@@ -117,14 +153,20 @@
       "details": "Redesigned experience of tutors with \"Tutorg\" in a team of 5",
       "infolink": "https://news.ust.hk/news/reimagine-education-during-covid-19-and-beyond-2021-winter-technology-management-international"
     },
-    { "category": "year-stamp", "year": "2021" },
+    {
+      "category": "year-stamp",
+      "year": "2021"
+    },
     {
       "category": "normal",
       "title": "Electronic Trading Challenge 2020 - Jane Street",
       "subtitle": "Champion (Last Hour) & 1st Runner-up (Overall)",
       "timestamp": "Oct 2020",
       "highlights": [
-        { "title": "Programming Languages", "subtitle": "Python" }
+        {
+          "title": "Programming Languages",
+          "subtitle": "Python"
+        }
       ],
       "details": "Participants compete against each other teams in a simulated market in a team of 4",
       "type": "Achievements",
@@ -136,7 +178,10 @@
       "subtitle": "1st Runner-up",
       "timestamp": "Sep 2020",
       "highlights": [
-        { "title": "Programming Languages", "subtitle": "JavaScript, Python" }
+        {
+          "title": "Programming Languages",
+          "subtitle": "JavaScript, Python"
+        }
       ],
       "details": "Solved 13 out of 19 algorithmic questions completely in a team of 3 within 27 hours",
       "type": "Achievements",
@@ -189,7 +234,10 @@
       "type": "Work",
       "infolink": "https://www.accenture.com/hk-en"
     },
-    { "category": "year-stamp", "year": "2020" },
+    {
+      "category": "year-stamp",
+      "year": "2020"
+    },
     {
       "category": "normal",
       "title": "Dr. Knowledge Learning Centre",
@@ -256,7 +304,10 @@
       "type": "Projects",
       "infolink": "https://www.ubs.com/hk/en.html"
     },
-    { "category": "year-stamp", "year": "2019" },
+    {
+      "category": "year-stamp",
+      "year": "2019"
+    },
     {
       "category": "normal",
       "title": "Wherami",
@@ -298,7 +349,10 @@
       "type": "Achievements",
       "infolink": "https://www.ust.hk"
     },
-    { "category": "year-stamp", "year": "2018" },
+    {
+      "category": "year-stamp",
+      "year": "2018"
+    },
     {
       "category": "normal",
       "title": "The Dr. Paul Cheung Kwong Yan Scholarship",
@@ -332,8 +386,14 @@
       "subtitle": "Awarded 33 points in best 5",
       "timestamp": "2017",
       "highlights": [
-        { "title": "Awarded 5**", "subtitle": "Physics, Mathematics (Core) & Information and Communication Technology" },
-        { "title": "Awarded 5*", "subtitle": "Mathematics (Module II) & Chemistry" }
+        {
+          "title": "Awarded 5**",
+          "subtitle": "Physics, Mathematics (Core) & Information and Communication Technology"
+        },
+        {
+          "title": "Awarded 5*",
+          "subtitle": "Mathematics (Module II) & Chemistry"
+        }
       ],
       "type": "Achievements",
       "infolink": "https://www.hkeaa.edu.hk/tc/hkdse/"
@@ -344,9 +404,18 @@
       "subtitle": "Silver — 2017 Senior Group",
       "timestamp": "2014 - 2017",
       "highlights": [
-        { "title": "2016 Senior Group", "subtitle": "Bronze" },
-        { "title": "2015 Junior Group", "subtitle": "Bronze" },
-        { "title": "2014 Junior Group", "subtitle": "Bronze" }
+        {
+          "title": "2016 Senior Group",
+          "subtitle": "Bronze"
+        },
+        {
+          "title": "2015 Junior Group",
+          "subtitle": "Bronze"
+        },
+        {
+          "title": "2014 Junior Group",
+          "subtitle": "Bronze"
+        }
       ],
       "details": "Analysed & solved 4-5 algorithmic problems within 5 hours individually",
       "type": "Achievements",
@@ -361,7 +430,10 @@
       "type": "Activities",
       "infolink": "https://hkoi.org/en/"
     },
-    { "category": "year-stamp", "year": "2017" },
+    {
+      "category": "year-stamp",
+      "year": "2017"
+    },
     {
       "category": "normal",
       "title": "The Dr. Paul Cheung Kwong Yan Scholarship",
@@ -433,7 +505,10 @@
       "type": "Achievements",
       "infolink": "https://i.cs.hku.hk/ccc2016/index.php"
     },
-    { "category": "year-stamp", "year": "2016" },
+    {
+      "category": "year-stamp",
+      "year": "2016"
+    },
     {
       "category": "normal",
       "title": "The Dr. Paul Cheung Kwong Yan Scholarship",
@@ -478,7 +553,10 @@
       "type": "Achievements",
       "infolink": "https://www.hkage.org.hk/en/competitions/detail/2076"
     },
-    { "category": "year-stamp", "year": "2015" },
+    {
+      "category": "year-stamp",
+      "year": "2015"
+    },
     {
       "category": "normal",
       "title": "The Associated Board of the Royal Schools of Music",
@@ -487,7 +565,10 @@
       "type": "Activities",
       "infolink": "https://hk.abrsm.org/en/"
     },
-    { "category": "year-stamp", "year": "2013" },
+    {
+      "category": "year-stamp",
+      "year": "2013"
+    },
     {
       "category": "normal",
       "title": "Potential Taekwondo Hong Kong Association",
@@ -495,7 +576,10 @@
       "timestamp": "2012",
       "type": "Activities"
     },
-    { "category": "year-stamp", "year": "2012" },
+    {
+      "category": "year-stamp",
+      "year": "2012"
+    },
     {
       "category": "normal",
       "title": "S.K.H Tin Wan Chi Nam Primary School",
@@ -504,7 +588,10 @@
       "type": "Education",
       "infolink": "http://www.tcn.edu.hk"
     },
-    { "category": "year-stamp", "year": "2011" },
+    {
+      "category": "year-stamp",
+      "year": "2011"
+    },
     {
       "category": "normal",
       "title": "Potential Taekwondo Hong Kong Association",
@@ -512,7 +599,10 @@
       "timestamp": "2010",
       "type": "Activities"
     },
-    { "category": "year-stamp", "year": "2010" },
+    {
+      "category": "year-stamp",
+      "year": "2010"
+    },
     {
       "category": "normal",
       "title": "Kau Yan School Kindergarten",
@@ -521,13 +611,19 @@
       "type": "Education",
       "infolink": "http://kauyan.edu.hk"
     },
-    { "category": "year-stamp", "year": "2005" },
+    {
+      "category": "year-stamp",
+      "year": "2005"
+    },
     {
       "category": "normal",
       "title": "Born",
       "timestamp": "27 Apr 1999",
       "type": "Milestones"
     },
-    { "category": "year-stamp", "year": "1999" }
+    {
+      "category": "year-stamp",
+      "year": "1999"
+    }
   ]
 }
