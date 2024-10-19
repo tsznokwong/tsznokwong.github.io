@@ -14,7 +14,7 @@
     "@types/node": "^22.7.7",
     "@types/react": "^16.9.35",
     "@types/react-dom": "^16.9.8",
-    "@types/react-scrollable-anchor": "^0.6.0",
+    "@types/react-scrollable-anchor": "^0.6.4",
     "@types/react-sticky": "^6.0.6",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
