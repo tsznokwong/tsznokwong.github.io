@@ -31,5 +31,8 @@ jobs:
       - name: Prepare
         run: npm ci
 
+      - name: Predeploy
+        run: npm run predeploy
+
       - name: Deploy
         run: npm run deploy
