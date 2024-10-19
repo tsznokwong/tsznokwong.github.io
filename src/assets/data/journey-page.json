@@ -9,7 +9,7 @@
     {
       "category": "normal",
       "title": "Bloomberg LP",
-      "subtitle": "Software Engineer (Financial Analytics - Derivatives Structuring Platform, London)",
+      "subtitle": "Software Engineer (Core Products - FX/Commodities Structuring)",
       "timestamp": "Since Aug 2022",
       "highlights": [
         {
@@ -20,6 +20,10 @@
       "details": "Delivered a full-stack internal tool to reduce human errors when handling deal transfer request\nMigrating applications/scripts from SunOS to Linux\nDeveloping microservices architected Derivatives API to save, load & update deals",
       "type": "Work",
       "infolink": "https://www.bloomberg.com/company/"
+    },
+    {
+      "category": "year-stamp",
+      "year": "2023"
     },
     {
       "category": "normal",
@@ -60,14 +64,14 @@
       ],
       "details": "USThing is a student-developed campus app for HKUST, in collaborating with the University. I work closely in a team as a lead developer, focusing on iOS development, architectural design and DevOps. Other than these focus, I participate in HR, UI/UX Design, Public Relation and other development tasks in Android & Backend. Being the PIC of USThing, I have adminstrated the team of size 30.",
       "type": "Projects",
-      "infolink": "http://usthing.ust.hk"
+      "infolink": "https://usthing.xyz"
     },
     {
       "category": "normal",
       "title": "Kaifong Tour",
       "subtitle": "Student Marketing Consultant - Community Services Project (HKUST)",
       "timestamp": "Jan 2022 - May 2022",
-      "details": "Researched on the market of local tourism\nDeveloped marketing strategies and plans for the local tourism project",
+      "details": "Researched on the market of local tourism\nDeveloped marketing strategies and plans for the local tourism project\n\n* This position refers to the course SBMT2100Q Community Service Project under the partnership of HKUST and Kaifong Tour. It is NOT a direct employment relationship with Kaifong Tour.",
       "type": "Projects",
       "infolink": "https://kaifongtour.com"
     },
@@ -151,7 +155,7 @@
       "timestamp": "Jan 2021",
       "type": "Activities",
       "details": "Redesigned experience of tutors with \"Tutorg\" in a team of 5",
-      "infolink": "https://news.ust.hk/news/reimagine-education-during-covid-19-and-beyond-2021-winter-technology-management-international"
+      "infolink": "https://techmgmt.hkust.edu.hk/international-business-plan-competition"
     },
     {
       "category": "year-stamp",
@@ -300,7 +304,7 @@
           "subtitle": "Java"
         }
       ],
-      "details": "Optimised cloud computation service usage in a group of 2\nReduced cost of 3 million USD (30%) per year\nContributed 100 hours in development",
+      "details": "Optimised cloud computation service usage in a group of 2\nReduced cost of 3 million USD (30%) per year\nContributed 100 hours in development\n\n* This position refers to the course TEMG4000F Independent Study Project at HKUST, sponsored by UBS Investment Banking. It is NOT a direct employment relationship with UBS Investment Banking.",
       "type": "Projects",
       "infolink": "https://www.ubs.com/hk/en.html"
     },
