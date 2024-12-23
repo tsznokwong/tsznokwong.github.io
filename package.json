@@ -18,7 +18,7 @@
     "@types/react-sticky": "^6.0.6",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-router-dom": "^5.2.0",
+    "react-router-dom": "^6.28.1",
     "react-scripts": "5.0.1",
     "react-scrollable-anchor": "^0.6.1",
     "react-sticky": "^6.0.3",
