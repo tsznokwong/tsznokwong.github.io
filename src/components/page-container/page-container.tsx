@@ -19,7 +19,7 @@ const PageContainer = (props: PageContainerProps) => {
         backgroundImage: background ? `url(${background})` : undefined,
       }}
     >
-      <Container maxWidth="md">{children}</Container>
+      <Container maxWidth="md">{children ?? <div />}</Container>
     </Container>
   );
 };
