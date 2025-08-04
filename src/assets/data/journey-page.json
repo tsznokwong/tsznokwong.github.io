@@ -17,7 +17,7 @@
           "subtitle": "C++, Python"
         }
       ],
-      "details": "Fostering continuous improvement & innovation as a Technical Representative of the team.\nMigrating applications/scripts from SunOS to Linux\nDeveloping microservices architected Derivatives API to save, load & update deals\nDelivered a full-stack internal tool to reduce human errors when handling deal transfer request",
+      "details": "Fostering continuous improvement & innovation as a Technical Representative of the team.\nPromoting best practices & better developer experience as FID Working Group Board\nMigrated applications/scripts from SunOS to Linux\nDeveloped microservices architected Derivatives API to save, load & update deals\nDelivered a full-stack internal tool to reduce human errors when handling deal transfer request\nPlanned & organised cross-region department-wide developer day for 600 engineers\nMentored new joiners and BWIT fresh graduates",
       "type": "Work",
       "infolink": "https://www.bloomberg.com/company/"
     },
@@ -618,16 +618,6 @@
     {
       "category": "year-stamp",
       "year": "2005"
-    },
-    {
-      "category": "normal",
-      "title": "Born",
-      "timestamp": "1999",
-      "type": "Milestones"
-    },
-    {
-      "category": "year-stamp",
-      "year": "1999"
     }
   ]
 }
