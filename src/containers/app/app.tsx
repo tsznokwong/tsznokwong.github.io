@@ -1,7 +1,6 @@
 import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { makeStyles, Theme } from "@material-ui/core";
-import ScrollableAnchor from "react-scrollable-anchor";
 
 import PageType from "../../types/page-type";
 import PageBar from "../../components/page-bar";
@@ -16,9 +15,6 @@ const App = () => {
     <PageContext.Provider value={pageContext}>
       <div className={classes.root}>
         <PageBar />
-        <ScrollableAnchor id="top">
-          <div />
-        </ScrollableAnchor>
         <Switch>
           {pageContext.pages.map((page) => (
             <Route exact={page.exactPath} path={page.path} key={page.path}>

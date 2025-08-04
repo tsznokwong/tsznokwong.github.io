@@ -6,7 +6,7 @@ import {
   Zoom,
   Fab,
 } from "@material-ui/core";
-import { goToAnchor } from "react-scrollable-anchor";
+import { animateScroll as scroll } from "react-scroll";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 
 type ScrollToTopProps = {};
@@ -21,7 +21,7 @@ const ScrollToTop = (props: ScrollToTopProps) => {
     <Zoom in={trigger}>
       <div
         onClick={() => {
-          goToAnchor("top");
+          scroll.scrollToTop();
         }}
         role="presentation"
         className={classes.root}
