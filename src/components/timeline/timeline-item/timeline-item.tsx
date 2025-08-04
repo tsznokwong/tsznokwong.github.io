@@ -51,7 +51,7 @@ const TimelineItem = (props: TimelineItemProps) => {
     <VisibilitySensor
       partialVisibility
       scrollCheck
-      onChange={(isVisible) => {
+      onChange={(isVisible: boolean) => {
         setVisible(isVisible);
       }}
     >
