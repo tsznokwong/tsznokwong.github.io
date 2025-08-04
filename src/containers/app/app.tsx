@@ -1,5 +1,5 @@
 import React from "react";
-import { Switch, Route, Redirect } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import { makeStyles, Theme } from "@material-ui/core";
 
 import PageType from "../../types/page-type";
@@ -15,14 +15,19 @@ const App = () => {
     <PageContext.Provider value={pageContext}>
       <div className={classes.root}>
         <PageBar />
-        <Switch>
+        <Routes>
           {pageContext.pages.map((page) => (
-            <Route exact={page.exactPath} path={page.path} key={page.path}>
-              <page.Page />
-            </Route>
+            <Route
+              path={page.path}
+              key={page.path}
+              element={<page.Page />}
+            />
           ))}
-          <Redirect to={PageType.Home.path} />
-        </Switch>
+          <Route
+            path="*"
+            element={<Navigate to={PageType.Home.path} replace />}
+          />
+        </Routes>
         <ScrollToTop />
         <PageFooter />
       </div>
