@@ -43,10 +43,11 @@ const PageMenu = (props: PageMenuProps) => {
 export default PageMenu;
 
 const useStyles = makeStyles((theme: Theme) => ({
+  selected: {},
   tab: {
     minWidth: 80,
     color: blueGrey[200],
-    fontWeight: theme.typography.fontWeightRegular,
+    fontWeight: theme.typography.fontWeightRegular as any,
     "&:hover": {
       color: theme.palette.primary.light,
       opacity: 1,
