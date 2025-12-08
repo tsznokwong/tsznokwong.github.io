@@ -34,8 +34,13 @@ export default ScrollToTop;
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
     position: "fixed",
-    bottom: "calc(env(safe-area-inset-bottom) + 2rem)",
     right: "2rem",
     zIndex: 2000,
+    [theme.breakpoints.down('md')]: {
+      bottom: "calc(env(safe-area-inset-bottom) + 6.5rem)",
+    },
+    [theme.breakpoints.up('md')]: {
+      bottom: "calc(env(safe-area-inset-bottom) + 5rem)",
+    },
   },
 }));
