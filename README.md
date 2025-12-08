@@ -1,60 +1,119 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Personal Portfolio Website
 
-## Available Scripts
+A modern, fast personal portfolio built with **React**, **TypeScript**, and **Vite**. Deployed to GitHub Pages with automatic security updates via Dependabot.
 
-In the project directory, you can run:
+## ✨ Features
 
-### `npm start`
+- ⚡ **Lightning-fast** - Vite dev server with instant HMR
+- 🎨 **Material Design UI** - Built with Material-UI
+- 📱 **Fully responsive** - Mobile-first design
+- 🔒 **Type-safe** - Full TypeScript support
+- 🚀 **Automated deployments** - GitHub Actions CI/CD
+- 📦 **Security compliant** - Automatic dependency updates
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## 🚀 Quick Start
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+### Prerequisites
+- Node 24+ (Vite requirement)
+- npm 9+
 
-### `npm test`
+### Setup & Development
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+# Install dependencies
+npm install
 
-### `npm run build`
+# Start development server (http://localhost:3000)
+npm run dev
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# Build for production
+npm run build
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+# Preview production build
+npm run preview
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 📋 Available Commands
 
-### `npm run eject`
+| Command | Purpose |
+|---------|---------|
+| `npm run dev` | Start dev server with HMR |
+| `npm run build` | Build for production |
+| `npm run preview` | Preview production build |
+| `npm run deploy` | Deploy to GitHub Pages |
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## 🏗️ Tech Stack
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- **React** 16.13 - UI library
+- **React Router** v6 - Client-side routing
+- **Material-UI** v4 - UI components
+- **TypeScript** - Type safety
+- **Vite** - Build tool & dev server
+- **GitHub Pages** - Hosting
+- **GitHub Actions** - CI/CD
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## 🌐 Deployment
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Automatic (via GitHub Actions)
+Push to `development` branch → GitHub Actions builds → Deploys to `main` branch → Live on GitHub Pages
 
-## Work with Docker
+### Manual
+```bash
+npm run deploy
+```
+
+### Note on Routing
+- 404.html handles SPA routing for client-side navigation
+- Works seamlessly with React Router
+
+## 📁 Project Structure
+
+```
+src/
+  containers/     # Page components
+  components/     # Reusable UI components
+  assets/         # Images, data, theme
+  main.tsx        # Entry point
+public/           # Static files (icons, PDFs, manifest)
+```
+
+## 🔒 Security & Updates
+
+This project uses **Vite** instead of Create React App, enabling:
+- ✅ Automatic dependency updates via Dependabot
+- ✅ Zero version conflicts
+- ✅ Always-current security patches
+- ✅ No blocked updates
+
+## 🛠️ Development
+
+### Type Checking
+```bash
+npx tsc --noEmit
+```
+
+## 📦 Build Output
+
+- Output directory: `build/`
+- 404.html automatically created for GitHub Pages routing
+- Static assets (PDFs, icons, manifest) copied automatically
+
+## 🚀 Performance
+
+- **Build time**: ~2-3 seconds (Vite is fast!)
+- **Dev startup**: <2 seconds
+- **Bundle size**: ~422KB (gzipped: ~130KB)
+
+## 🐳 Docker
 
 ### Docker Compose
-
-Start container with `docker-compose up -d`
-
-Stop container with `docker-compose stop`
+```bash
+docker-compose up -d    # Start
+docker-compose stop     # Stop
+```
 
 ### Docker Image
-
-Build with `docker build -t tsznokwonggithubio_web .`
-
-Run with `docker run -dp 3000:3000 tsznokwonggithubio_web`
-
-Tag with `docker tag tsznokwonggithubio_web:latest tsznokwonggithubio_web:v1.0.0`
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+docker build -t tsznokwonggithubio_web .
+docker run -dp 3000:3000 tsznokwonggithubio_web
+```
