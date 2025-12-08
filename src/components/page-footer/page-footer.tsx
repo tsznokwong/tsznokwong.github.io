@@ -1,5 +1,7 @@
 import React from "react";
-import { makeStyles, Theme, Container, AppBar } from "@material-ui/core";
+import { Theme, Container, AppBar } from "@mui/material";
+
+import makeStyles from '@mui/styles/makeStyles';
 
 import Copyright from "../copyright";
 import SocialLinks from "../social-links";
@@ -24,7 +26,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   root: {
     marginTop: "auto",
     padding: "0% 1rem",
-    [theme.breakpoints.down("sm")]: {
+    [theme.breakpoints.down('md')]: {
       height: "calc(env(safe-area-inset-bottom) + 6rem)",
     },
     [theme.breakpoints.up("sm")]: {
@@ -35,7 +37,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   container: {
     height: "100%",
     display: "flex",
-    [theme.breakpoints.down("sm")]: {
+    [theme.breakpoints.down('md')]: {
       flexDirection: "column-reverse",
       justifyContent: "center",
       alignItems: "center",

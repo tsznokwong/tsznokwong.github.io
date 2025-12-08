@@ -1,16 +1,7 @@
 import React, { useState } from "react";
-import {
-  Slide,
-  AppBar,
-  Container,
-  makeStyles,
-  Theme,
-  useMediaQuery,
-  useTheme,
-  Button,
-  Drawer,
-} from "@material-ui/core";
-import MenuIcon from "@material-ui/icons/Menu";
+import { Slide, AppBar, Container, Theme, useMediaQuery, useTheme, Button, Drawer } from "@mui/material";
+import makeStyles from '@mui/styles/makeStyles';
+import MenuIcon from "@mui/icons-material/Menu";
 
 import PageTitle from "../page-title";
 import PageMenu from "../page-menu";

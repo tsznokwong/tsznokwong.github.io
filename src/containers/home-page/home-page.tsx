@@ -1,5 +1,7 @@
 import React from "react";
-import { makeStyles, Theme, Container } from "@material-ui/core";
+import { Theme, Container } from "@mui/material";
+
+import makeStyles from '@mui/styles/makeStyles';
 
 import ParagraphSection from "../../components/paragraph-section/paragraph-section";
 import Data from "../../assets/data/home-page.json";

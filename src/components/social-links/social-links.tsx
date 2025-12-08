@@ -1,5 +1,7 @@
 import React from "react";
-import { makeStyles, Theme, Box } from "@material-ui/core";
+import { Theme, Box } from "@mui/material";
+
+import makeStyles from '@mui/styles/makeStyles';
 
 import SocialLinkType from "../../types/social-link-type";
 import SocialLink from "./social-link";

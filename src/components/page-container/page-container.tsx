@@ -1,5 +1,7 @@
 import React, { ReactNode } from "react";
-import { makeStyles, Theme, Container } from "@material-ui/core";
+import { Theme, Container } from "@mui/material";
+
+import makeStyles from '@mui/styles/makeStyles';
 
 type PageContainerProps = {
   background?: string;

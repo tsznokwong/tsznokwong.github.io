@@ -1,14 +1,8 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import {
-  makeStyles,
-  Theme,
-  List,
-  ListItem,
-  ListItemText,
-  ListSubheader,
-  Typography,
-} from "@material-ui/core";
+import { Theme, List, ListItem, ListItemText, ListSubheader, Typography } from "@mui/material";
+
+import makeStyles from '@mui/styles/makeStyles';
 
 import { PageContext } from "../../containers/app/app-hooks";
 

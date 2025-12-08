@@ -1,6 +1,8 @@
 import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
-import { makeStyles, Theme } from "@material-ui/core";
+import { Theme } from "@mui/material";
+
+import makeStyles from '@mui/styles/makeStyles';
 
 import PageType from "../../types/page-type";
 import PageBar from "../../components/page-bar";

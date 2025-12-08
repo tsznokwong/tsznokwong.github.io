@@ -1,6 +1,6 @@
-import { createMuiTheme, responsiveFontSizes } from "@material-ui/core/styles";
+import { createTheme, responsiveFontSizes, adaptV4Theme } from "@mui/material/styles";
 
-let theme = createMuiTheme({
+let theme = createTheme(adaptV4Theme({
   palette: {
     primary: {
       main: "#0b0767",
@@ -51,7 +51,7 @@ let theme = createMuiTheme({
     },
   },
   spacing: 8,
-});
+}));
 
 theme = responsiveFontSizes(theme);
 

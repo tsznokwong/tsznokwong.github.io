@@ -1,11 +1,11 @@
 import React, { ElementType } from "react";
-import SchoolIcon from "@material-ui/icons/School";
-import WorkIcon from "@material-ui/icons/Work";
-import LocalActivityIcon from "@material-ui/icons/LocalActivity";
-import ExtensionIcon from "@material-ui/icons/Extension";
-import Brightness1Icon from "@material-ui/icons/Brightness1";
-import FlareIcon from "@material-ui/icons/Flare";
-import ChangeHistoryIcon from "@material-ui/icons/ChangeHistory";
+import SchoolIcon from "@mui/icons-material/School";
+import WorkIcon from "@mui/icons-material/Work";
+import LocalActivityIcon from "@mui/icons-material/LocalActivity";
+import ExtensionIcon from "@mui/icons-material/Extension";
+import Brightness1Icon from "@mui/icons-material/Brightness1";
+import FlareIcon from "@mui/icons-material/Flare";
+import ChangeHistoryIcon from "@mui/icons-material/ChangeHistory";
 
 import MUIColor from "../../../types/mui-color";
 import TimelineItemType, {

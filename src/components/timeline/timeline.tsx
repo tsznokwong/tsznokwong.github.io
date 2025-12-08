@@ -1,13 +1,7 @@
 import React, { useState } from "react";
-import {
-  makeStyles,
-  Theme,
-  Button,
-  ButtonGroup,
-  useTheme,
-  useMediaQuery,
-} from "@material-ui/core";
-import { Timeline as MUITimeline } from "@material-ui/lab";
+import { Theme, Button, ButtonGroup, useTheme, useMediaQuery } from "@mui/material";
+import makeStyles from '@mui/styles/makeStyles';
+import { Timeline as MUITimeline } from "@mui/lab";
 import { Sticky, StickyContainer } from "react-sticky";
 
 import PageContainer from "../page-container";
@@ -26,7 +20,7 @@ const Timeline = (props: TimelineProps) => {
   const classes = useStyles();
   const { items, className } = props;
   const theme = useTheme();
-  const isSmallScreen = useMediaQuery(theme.breakpoints.down("xs"));
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
   const isLargeScreen = useMediaQuery(theme.breakpoints.up("xl"));
   const [filter, setFilter] = useState(TimelineItemTypes);
   const trigger = usePageBarTrigger();

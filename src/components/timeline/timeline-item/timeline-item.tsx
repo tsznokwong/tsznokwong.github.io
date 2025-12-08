@@ -1,15 +1,6 @@
 import React, { useState } from "react";
-import {
-  makeStyles,
-  Theme,
-  Typography,
-  Chip,
-  Card,
-  CardContent,
-  CardActions,
-  IconButton,
-  Slide,
-} from "@material-ui/core";
+import { Theme, Typography, Chip, Card, CardContent, CardActions, IconButton, Slide } from "@mui/material";
+import makeStyles from '@mui/styles/makeStyles';
 import {
   TimelineItem as MUITimelineItem,
   TimelineSeparator,
@@ -17,8 +8,8 @@ import {
   TimelineConnector,
   TimelineContent as MUITimelineContent,
   TimelineOppositeContent,
-} from "@material-ui/lab";
-import InfoIcon from "@material-ui/icons/Info";
+} from "@mui/lab";
+import InfoIcon from "@mui/icons-material/Info";
 import VisibilitySensor from "react-visibility-sensor";
 
 import TimelineItemIcon from "./timeline-item-icon";
