@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/static/css/main.e6c13ad2.css",
-    "main.js": "/static/js/main.f097632f.js",
+    "main.js": "/static/js/main.a0c9b835.js",
     "static/media/portrait-0.svg": "/static/media/portrait-0.e2faf325820b593172534f62ef9ebc51.svg",
     "static/media/portrait-1.svg": "/static/media/portrait-1.4666f920fc85f3665019c0dfccd4b79c.svg",
     "static/media/hkust-firebird.svg": "/static/media/hkust-firebird.f791fc5f79a4d635525e7f44a057dfcd.svg",
     "index.html": "/index.html",
     "main.e6c13ad2.css.map": "/static/css/main.e6c13ad2.css.map",
-    "main.f097632f.js.map": "/static/js/main.f097632f.js.map"
+    "main.a0c9b835.js.map": "/static/js/main.a0c9b835.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.f097632f.js"
+    "static/js/main.a0c9b835.js"
   ]
 }
