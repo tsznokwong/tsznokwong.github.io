@@ -35,6 +35,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     flexDirection: "row",
     alignItems: "center",
     height: "50%",
+    gap: theme.spacing(2),
   },
   subtitle: {
     color: theme.palette.primary.main,
