@@ -1,12 +1,7 @@
 import React, { useContext } from "react";
-import {
-  Box,
-  Typography,
-  Fade,
-  makeStyles,
-  Theme,
-  Divider,
-} from "@material-ui/core";
+import { Box, Typography, Fade, Theme, Divider } from "@mui/material";
+
+import makeStyles from '@mui/styles/makeStyles';
 
 import PageType from "../../types/page-type";
 import { PageContext } from "../../containers/app/app-hooks";
@@ -40,6 +35,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     flexDirection: "row",
     alignItems: "center",
     height: "50%",
+    gap: theme.spacing(2),
   },
   subtitle: {
     color: theme.palette.primary.main,

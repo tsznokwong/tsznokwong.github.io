@@ -44,9 +44,9 @@ npm run preview
 
 ## 🏗️ Tech Stack
 
-- **React** 16.13 - UI library
+- **React** 18.3 - UI library
 - **React Router** v6 - Client-side routing
-- **Material-UI** v4 - UI components
+- **Material-UI** v5 - UI components (Emotion-based styling)
 - **TypeScript** - Type safety
 - **Vite** - Build tool & dev server
 - **GitHub Pages** - Hosting

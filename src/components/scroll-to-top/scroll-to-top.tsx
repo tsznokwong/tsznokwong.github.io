@@ -1,13 +1,8 @@
 import React from "react";
-import {
-  makeStyles,
-  Theme,
-  useScrollTrigger,
-  Zoom,
-  Fab,
-} from "@material-ui/core";
+import { Theme, useScrollTrigger, Zoom, Fab } from "@mui/material";
+import makeStyles from '@mui/styles/makeStyles';
 import { animateScroll as scroll } from "react-scroll";
-import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 
 type ScrollToTopProps = {};
 

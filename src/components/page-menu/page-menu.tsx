@@ -1,9 +1,11 @@
 import React, { useContext } from "react";
-import { Tabs, Tab } from "@material-ui/core";
-import { Theme, makeStyles } from "@material-ui/core/styles";
+import { Tabs, Tab } from "@mui/material";
+import { Theme } from "@mui/material/styles";
+
+import makeStyles from '@mui/styles/makeStyles';
 
 import { Link } from "react-router-dom";
-import { blueGrey } from "@material-ui/core/colors";
+import { blueGrey } from "@mui/material/colors";
 import { PageContext } from "../../containers/app/app-hooks";
 
 type PageMenuProps = {};
@@ -27,7 +29,6 @@ const PageMenu = (props: PageMenuProps) => {
     >
       {pages.map((page) => (
         <Tab
-          selected={page === currentPage}
           className={classes.tab}
           label={page.title}
           value={page}

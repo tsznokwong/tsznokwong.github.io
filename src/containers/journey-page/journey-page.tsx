@@ -1,5 +1,6 @@
 import React from "react";
-import { makeStyles, Theme, Container } from "@material-ui/core";
+import { Theme, Container } from "@mui/material";
+import makeStyles from '@mui/styles/makeStyles';
 import ParagraphSection from "../../components/paragraph-section";
 import Timeline from "../../components/timeline";
 import Data from "../../assets/data/journey-page.json";

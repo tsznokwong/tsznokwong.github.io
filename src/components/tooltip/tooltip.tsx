@@ -1,4 +1,6 @@
-import { Tooltip as MUITooltip, Theme, withStyles } from "@material-ui/core";
+import { Tooltip as MUITooltip, Theme } from "@mui/material";
+
+import withStyles from '@mui/styles/withStyles';
 
 const Tooltip = withStyles((theme: Theme) => ({
   tooltip: {
