@@ -18,15 +18,18 @@ const PageDrawerList = (props: PageDrawerListProps) => {
     <List className={classes.root} subheader={<Subheader />}>
       {pages.map((page) => (
         <ListItem
-          className={classes.listItem}
-          button
+          className={`${classes.listItem} ${page === currentPage ? classes.selected : ""}`}
           key={page.path}
-          selected={page === currentPage}
           component={Link}
           to={page.path}
           onClick={() => {
             onPageChange(page);
             onItemClick();
+          }}
+          slotProps={{
+            root: {
+              style: { cursor: "pointer" },
+            },
           }}
         >
           <ListItemText primary={page.title} />
@@ -47,12 +50,12 @@ const useStyles = makeStyles((theme: Theme) => ({
       color: theme.palette.primary.light,
       opacity: 1,
     },
-    "&$selected": {
-      color: theme.palette.primary.main,
-    },
     "&:focus": {
       color: theme.palette.primary.main,
     },
+  },
+  selected: {
+    color: theme.palette.primary.main,
   },
   subheader: {
     color: theme.palette.primary.main,
