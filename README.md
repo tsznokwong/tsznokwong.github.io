@@ -45,10 +45,10 @@ npm run preview
 ## 🏗️ Tech Stack
 
 - **React** 18.3 - UI library
-- **React Router** v6 - Client-side routing
-- **Material-UI** v5 - UI components (Emotion-based styling)
+- **React Router** v7 - Client-side routing
+- **Material-UI** v6 - UI components (Emotion-based styling with Material Design 3)
 - **TypeScript** - Type safety
-- **Vite** - Build tool & dev server
+- **Vite** 7.3 - Build tool & dev server
 - **GitHub Pages** - Hosting
 - **GitHub Actions** - CI/CD
 
@@ -97,6 +97,16 @@ npx tsc --noEmit
 - Output directory: `build/`
 - 404.html automatically created for GitHub Pages routing
 - Static assets (PDFs, icons, manifest) copied automatically
+
+## 🔄 Recent Migrations
+
+### MUI 5 → 6 (December 2025)
+- Updated Material-UI from v5 to v6 with Material Design 3
+- Replaced deprecated `react-sticky` with native CSS `position: sticky`
+- Replaced `react-visibility-sensor` with Intersection Observer API
+- Fixed MUI v6 compatibility issues (removed deprecated `button` prop from ListItem)
+- Maintained backward compatibility with existing `makeStyles` API
+- All components remain functional without breaking changes
 
 ## 🚀 Performance
 
