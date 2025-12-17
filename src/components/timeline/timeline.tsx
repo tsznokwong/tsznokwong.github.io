@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Theme, Button, ButtonGroup, useTheme, useMediaQuery } from "@mui/material";
 import makeStyles from '@mui/styles/makeStyles';
 import { Timeline as MUITimeline } from "@mui/lab";
-import { Sticky, StickyContainer } from "react-sticky";
 
 import PageContainer from "../page-container";
 import TimelineItem, { TimelineItemProps } from "./timeline-item";
@@ -24,59 +23,54 @@ const Timeline = (props: TimelineProps) => {
   const isLargeScreen = useMediaQuery(theme.breakpoints.up("xl"));
   const [filter, setFilter] = useState(TimelineItemTypes);
   const trigger = usePageBarTrigger();
+
+  const buttonGroup = (
+    <ButtonGroup
+      className={classes.filterButtonGroup}
+      size={
+        isSmallScreen ? "small" : isLargeScreen ? "large" : "medium"
+      }
+    >
+      {TimelineItemTypes.map((type, _index) => (
+        <Tooltip
+          key={`filter_button_${type}`}
+          title={type}
+          aria-label={type}
+        >
+          <Button
+            className={
+              filter.includes(type)
+                ? classes.filterButtonSelected
+                : classes.filterButton
+            }
+            onClick={() => {
+              if (filter.length === TimelineItemTypes.length) {
+                setFilter([type]);
+              } else {
+                setFilter(
+                  TimelineItemTypes.filter((filterType) => {
+                    const isFiltered = filter.includes(filterType);
+                    const clicked = type === filterType;
+                    return !isFiltered === clicked;
+                  })
+                );
+              }
+            }}
+            disableRipple
+          >
+            <TimelineItemIcon type={type} color="primary" />
+          </Button>
+        </Tooltip>
+      ))}
+    </ButtonGroup>
+  );
+
   return (
-    <StickyContainer>
+    <>
+      <div className={classes.sticky} style={{ top: trigger ? "5rem" : "1rem" }}>
+        {buttonGroup}
+      </div>
       <PageContainer className={`${classes.root} ${className}`}>
-        <Sticky>
-          {({ style }) => (
-            <div className={classes.sticky}>
-              <ButtonGroup
-                className={classes.filterButtonGroup}
-                size={
-                  isSmallScreen ? "small" : isLargeScreen ? "large" : "medium"
-                }
-                style={{
-                  ...style,
-                  left: undefined,
-                  width: undefined,
-                  top: trigger ? "5rem" : "1rem",
-                }}
-              >
-                {TimelineItemTypes.map((type, index) => (
-                  <Tooltip
-                    key={`filter_button_${index}`}
-                    title={type}
-                    aria-label={type}
-                  >
-                    <Button
-                      className={
-                        filter.includes(type)
-                          ? classes.filterButtonSelected
-                          : classes.filterButton
-                      }
-                      onClick={() => {
-                        if (filter.length === TimelineItemTypes.length) {
-                          setFilter([type]);
-                        } else {
-                          setFilter(
-                            TimelineItemTypes.filter((filterType) => {
-                              const isFiltered = filter.includes(filterType);
-                              const clicked = type === filterType;
-                              return !isFiltered === clicked;
-                            })
-                          );
-                        }
-                      }}
-                      disableRipple
-                    >
-                      <TimelineItemIcon type={type} color="primary" />
-                    </Button>
-                  </Tooltip>
-                ))}
-              </ButtonGroup>
-            </div>
-          )}
-        </Sticky>
         <MUITimeline className={classes.timeline}>
           {items
             .filter((item) => {
@@ -102,7 +96,7 @@ const Timeline = (props: TimelineProps) => {
             ))}
         </MUITimeline>
       </PageContainer>
-    </StickyContainer>
+    </>
   );
 };
 
@@ -117,10 +111,16 @@ const useStyles = makeStyles((theme: Theme) => ({
     backgroundColor: theme.palette.primary.main,
   },
   sticky: {
+    position: "sticky",
+    top: 0,
+    left: 0,
+    right: 0,
     width: "100%",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
+    zIndex: 1000,
+    padding: "0.75rem 0",
   },
   filterButtonGroup: {
     zIndex: 999,

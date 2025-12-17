@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Theme, Typography, Chip, Card, CardContent, CardActions, IconButton, Slide } from "@mui/material";
 import makeStyles from '@mui/styles/makeStyles';
 import {
@@ -10,7 +10,6 @@ import {
   TimelineOppositeContent,
 } from "@mui/lab";
 import InfoIcon from "@mui/icons-material/Info";
-import VisibilitySensor from "react-visibility-sensor";
 
 import TimelineItemIcon from "./timeline-item-icon";
 import TimelineItemType from "../../../types/timeline-item-type";
@@ -38,27 +37,44 @@ export type TimelineItemProps =
 const TimelineItem = (props: TimelineItemProps) => {
   const classes = useStyles();
   const [isVisible, setVisible] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        // Set visibility based on whether element is intersecting
+        // This allows slide animation both on scroll down and scroll up
+        setVisible(entry.isIntersecting);
+      },
+      {
+        threshold: 0.1, // Trigger when 10% of element is visible
+      }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => {
+      if (ref.current) {
+        observer.unobserve(ref.current);
+      }
+    };
+  }, []);
+
   return (
-    <VisibilitySensor
-      partialVisibility
-      scrollCheck
-      onChange={(isVisible: boolean) => {
-        setVisible(isVisible);
-      }}
-    >
-      <MUITimelineItem>
-        <TimelineOppositeContent className={classes.oppositeContent} />
-        <TimelineSeparator>
-          <TimelineDotContent {...props} />
-          <TimelineConnector className={classes.connector} />
-        </TimelineSeparator>
-        <Slide in={isVisible} direction="left" timeout={800} appear>
-          <MUITimelineContent className={classes.timelineContent}>
-            <TimelineContent {...props} />
-          </MUITimelineContent>
-        </Slide>
-      </MUITimelineItem>
-    </VisibilitySensor>
+    <MUITimelineItem ref={ref}>
+      <TimelineOppositeContent className={classes.oppositeContent} />
+      <TimelineSeparator>
+        <TimelineDotContent {...props} />
+        <TimelineConnector className={classes.connector} />
+      </TimelineSeparator>
+      <Slide in={isVisible} direction="left" timeout={800} appear>
+        <MUITimelineContent className={classes.timelineContent}>
+          <TimelineContent {...props} />
+        </MUITimelineContent>
+      </Slide>
+    </MUITimelineItem>
   );
 };
 
