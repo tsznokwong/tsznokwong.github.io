@@ -23,7 +23,27 @@
     },
     {
       "category": "year-stamp",
+      "year": "2024"
+    },
+    {
+      "category": "normal",
+      "title": "Baptism",
+      "subtitle": "in the Name of The Father, and of The Son, and of The Holy Spirit",
+      "timestamp": "9th Dec 2023",
+      "details": "\"Do not be anxious about anything, but in every situation, by prayer and petition, with thanksgiving, present your requests to God.\" - Philippians 4:16 NIV\n \"應當一無掛慮，只要凡事藉着禱告、祈求、和感謝，將你們所要的告訴神。\" - 腓立比書4章6節 和合本\nIn Chinese Church in London.",
+      "type": "Milestones",
+      "infolink": "https://ccil.org.uk/en/"
+    },
+    {
+      "category": "year-stamp",
       "year": "2023"
+    },
+    {
+      "category": "normal",
+      "title": "Relocation",
+      "subtitle": "to London",
+      "timestamp": "Aug 2022",
+      "type": "Milestones"
     },
     {
       "category": "normal",
@@ -380,13 +400,13 @@
       "title": "St. Paul’s College, Hong Kong",
       "subtitle": "Graduated",
       "timestamp": "2017",
-      "details": "The Hong Kong Diploma of Secondary Education Examination 2017 (Best 5: 33)",
+      "details": "Captain of Programming Team, Chairman of Computer Society",
       "type": "Education",
       "infolink": "http://spc.edu.hk"
     },
     {
       "category": "normal",
-      "title": "The Hong Kong Diploma of Secondary Education Examinaation",
+      "title": "The Hong Kong Diploma of Secondary Education Examination",
       "subtitle": "Awarded 33 points in best 5",
       "timestamp": "2017",
       "highlights": [
@@ -618,6 +638,16 @@
     {
       "category": "year-stamp",
       "year": "2005"
+    },
+    {
+      "category": "normal",
+      "title": "Born",
+      "subtitle": "in Hong Kong",
+      "type": "Milestones"
+    },
+    {
+      "category": "year-stamp",
+      "year": "1999"
     }
   ]
 }
