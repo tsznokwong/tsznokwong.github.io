@@ -10,10 +10,11 @@ type ParagraphSectionProps = {
   subtitle?: string;
   background?: string;
   className?: string;
+  secondaryText?: boolean;
 };
 
 const ParagraphSection = (props: ParagraphSectionProps) => {
-  const { title, subtitle, background, className } = props;
+  const { title, subtitle, background, className, secondaryText } = props;
   const classes = useStyles();
   return (
     <PageContainer
@@ -21,13 +22,13 @@ const ParagraphSection = (props: ParagraphSectionProps) => {
       background={background}
     >
       {title && (
-        <Typography className={classes.title} variant="h1">
+        <Typography className={secondaryText ? classes.titleSecondary : classes.title} variant="h1">
           {title}
         </Typography>
       )}
       {subtitle && (
         <Typography
-          className={classes.subtitle}
+          className={secondaryText ? classes.subtitleSecondary : classes.subtitle}
           variant="body1"
           color="textPrimary"
         >
@@ -47,9 +48,15 @@ const useStyles = makeStyles((theme: Theme) => ({
     flexDirection: "column",
     textAlign: "left",
   },
-  title: { color: theme.palette.primary.dark },
+  title: { color: theme.palette.primary.main },
+  titleSecondary: { color: theme.palette.secondary.main },
   subtitle: {
     padding: "2rem 0",
     whiteSpace: "pre-line",
+  },
+  subtitleSecondary: {
+    padding: "2rem 0",
+    whiteSpace: "pre-line",
+    color: theme.palette.secondary.main,
   },
 }));

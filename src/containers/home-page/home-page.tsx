@@ -7,6 +7,8 @@ import ParagraphSection from "../../components/paragraph-section/paragraph-secti
 import Data from "../../assets/data/home-page.json";
 import Portrait0 from "../../assets/images/portrait-0.svg";
 import Firebird from "../../assets/images/hkust-firebird.svg";
+import LionRock from "../../assets/images/lion-rock.png";
+import LondonLandscape from "../../assets/images/london-landscape.png";
 
 type HomePageProps = {};
 
@@ -21,10 +23,23 @@ const HomePage = (props: HomePageProps) => {
         background={Portrait0}
       />
       <ParagraphSection
+        className={classes.sectionNewHomeContainer}
+        title={Data.section_new_home_title}
+        subtitle={Data.section_new_home_subtitle}
+        background={LondonLandscape}
+      />
+      <ParagraphSection
         className={classes.sectionUniContainer}
         title={Data.section_uni_title}
         subtitle={Data.section_uni_subtitle}
         background={Firebird}
+      />
+      <ParagraphSection
+        className={classes.sectionRootContainer}
+        title={Data.section_root_title}
+        subtitle={Data.section_root_subtitle}
+        background={LionRock}
+        secondaryText
       />
     </Container>
   );
@@ -46,6 +61,17 @@ const useStyles = makeStyles((theme: Theme) => ({
     backgroundPositionY: "25%",
     padding: "28vh 0 6vh",
   },
+  sectionNewHomeContainer: {
+    backgroundPositionX: "35%",
+    backgroundPositionY: "75%",
+    padding: "28vh 0 6vh",
+  },
   sectionUniContainer: {
+    padding: "28vh 0 6vh",
+  },
+  sectionRootContainer: {
+    backgroundPositionX: "25%",
+    backgroundPositionY: "35%",
+    padding: "28vh 0 12vh",
   }
 }));

@@ -1,6 +1,10 @@
 {
   "title": "Hello world,\n I'm Joshua!",
   "subtitle": "I love learning, thinking and creating!",
+  "section_new_home_title": "My New Home",
+  "section_new_home_subtitle": "I'm making London my home, trading the hustle for intention. By day, I'm building something that matters in my career. By evening, I'm discovering a slower rhythm that somehow gets more done. It's the perfect space for me to thrive and create.",
   "section_uni_title": "My University",
-  "section_uni_subtitle": "I studied at the Hong Kong University of Science and Technology (HKUST). Being one of the HKUST Dual Degree Program Community, I enjoy studies from both Computer Science and General Business Management."
+  "section_uni_subtitle": "I studied at the Hong Kong University of Science and Technology (HKUST). Being one of the HKUST Dual Degree Program Community, I enjoy studies from both Computer Science and General Business Management.",
+  "section_root_title": "My Root",
+  "section_root_subtitle": "Hong Kong is where my roots are, a place that shaped who I am. It's all about Lion Rock spirit, overcoming hardship with perseverance, hardwork and unity. You'll find me hunting for the best dim sum, enjoying Hong Kong movies, and catching the latest wave of Cantopop talent."
 }
