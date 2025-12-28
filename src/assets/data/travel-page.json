@@ -1,0 +1,510 @@
+{
+    "title": "Travel",
+    "subtitle": "Places I've been to.",
+    "locations": [
+        {
+            "id": "hong-kong",
+            "city_name": "Hong Kong",
+            "description": "",
+            "color": "#EE1C25",
+            "lat": 22.3193,
+            "lng": 114.1694
+        },
+        {
+            "id": "macau",
+            "city_name": "Macau",
+            "description": "",
+            "color": "#00785E",
+            "lat": 22.1987,
+            "lng": 113.5439
+        },
+        {
+            "id": "taipei",
+            "city_name": "Taipei",
+            "description": "",
+            "color": "#214376",
+            "lat": 25.0330,
+            "lng": 121.5654
+        },
+        {
+            "id": "kaohsiung",
+            "city_name": "Kaohsiung",
+            "description": "",
+            "color": "#214376",
+            "lat": 22.6151,
+            "lng": 120.3040
+        },
+        {
+            "id": "osaka",
+            "city_name": "Osaka",
+            "description": "",
+            "color": "#BC002D",
+            "lat": 34.6937,
+            "lng": 135.5023
+        },
+        {
+            "id": "sapporo",
+            "city_name": "Sapporo",
+            "description": "",
+            "color": "#BC002D",
+            "lat": 43.0642,
+            "lng": 141.3469
+        },
+        {
+            "id": "hakodate",
+            "city_name": "Hakodate",
+            "description": "",
+            "color": "#BC002D",
+            "lat": 41.7684,
+            "lng": 140.7267
+        },
+        {
+            "id": "asahikawa",
+            "city_name": "Asahikawa",
+            "description": "",
+            "color": "#BC002D",
+            "lat": 43.7699,
+            "lng": 142.3673
+        },
+        {
+            "id": "tokyo",
+            "city_name": "Tokyo",
+            "description": "",
+            "color": "#BC002D",
+            "lat": 35.6762,
+            "lng": 139.6503
+        },
+        {
+            "id": "nagoya",
+            "city_name": "Nagoya",
+            "description": "",
+            "color": "#BC002D",
+            "lat": 35.183,
+            "lng": 136.900
+        },
+        {
+            "id": "kyoto",
+            "city_name": "Kyoto",
+            "description": "",
+            "color": "#BC002D",
+            "lat": 35.01167,
+            "lng": 135.76833
+        },
+        {
+            "id": "singapore",
+            "city_name": "Singapore",
+            "description": "",
+            "color": "#FF4D4D",
+            "lat": 1.3521,
+            "lng": 103.8198
+        },
+        {
+            "id": "london",
+            "city_name": "London",
+            "description": "",
+            "color": "#E62117",
+            "lat": 51.5074,
+            "lng": -0.1278
+        },
+        {
+            "id": "new-york",
+            "city_name": "New York",
+            "description": "",
+            "color": "#B22234",
+            "lat": 40.7128,
+            "lng": -74.0060
+        },
+        {
+            "id": "edinburgh",
+            "city_name": "Edinburgh",
+            "description": "",
+            "color": "#005EB8",
+            "lat": 55.9533,
+            "lng": -3.1883
+        },
+        {
+            "id": "cardiff",
+            "city_name": "Cardiff",
+            "description": "",
+            "color": "#32CD32",
+            "lat": 51.4816,
+            "lng": -3.1791
+        },
+        {
+            "id": "paris",
+            "city_name": "Paris",
+            "description": "",
+            "color": "#0055A4",
+            "lat": 48.8566,
+            "lng": 2.3522
+        },
+        {
+            "id": "southampton",
+            "city_name": "Southampton",
+            "description": "",
+            "color": "#E62117",
+            "lat": 50.9097,
+            "lng": -1.4044
+        },
+        {
+            "id": "cherbourg",
+            "city_name": "Cherbourg",
+            "description": "",
+            "color": "#0055A4",
+            "lat": 49.6331,
+            "lng": -1.6437
+        },
+        {
+            "id": "oxford",
+            "city_name": "Oxford",
+            "description": "",
+            "color": "#E62117",
+            "lat": 51.7520,
+            "lng": -1.2577
+        },
+        {
+            "id": "dover",
+            "city_name": "Dover",
+            "description": "",
+            "color": "#E62117",
+            "lat": 51.1254,
+            "lng": 1.3089
+        },
+        {
+            "id": "brighton",
+            "city_name": "Brighton",
+            "description": "",
+            "color": "#E62117",
+            "lat": 50.8611,
+            "lng": -0.0820
+        },
+        {
+            "id": "bratislava",
+            "city_name": "Bratislava",
+            "description": "",
+            "color": "#318CE7",
+            "lat": 48.1486,
+            "lng": 17.1077
+        },
+        {
+            "id": "budapest",
+            "city_name": "Budapest",
+            "description": "",
+            "color": "#2E7D32",
+            "lat": 47.4979,
+            "lng": 19.0402
+        },
+        {
+            "id": "vienna",
+            "city_name": "Vienna",
+            "description": "",
+            "color": "#DA291C",
+            "lat": 48.2082,
+            "lng": 16.3738
+        },
+        {
+            "id": "salzburg",
+            "city_name": "Salzburg",
+            "description": "",
+            "color": "#DA291C",
+            "lat": 47.8095,
+            "lng": 13.0550
+        },
+        {
+            "id": "munich",
+            "city_name": "Munich",
+            "description": "",
+            "color": "#FFCC00",
+            "lat": 48.1351,
+            "lng": 11.5820
+        },
+        {
+            "id": "birmingham",
+            "city_name": "Birmingham",
+            "description": "",
+            "color": "#E62117",
+            "lat": 52.5086,
+            "lng": -1.8853
+        },
+        {
+            "id": "bangkok",
+            "city_name": "Bangkok",
+            "description": "",
+            "color": "#241D4F",
+            "lat": 13.7563,
+            "lng": 100.5018
+        },
+        {
+            "id": "york",
+            "city_name": "York",
+            "description": "",
+            "color": "#E62117",
+            "lat": 53.9581,
+            "lng": -1.0873
+        },
+        {
+            "id": "leeds",
+            "city_name": "Leeds",
+            "description": "",
+            "color": "#E62117",
+            "lat": 53.8008,
+            "lng": -1.5491
+        },
+        {
+            "id": "cambridge",
+            "city_name": "Cambridge",
+            "description": "",
+            "color": "#E62117",
+            "lat": 52.2,
+            "lng": 0.1
+        },
+        {
+            "id": "bath",
+            "city_name": "Bath",
+            "description": "",
+            "color": "#E62117",
+            "lat": 51.38,
+            "lng": -2.36
+        },
+        {
+            "id": "fukuoka",
+            "city_name": "Fukuoka",
+            "description": "",
+            "color": "#BC002D",
+            "lat": 33.5904,
+            "lng": 130.4017
+        },
+        {
+            "id": "kumamoto",
+            "city_name": "Kumamoto",
+            "description": "",
+            "color": "#BC002D",
+            "lat": 32.48,
+            "lng": 130.42
+        },
+        {
+            "id": "seoul",
+            "city_name": "Seoul",
+            "description": "",
+            "color": "#CD2E3A",
+            "lat": 37.56,
+            "lng": 126.99
+        }
+    ],
+    "arcs": [
+        {
+            "startCity": "Hong Kong",
+            "endCity": "Macau",
+            "path": "Sea"
+        },
+        {
+            "startCity": "Hong Kong",
+            "endCity": "London",
+            "path": "Flight"
+        },
+        {
+            "startCity": "Hong Kong",
+            "endCity": "Taipei",
+            "path": "Flight"
+        },
+        {
+            "startCity": "Taipei",
+            "endCity": "Kaohsiung",
+            "path": "Land"
+        },
+        {
+            "startCity": "Taipei",
+            "endCity": "Osaka",
+            "path": "Flight"
+        },
+        {
+            "startCity": "Osaka",
+            "endCity": "Sapporo",
+            "path": "Flight"
+        },
+        {
+            "startCity": "Sapporo",
+            "endCity": "Hong Kong",
+            "path": "Flight"
+        },
+        {
+            "startCity": "Sapporo",
+            "endCity": "Hakodate",
+            "path": "Land"
+        },
+        {
+            "startCity": "Hakodate",
+            "endCity": "Asahikawa",
+            "path": "Land"
+        },
+        {
+            "startCity": "Asahikawa",
+            "endCity": "Sapporo",
+            "path": "Land"
+        },
+        {
+            "startCity": "London",
+            "endCity": "New York",
+            "path": "Flight"
+        },
+        {
+            "startCity": "London",
+            "endCity": "Edinburgh",
+            "path": "Flight"
+        },
+        {
+            "startCity": "London",
+            "endCity": "Cardiff",
+            "path": "Land"
+        },
+        {
+            "startCity": "London",
+            "endCity": "Paris",
+            "path": "Land"
+        },
+        {
+            "startCity": "London",
+            "endCity": "Southampton",
+            "path": "Land"
+        },
+        {
+            "startCity": "Southampton",
+            "endCity": "Cherbourg",
+            "path": "Sea"
+        },
+        {
+            "startCity": "London",
+            "endCity": "Oxford",
+            "path": "Land"
+        },
+        {
+            "startCity": "London",
+            "endCity": "Cambridge",
+            "path": "Land"
+        },
+        {
+            "startCity": "London",
+            "endCity": "Bath",
+            "path": "Land"
+        },
+        {
+            "startCity": "London",
+            "endCity": "Dover",
+            "path": "Land"
+        },
+        {
+            "startCity": "London",
+            "endCity": "Brighton",
+            "path": "Land"
+        },
+        {
+            "startCity": "Hong Kong",
+            "endCity": "Singapore",
+            "path": "Flight"
+        },
+        {
+            "startCity": "Hong Kong",
+            "endCity": "Tokyo",
+            "path": "Flight"
+        },
+        {
+            "startCity": "Tokyo",
+            "endCity": "Osaka",
+            "path": "Land"
+        },
+        {
+            "startCity": "Tokyo",
+            "endCity": "Nagoya",
+            "path": "Land"
+        },
+        {
+            "startCity": "Nagoya",
+            "endCity": "Osaka",
+            "path": "Land"
+        },
+        {
+            "startCity": "Osaka",
+            "endCity": "Kyoto",
+            "path": "Land"
+        },
+        {
+            "startCity": "London",
+            "endCity": "Bratislava",
+            "path": "Flight"
+        },
+        {
+            "startCity": "Bratislava",
+            "endCity": "Budapest",
+            "path": "Land"
+        },
+        {
+            "startCity": "Budapest",
+            "endCity": "Vienna",
+            "path": "Land"
+        },
+        {
+            "startCity": "Vienna",
+            "endCity": "Salzburg",
+            "path": "Land"
+        },
+        {
+            "startCity": "Salzburg",
+            "endCity": "Munich",
+            "path": "Land"
+        },
+        {
+            "startCity": "Munich",
+            "endCity": "London",
+            "path": "Flight"
+        },
+        {
+            "startCity": "Hong Kong",
+            "endCity": "Seoul",
+            "path": "Flight"
+        },
+        {
+            "startCity": "Bangkok",
+            "endCity": "Hong Kong",
+            "path": "Flight"
+        },
+        {
+            "startCity": "Birmingham",
+            "endCity": "London",
+            "path": "Land"
+        },
+        {
+            "startCity": "London",
+            "endCity": "York",
+            "path": "Land"
+        },
+        {
+            "startCity": "York",
+            "endCity": "Leeds",
+            "path": "Land"
+        },
+        {
+            "startCity": "London",
+            "endCity": "Leeds",
+            "path": "Land"
+        },
+        {
+            "startCity": "Hong Kong",
+            "endCity": "Fukuoka",
+            "path": "Flight"
+        },
+        {
+            "startCity": "Fukuoka",
+            "endCity": "Kumamoto",
+            "path": "Land"
+        }
+    ],
+    "globe_config": {
+        "atmosphere_altitude": 0.12,
+        "initial_point_of_view": {
+            "lat": 51.5074,
+            "lng": -0.1278,
+            "altitude": 1.5
+        },
+        "animation_duration": 1500
+    }
+}
