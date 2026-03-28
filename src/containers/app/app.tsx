@@ -1,8 +1,6 @@
 import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
-import { Theme } from "@mui/material";
-
-import makeStyles from '@mui/styles/makeStyles';
+import { Box } from "@mui/material";
 
 import PageType from "../../types/page-type";
 import PageBar from "../../components/page-bar";
@@ -12,10 +10,17 @@ import ScrollToTop from "../../components/scroll-to-top";
 
 const App = () => {
   const pageContext = usePage();
-  const classes = useStyles();
+
+  const rootSx = {
+    textAlign: "center" as const,
+    minHeight: "100vh",
+    display: "flex",
+    flexDirection: "column" as const,
+  };
+
   return (
     <PageContext.Provider value={pageContext}>
-      <div className={classes.root}>
+      <Box sx={rootSx}>
         <PageBar />
         <Routes>
           {pageContext.pages.map((page) => (
@@ -32,18 +37,9 @@ const App = () => {
         </Routes>
         <ScrollToTop />
         <PageFooter />
-      </div>
+      </Box>
     </PageContext.Provider>
   );
 };
 
 export default App;
-
-const useStyles = makeStyles((theme: Theme) => ({
-  root: {
-    textAlign: "center",
-    minHeight: "100vh",
-    display: "flex",
-    flexDirection: "column",
-  },
-}));

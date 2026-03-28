@@ -1,7 +1,5 @@
 import React from "react";
-import { Theme, Container } from "@mui/material";
-
-import makeStyles from '@mui/styles/makeStyles';
+import { Container } from "@mui/material";
 
 import ParagraphSection from "../../components/paragraph-section/paragraph-section";
 import Data from "../../assets/data/home-page.json";
@@ -13,29 +11,59 @@ import LondonLandscape from "../../assets/images/london-landscape.png";
 type HomePageProps = {};
 
 const HomePage = (props: HomePageProps) => {
-  const classes = useStyles();
+  const rootSx = {
+    width: "100%",
+    display: "flex",
+    flexDirection: "column" as const,
+  };
+
+  const introContainerSx = {
+    marginTop: "1rem",
+    backgroundSize: "contain",
+    backgroundRepeat: "no-repeat",
+    backgroundPositionX: "75%",
+    backgroundPositionY: "25%",
+    padding: "28vh 0 6vh",
+  };
+
+  const sectionNewHomeContainerSx = {
+    backgroundPositionX: "35%",
+    backgroundPositionY: "75%",
+    padding: "28vh 0 6vh",
+  };
+
+  const sectionUniContainerSx = {
+    padding: "28vh 0 6vh",
+  };
+
+  const sectionRootContainerSx = {
+    backgroundPositionX: "25%",
+    backgroundPositionY: "35%",
+    padding: "28vh 0 12vh",
+  };
+
   return (
-    <Container className={classes.root} maxWidth={false} disableGutters>
+    <Container sx={rootSx} maxWidth={false} disableGutters>
       <ParagraphSection
-        className={classes.introContainer}
+        sx={introContainerSx}
         title={Data.title}
         subtitle={Data.subtitle}
         background={Portrait0}
       />
       <ParagraphSection
-        className={classes.sectionNewHomeContainer}
+        sx={sectionNewHomeContainerSx}
         title={Data.section_new_home_title}
         subtitle={Data.section_new_home_subtitle}
         background={LondonLandscape}
       />
       <ParagraphSection
-        className={classes.sectionUniContainer}
+        sx={sectionUniContainerSx}
         title={Data.section_uni_title}
         subtitle={Data.section_uni_subtitle}
         background={Firebird}
       />
       <ParagraphSection
-        className={classes.sectionRootContainer}
+        sx={sectionRootContainerSx}
         title={Data.section_root_title}
         subtitle={Data.section_root_subtitle}
         background={LionRock}
@@ -46,32 +74,3 @@ const HomePage = (props: HomePageProps) => {
 };
 
 export default HomePage;
-
-const useStyles = makeStyles((theme: Theme) => ({
-  root: {
-    width: "100%",
-    display: "flex",
-    flexDirection: "column",
-  },
-  introContainer: {
-    marginTop: "1rem",
-    backgroundSize: "contain",
-    backgroundRepeat: "no-repeat",
-    backgroundPositionX: "75%",
-    backgroundPositionY: "25%",
-    padding: "28vh 0 6vh",
-  },
-  sectionNewHomeContainer: {
-    backgroundPositionX: "35%",
-    backgroundPositionY: "75%",
-    padding: "28vh 0 6vh",
-  },
-  sectionUniContainer: {
-    padding: "28vh 0 6vh",
-  },
-  sectionRootContainer: {
-    backgroundPositionX: "25%",
-    backgroundPositionY: "35%",
-    padding: "28vh 0 12vh",
-  }
-}));

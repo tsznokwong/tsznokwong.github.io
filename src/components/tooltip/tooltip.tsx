@@ -1,15 +1,29 @@
-import { Tooltip as MUITooltip, Theme } from "@mui/material";
+import { Tooltip as MUITooltip, Theme, useTheme } from "@mui/material";
+import React from "react";
 
-import withStyles from '@mui/styles/withStyles';
+interface TooltipProps {
+  title: React.ReactNode;
+  children: React.ReactElement;
+  arrow?: boolean;
+  placement?: "top" | "right" | "bottom" | "left";
+  [key: string]: any;
+}
 
-const Tooltip = withStyles((theme: Theme) => ({
-  tooltip: {
+const Tooltip = (props: TooltipProps) => {
+  const theme = useTheme();
+
+  const tooltipSx = {
     backgroundColor: theme.palette.background.paper,
     color: theme.palette.text.primary,
     boxShadow: theme.shadows[1],
     fontSize: theme.typography.body2.fontSize,
     fontWeight: theme.typography.body2.fontWeight,
-  },
-}))(MUITooltip);
+    "& .MuiTooltip-arrow": {
+      color: theme.palette.background.paper,
+    },
+  };
+
+  return <MUITooltip {...props} slotProps={{ tooltip: { sx: tooltipSx } }} />;
+};
 
 export default Tooltip;

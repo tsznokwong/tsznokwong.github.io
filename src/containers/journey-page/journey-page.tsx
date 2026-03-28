@@ -1,6 +1,5 @@
 import React from "react";
-import { Theme, Container } from "@mui/material";
-import makeStyles from '@mui/styles/makeStyles';
+import { Container } from "@mui/material";
 import ParagraphSection from "../../components/paragraph-section";
 import Timeline from "../../components/timeline";
 import Data from "../../assets/data/journey-page.json";
@@ -10,17 +9,33 @@ import Portrait1 from "../../assets/images/portrait-1.svg";
 type JourneyPageProps = {};
 
 const JourneyPage = (props: JourneyPageProps) => {
-  const classes = useStyles();
+  const rootSx = {
+    width: "100%",
+    display: "flex",
+    flexDirection: "column" as const,
+  };
+
+  const introContainerSx = {
+    marginTop: "1rem",
+    backgroundSize: "contain",
+    backgroundRepeat: "no-repeat",
+    backgroundPositionX: "75%",
+  };
+
+  const timelineContainerSx = {
+    marginTop: "1rem",
+  };
+
   return (
-    <Container className={classes.root} maxWidth={false} disableGutters>
+    <Container sx={rootSx} maxWidth={false} disableGutters>
       <ParagraphSection
-        className={classes.introContainer}
+        sx={introContainerSx}
         title={Data.title}
         subtitle={Data.subtitle}
         background={Portrait1}
       />
       <Timeline
-        className={classes.timelineContainer}
+        sx={timelineContainerSx}
         items={Data.timeline.map((item) => item as TimelineItemProps)}
       />
     </Container>
@@ -28,22 +43,3 @@ const JourneyPage = (props: JourneyPageProps) => {
 };
 
 export default JourneyPage;
-
-const useStyles = makeStyles((theme: Theme) => {
-  return {
-    root: {
-      width: "100%",
-      display: "flex",
-      flexDirection: "column",
-    },
-    introContainer: {
-      marginTop: "1rem",
-      backgroundSize: "contain",
-      backgroundRepeat: "no-repeat",
-      backgroundPositionX: "75%",
-    },
-    timelineContainer: {
-      marginTop: "1rem",
-    },
-  };
-});

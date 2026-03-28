@@ -1,7 +1,5 @@
 import React from "react";
-import { Theme, Box } from "@mui/material";
-
-import makeStyles from '@mui/styles/makeStyles';
+import { Box } from "@mui/material";
 
 import SocialLinkType from "../../types/social-link-type";
 import SocialLink from "./social-link";
@@ -9,9 +7,15 @@ import SocialLink from "./social-link";
 type SocialLinksProps = {};
 
 const SocialLinks = (props: SocialLinksProps) => {
-  const classes = useStyles();
+  const rootSx = {
+    display: "flex",
+    flexDirection: "row" as const,
+    justifyContent: "center",
+    alignItems: "center",
+  };
+
   return (
-    <Box className={classes.root}>
+    <Box sx={rootSx}>
       {SocialLinkType.AllValues.map((socialLink) => (
         <SocialLink key={socialLink.link} socialLink={socialLink} />
       ))}
@@ -20,12 +24,3 @@ const SocialLinks = (props: SocialLinksProps) => {
 };
 
 export default SocialLinks;
-
-const useStyles = makeStyles((theme: Theme) => ({
-  root: {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-}));

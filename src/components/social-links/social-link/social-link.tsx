@@ -1,7 +1,5 @@
 import React from "react";
-import { Theme, IconButton } from "@mui/material";
-
-import makeStyles from '@mui/styles/makeStyles';
+import { IconButton } from "@mui/material";
 
 import Tooltip from "../../tooltip";
 import { LinkMeta } from "../../../types/social-link-type";
@@ -12,11 +10,19 @@ type SocialLinkProps = {
 
 const SocialLink = (props: SocialLinkProps) => {
   const { Icon, link, title } = props.socialLink;
-  const classes = useStyles();
+
+  const rootSx = {
+    width: "3rem",
+    height: "3rem",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  };
+
   return (
     <Tooltip title={title} placement="top">
       <a href={link} target="_blank" rel="noopener noreferrer">
-        <IconButton className={classes.root} disableRipple size="large">
+        <IconButton sx={rootSx} disableRipple size="large">
           <Icon color="primary" />
         </IconButton>
       </a>
@@ -25,13 +31,3 @@ const SocialLink = (props: SocialLinkProps) => {
 };
 
 export default SocialLink;
-
-const useStyles = makeStyles((theme: Theme) => ({
-  root: {
-    width: "3rem",
-    height: "3rem",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-}));

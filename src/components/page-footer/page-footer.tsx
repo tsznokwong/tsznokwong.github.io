@@ -1,7 +1,5 @@
 import React from "react";
-import { Theme, Container, AppBar } from "@mui/material";
-
-import makeStyles from '@mui/styles/makeStyles';
+import { Container, AppBar, useTheme } from "@mui/material";
 
 import Copyright from "../copyright";
 import SocialLinks from "../social-links";
@@ -9,10 +7,38 @@ import SocialLinks from "../social-links";
 type PageFooterProps = {};
 
 const PageFooter = (props: PageFooterProps) => {
-  const classes = useStyles();
+  const theme = useTheme();
+
+  const rootSx = {
+    marginTop: "auto",
+    padding: "0% 1rem",
+    paddingBottom: "env(safe-area-inset-bottom)",
+    [theme.breakpoints.down('md')]: {
+      height: "calc(env(safe-area-inset-bottom) + 6rem)",
+    },
+    [theme.breakpoints.up("sm")]: {
+      height: "4rem",
+    },
+  };
+
+  const containerSx = {
+    height: "100%",
+    display: "flex",
+    [theme.breakpoints.down('md')]: {
+      flexDirection: "column-reverse" as const,
+      justifyContent: "center",
+      alignItems: "center",
+    },
+    [theme.breakpoints.up("sm")]: {
+      flexDirection: "row" as const,
+      justifyContent: "space-between",
+      alignItems: "center",
+    },
+  };
+
   return (
-    <AppBar color="inherit" position="sticky" className={classes.root}>
-      <Container className={classes.container}>
+    <AppBar color="inherit" position="sticky" sx={rootSx}>
+      <Container sx={containerSx}>
         <Copyright />
         <SocialLinks />
       </Container>
@@ -21,31 +47,3 @@ const PageFooter = (props: PageFooterProps) => {
 };
 
 export default PageFooter;
-
-const useStyles = makeStyles((theme: Theme) => ({
-  root: {
-    marginTop: "auto",
-    padding: "0% 1rem",
-    [theme.breakpoints.down('md')]: {
-      height: "calc(env(safe-area-inset-bottom) + 6rem)",
-    },
-    [theme.breakpoints.up("sm")]: {
-      height: "4rem",
-    },
-    paddingBottom: "env(safe-area-inset-bottom)",
-  },
-  container: {
-    height: "100%",
-    display: "flex",
-    [theme.breakpoints.down('md')]: {
-      flexDirection: "column-reverse",
-      justifyContent: "center",
-      alignItems: "center",
-    },
-    [theme.breakpoints.up("sm")]: {
-      flexDirection: "row",
-      justifyContent: "space-between",
-      alignItems: "center",
-    },
-  },
-}));

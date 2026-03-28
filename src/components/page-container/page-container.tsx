@@ -1,20 +1,27 @@
 import React, { ReactNode } from "react";
-import { Theme, Container } from "@mui/material";
-
-import makeStyles from '@mui/styles/makeStyles';
+import { Container } from "@mui/material";
 
 type PageContainerProps = {
   background?: string;
   children?: ReactNode;
   className?: string;
+  sx?: Record<string, any>;
 };
 
 const PageContainer = (props: PageContainerProps) => {
-  const classes = useStyles();
-  const { background, children, className } = props;
+  const { background, children, className, sx } = props;
+
+  const rootSx = {
+    overflowX: "hidden" as const,
+    backgroundSize: "cover",
+    backgroundPosition: "bottom",
+    ...sx,
+  };
+
   return (
     <Container
-      className={`${classes.root} ${className}`}
+      sx={rootSx}
+      className={className}
       maxWidth={false}
       disableGutters
       style={{
@@ -27,11 +34,3 @@ const PageContainer = (props: PageContainerProps) => {
 };
 
 export default PageContainer;
-
-const useStyles = makeStyles((theme: Theme) => ({
-  root: {
-    overflowX: "hidden",
-    backgroundSize: "cover",
-    backgroundPosition: "bottom",
-  },
-}));
