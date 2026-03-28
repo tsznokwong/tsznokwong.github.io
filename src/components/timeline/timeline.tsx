@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { Theme, Button, ButtonGroup, useTheme, useMediaQuery } from "@mui/material";
-import makeStyles from '@mui/styles/makeStyles';
+import { Button, ButtonGroup, useTheme, useMediaQuery, Box } from "@mui/material";
 import { Timeline as MUITimeline } from "@mui/lab";
 
 import PageContainer from "../page-container";
@@ -13,20 +12,55 @@ import { usePageBarTrigger } from "../page-bar/page-bar-hooks";
 type TimelineProps = {
   items: TimelineItemProps[];
   className?: string;
+  sx?: Record<string, any>;
 };
 
 const Timeline = (props: TimelineProps) => {
-  const classes = useStyles();
-  const { items, className } = props;
+  const { items, className, sx } = props;
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
   const isLargeScreen = useMediaQuery(theme.breakpoints.up("xl"));
   const [filter, setFilter] = useState(TimelineItemTypes);
   const trigger = usePageBarTrigger();
 
+  const stickySx = {
+    position: "sticky" as const,
+    top: 0,
+    left: 0,
+    right: 0,
+    width: "100%",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    zIndex: 1000,
+    padding: "0.75rem 0",
+  };
+
+  const filterButtonGroupSx = {
+    zIndex: 999,
+  };
+
+  const filterButtonSx = {
+    borderColor: theme.palette.primary.main,
+    backgroundColor: "rgba(1, 1, 1, 0.05)",
+    backdropFilter: "blur(5px)",
+  };
+
+  const filterButtonSelectedSx = {
+    "&:hover": {
+      backgroundColor: theme.palette.secondary.light,
+    },
+    backgroundColor: theme.palette.secondary.light,
+    borderColor: theme.palette.primary.main,
+  };
+
+  const timelineSx = {
+    padding: "6px 6px",
+  };
+
   const buttonGroup = (
     <ButtonGroup
-      className={classes.filterButtonGroup}
+      sx={filterButtonGroupSx}
       size={
         isSmallScreen ? "small" : isLargeScreen ? "large" : "medium"
       }
@@ -38,10 +72,10 @@ const Timeline = (props: TimelineProps) => {
           aria-label={type}
         >
           <Button
-            className={
+            sx={
               filter.includes(type)
-                ? classes.filterButtonSelected
-                : classes.filterButton
+                ? filterButtonSelectedSx
+                : filterButtonSx
             }
             onClick={() => {
               if (filter.length === TimelineItemTypes.length) {
@@ -67,11 +101,11 @@ const Timeline = (props: TimelineProps) => {
 
   return (
     <>
-      <div className={classes.sticky} style={{ top: trigger ? "5rem" : "1rem" }}>
+      <Box sx={{ ...stickySx, top: trigger ? "5rem" : "1rem" }}>
         {buttonGroup}
-      </div>
-      <PageContainer className={`${classes.root} ${className}`}>
-        <MUITimeline className={classes.timeline}>
+      </Box>
+      <PageContainer sx={sx} className={className}>
+        <MUITimeline sx={timelineSx}>
           {items
             .filter((item) => {
               if (item.category === "year-stamp") {
@@ -101,43 +135,3 @@ const Timeline = (props: TimelineProps) => {
 };
 
 export default Timeline;
-
-const useStyles = makeStyles((theme: Theme) => ({
-  root: {},
-  oppositeContent: {
-    flex: 0,
-  },
-  connector: {
-    backgroundColor: theme.palette.primary.main,
-  },
-  sticky: {
-    position: "sticky",
-    top: 0,
-    left: 0,
-    right: 0,
-    width: "100%",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    zIndex: 1000,
-    padding: "0.75rem 0",
-  },
-  filterButtonGroup: {
-    zIndex: 999,
-  },
-  filterButton: {
-    borderColor: theme.palette.primary.main,
-    backgroundColor: "rgba(1, 1, 1, 0.05)",
-    backdropFilter: "blur(5px)",
-  },
-  filterButtonSelected: {
-    "&:hover": {
-      backgroundColor: theme.palette.secondary.light,
-    },
-    backgroundColor: theme.palette.secondary.light,
-    borderColor: theme.palette.primary.main,
-  },
-  timeline: {
-    padding: "6px 6px",
-  },
-}));

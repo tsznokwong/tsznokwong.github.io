@@ -1,6 +1,15 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Theme, Typography, Chip, Card, CardContent, CardActions, IconButton, Slide } from "@mui/material";
-import makeStyles from '@mui/styles/makeStyles';
+import {
+  Typography,
+  Chip,
+  Card,
+  CardContent,
+  CardActions,
+  IconButton,
+  Slide,
+  useTheme,
+  Box,
+} from "@mui/material";
 import {
   TimelineItem as MUITimelineItem,
   TimelineSeparator,
@@ -35,9 +44,22 @@ export type TimelineItemProps =
   | TimelineItemYearStampProps;
 
 const TimelineItem = (props: TimelineItemProps) => {
-  const classes = useStyles();
+  const theme = useTheme();
   const [isVisible, setVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
+
+  const oppositeContentSx = {
+    flex: 0,
+    padding: "0",
+  };
+
+  const connectorSx = {
+    backgroundColor: theme.palette.primary.main,
+  };
+
+  const timelineContentSx = {
+    paddingRight: 0,
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -64,13 +86,13 @@ const TimelineItem = (props: TimelineItemProps) => {
 
   return (
     <MUITimelineItem ref={ref}>
-      <TimelineOppositeContent className={classes.oppositeContent} />
+      <TimelineOppositeContent sx={oppositeContentSx} />
       <TimelineSeparator>
         <TimelineDotContent {...props} />
-        <TimelineConnector className={classes.connector} />
+        <TimelineConnector sx={connectorSx} />
       </TimelineSeparator>
       <Slide in={isVisible} direction="left" timeout={800} appear>
-        <MUITimelineContent className={classes.timelineContent}>
+        <MUITimelineContent sx={timelineContentSx}>
           <TimelineContent {...props} />
         </MUITimelineContent>
       </Slide>
@@ -80,67 +102,16 @@ const TimelineItem = (props: TimelineItemProps) => {
 
 export default TimelineItem;
 
-const useStyles = makeStyles((theme: Theme) => ({
-  root: {},
-  oppositeContent: {
-    flex: 0,
-    padding: "0",
-  },
-  connector: {
-    backgroundColor: theme.palette.primary.main,
-  },
-  content: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "start",
-    backgroundColor: theme.palette.background.paper,
-    marginBottom: "3rem",
-    textAlign: "left",
-  },
-  title: { color: theme.palette.primary.dark },
-  subtitle: { color: theme.palette.primary.light, fontStyle: "italic" },
-  timestamp: { fontStyle: "italic" },
-  details: {
-    whiteSpace: "pre-line",
-  },
-  chip: {
-    color: theme.palette.primary.main,
-    marginBottom: "1rem",
-  },
-  actions: {
-    width: "calc(100% - 16px)",
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "flex-end",
-    alignItems: "center",
-  },
-  yearstamp: {
+const TimelineDotContent = (props: TimelineItemProps) => {
+  const theme = useTheme();
+
+  const yearstampSx = {
     color: theme.palette.primary.main,
     width: "36px",
     display: "flex",
     justifyContent: "center",
-  },
-  yearstampContent: {
-    marginBottom: "6rem",
-  },
-  timelineContent: {
-    paddingRight: 0,
-  },
-  highlightRow: {
-    display: "flex",
-    flexDirection: "row",
-  },
-  highlightTitle: {
-    marginRight: "1rem",
-    fontWeight: "bold",
-  },
-  highlightSubtitle: {
-    fontStyle: "italic",
-  },
-}));
+  };
 
-const TimelineDotContent = (props: TimelineItemProps) => {
-  const classes = useStyles();
   switch (props.category) {
     case "normal":
       return (
@@ -150,7 +121,7 @@ const TimelineDotContent = (props: TimelineItemProps) => {
       );
     case "year-stamp":
       return (
-        <Typography className={classes.yearstamp} variant="h2">
+        <Typography sx={yearstampSx} variant="h2">
           {props.year}
         </Typography>
       );
@@ -164,7 +135,49 @@ const TimelineDotContent = (props: TimelineItemProps) => {
 };
 
 const TimelineContent = (props: TimelineItemProps) => {
-  const classes = useStyles();
+  const theme = useTheme();
+
+  const contentSx = {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "start",
+    backgroundColor: theme.palette.background.paper,
+    marginBottom: "3rem",
+    textAlign: "left",
+  };
+
+  const titleSx = { color: theme.palette.primary.dark };
+  const subtitleSx = { color: theme.palette.primary.light, fontStyle: "italic" };
+  const timestampSx = { fontStyle: "italic" };
+  const detailsSx = {
+    whiteSpace: "pre-line",
+  };
+  const chipSx = {
+    color: theme.palette.primary.main,
+    marginBottom: "1rem",
+  };
+  const actionsSx = {
+    width: "calc(100% - 16px)",
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "flex-end",
+    alignItems: "center",
+  };
+  const yearstampContentSx = {
+    marginBottom: "6rem",
+  };
+  const highlightRowSx = {
+    display: "flex",
+    flexDirection: "row",
+  };
+  const highlightTitleSx = {
+    marginRight: "1rem",
+    fontWeight: "bold",
+  };
+  const highlightSubtitleSx = {
+    fontStyle: "italic",
+  };
+
   switch (props.category) {
     case "normal":
       const {
@@ -177,29 +190,29 @@ const TimelineContent = (props: TimelineItemProps) => {
         highlights,
       } = props;
       return (
-        <Card className={classes.content} elevation={3}>
+        <Card sx={contentSx} elevation={3}>
           <CardContent>
             {type && (
               <Chip
-                className={classes.chip}
+                sx={chipSx}
                 label={type}
                 color="secondary"
                 size="small"
               />
             )}
             {title && (
-              <Typography className={classes.title} variant="h3">
+              <Typography sx={titleSx} variant="h3">
                 {title}
               </Typography>
             )}
             {subtitle && (
-              <Typography className={classes.subtitle} variant="h6">
+              <Typography sx={subtitleSx} variant="h6">
                 {subtitle}
               </Typography>
             )}
             {timestamp && (
               <Typography
-                className={classes.timestamp}
+                sx={timestampSx}
                 variant="body2"
                 color="textSecondary"
               >
@@ -208,13 +221,13 @@ const TimelineContent = (props: TimelineItemProps) => {
             )}
             {highlights &&
               highlights.map(({ title, subtitle }, index) => (
-                <div
+                <Box
                   key={`highlight_${index}`}
-                  className={classes.highlightRow}
+                  sx={highlightRowSx}
                 >
                   {title && (
                     <Typography
-                      className={classes.highlightTitle}
+                      sx={highlightTitleSx}
                       variant="body2"
                       color="primary"
                     >
@@ -223,18 +236,18 @@ const TimelineContent = (props: TimelineItemProps) => {
                   )}
                   {subtitle && (
                     <Typography
-                      className={classes.highlightSubtitle}
+                      sx={highlightSubtitleSx}
                       variant="body2"
                       color="textPrimary"
                     >
                       {subtitle}
                     </Typography>
                   )}
-                </div>
+                </Box>
               ))}
             {details && (
               <Typography
-                className={classes.details}
+                sx={detailsSx}
                 variant="body2"
                 color="textPrimary"
               >
@@ -242,7 +255,7 @@ const TimelineContent = (props: TimelineItemProps) => {
               </Typography>
             )}
           </CardContent>
-          <CardActions className={classes.actions}>
+          <CardActions sx={actionsSx}>
             {infolink && (
               <a href={infolink} target="_blank" rel="noopener noreferrer">
                 <IconButton size="small" aria-label="info">
@@ -254,6 +267,6 @@ const TimelineContent = (props: TimelineItemProps) => {
         </Card>
       );
     default:
-      return <div className={classes.yearstampContent} />;
+      return <Box sx={yearstampContentSx} />;
   }
 };

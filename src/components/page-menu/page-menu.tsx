@@ -1,8 +1,5 @@
 import React, { useContext } from "react";
-import { Tabs, Tab } from "@mui/material";
-import { Theme } from "@mui/material/styles";
-
-import makeStyles from '@mui/styles/makeStyles';
+import { Tabs, Tab, useTheme } from "@mui/material";
 
 import { Link } from "react-router-dom";
 import { blueGrey } from "@mui/material/colors";
@@ -12,7 +9,24 @@ type PageMenuProps = {};
 
 const PageMenu = (props: PageMenuProps) => {
   const { pages, currentPage, onPageChange } = useContext(PageContext);
-  const classes = useStyles();
+  const theme = useTheme();
+
+  const tabSx = {
+    minWidth: 80,
+    color: blueGrey[200],
+    fontWeight: theme.typography.fontWeightRegular,
+    "&:hover": {
+      color: theme.palette.primary.light,
+      opacity: 1,
+    },
+    "&.Mui-selected": {
+      color: theme.palette.primary.main,
+    },
+    "&:focus": {
+      color: theme.palette.primary.main,
+    },
+  };
+
   return (
     <Tabs
       value={currentPage}
@@ -29,7 +43,7 @@ const PageMenu = (props: PageMenuProps) => {
     >
       {pages.map((page) => (
         <Tab
-          className={classes.tab}
+          sx={tabSx}
           label={page.title}
           value={page}
           component={Link}
@@ -42,22 +56,3 @@ const PageMenu = (props: PageMenuProps) => {
 };
 
 export default PageMenu;
-
-const useStyles = makeStyles((theme: Theme) => ({
-  selected: {},
-  tab: {
-    minWidth: 80,
-    color: blueGrey[200],
-    fontWeight: theme.typography.fontWeightRegular as any,
-    "&:hover": {
-      color: theme.palette.primary.light,
-      opacity: 1,
-    },
-    "&$selected": {
-      color: theme.palette.primary.main,
-    },
-    "&:focus": {
-      color: theme.palette.primary.main,
-    },
-  },
-}));

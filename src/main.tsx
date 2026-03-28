@@ -10,12 +10,6 @@ import App from "./containers/app";
 import Theme from "./assets/theme";
 
 
-declare module '@mui/styles/defaultTheme' {
-  // eslint-disable-next-line @typescript-eslint/no-empty-interface
-  interface DefaultTheme extends ThemeType { }
-}
-
-
 const root = ReactDOM.createRoot(document.getElementById("root")!);
 
 root.render(

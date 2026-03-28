@@ -1,6 +1,5 @@
 import React, { useState, useMemo } from "react";
-import { Theme, Container, Box } from "@mui/material";
-import makeStyles from '@mui/styles/makeStyles';
+import { Container, Box, useTheme } from "@mui/material";
 
 import ParagraphSection from "../../components/paragraph-section";
 import Globe from "../../components/globe";
@@ -11,7 +10,7 @@ import { TravelPageData, LocationData } from "../../types/location-type";
 type TravelPageProps = {};
 
 const TravelPage = (props: TravelPageProps) => {
-    const classes = useStyles();
+    const theme = useTheme();
     const [selectedLocationId, setSelectedLocationId] = useState<string | null>(null);
 
     // Use locations directly from data (coordinates already included)
@@ -29,14 +28,71 @@ const TravelPage = (props: TravelPageProps) => {
         return (Data as TravelPageData).arcs || [];
     }, []);
 
+    const rootSx = {
+        width: "100%",
+        maxWidth: "100%",
+        display: "flex",
+        flexDirection: "column" as const,
+        padding: "0 !important",
+        margin: "0 !important",
+        boxSizing: "border-box" as const,
+        overflow: "hidden",
+    };
+
+    const introContainerSx = {
+        marginTop: "0",
+        backgroundSize: "contain",
+        backgroundRepeat: "no-repeat",
+        backgroundPositionX: "75%",
+    };
+
+    const globeContainerWrapperSx = {
+        width: "100%",
+        maxWidth: "100%",
+        position: "relative" as const,
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        boxSizing: "border-box" as const,
+        height: "80vh",
+        [theme.breakpoints.down("md")]: {
+            height: "70vh",
+        },
+        [theme.breakpoints.down("sm")]: {
+            height: "80vh",
+        },
+    };
+
+    const cardContainerSx = {
+        position: "absolute" as const,
+        bottom: "1rem",
+        left: "50%",
+        transform: "translateX(-50%)",
+        width: "calc(100% - 2rem)",
+        maxWidth: "600px",
+        maxHeight: "60%",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "flex-start",
+        boxSizing: "border-box" as const,
+        zIndex: 10,
+        pointerEvents: "auto" as const,
+        overflowY: "auto" as const,
+        [theme.breakpoints.down("sm")]: {
+            bottom: "0.5rem",
+            width: "calc(100% - 1rem)",
+            maxHeight: "60%",
+        },
+    };
+
     return (
-        <Container className={classes.root} maxWidth={false} disableGutters>
+        <Container sx={rootSx} maxWidth={false} disableGutters>
             <ParagraphSection
-                className={classes.introContainer}
+                sx={introContainerSx}
                 title={(Data as TravelPageData).title}
                 subtitle={(Data as TravelPageData).subtitle}
             />
-            <Box className={classes.globeContainerWrapper}>
+            <Box sx={globeContainerWrapperSx}>
                 <Globe
                     locations={locations}
                     selectedLocationId={selectedLocationId}
@@ -44,7 +100,7 @@ const TravelPage = (props: TravelPageProps) => {
                     config={(Data as TravelPageData).globe_config}
                     arcs={arcs}
                 />
-                <Box className={classes.cardContainer}>
+                <Box sx={cardContainerSx}>
                     <LocationCard location={selectedLocation} />
                 </Box>
             </Box>
@@ -53,61 +109,3 @@ const TravelPage = (props: TravelPageProps) => {
 };
 
 export default TravelPage;
-
-const useStyles = makeStyles((theme: Theme) => {
-    return {
-        root: {
-            width: "100%",
-            maxWidth: "100%",
-            display: "flex",
-            flexDirection: "column",
-            padding: "0 !important",
-            margin: "0 !important",
-            boxSizing: "border-box",
-            overflow: "hidden",
-        },
-        introContainer: {
-            marginTop: "0",
-            backgroundSize: "contain",
-            backgroundRepeat: "no-repeat",
-            backgroundPositionX: "75%",
-        },
-        globeContainerWrapper: {
-            width: "100%",
-            maxWidth: "100%",
-            position: "relative",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            boxSizing: "border-box",
-            height: "80vh",
-            [theme.breakpoints.down("md")]: {
-                height: "70vh",
-            },
-            [theme.breakpoints.down("sm")]: {
-                height: "80vh",
-            },
-        },
-        cardContainer: {
-            position: "absolute",
-            bottom: "1rem",
-            left: "50%",
-            transform: "translateX(-50%)",
-            width: "calc(100% - 2rem)",
-            maxWidth: "600px",
-            maxHeight: "60%",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "flex-start",
-            boxSizing: "border-box",
-            zIndex: 10,
-            pointerEvents: "auto",
-            overflowY: "auto",
-            [theme.breakpoints.down("sm")]: {
-                bottom: "0.5rem",
-                width: "calc(100% - 1rem)",
-                maxHeight: "60%",
-            },
-        },
-    };
-});

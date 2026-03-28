@@ -1,6 +1,5 @@
 import React, { useRef, useEffect, useMemo } from "react";
-import { Theme, Box } from "@mui/material";
-import makeStyles from '@mui/styles/makeStyles';
+import { Box, useTheme } from "@mui/material";
 import Globe from "react-globe.gl";
 import { LocationData, GlobeConfig } from "../../types/location-type";
 
@@ -30,8 +29,26 @@ const GlobeComponent = (props: GlobeComponentProps) => {
         arcs = [],
         className,
     } = props;
-    const classes = useStyles();
+    const theme = useTheme();
     const globeRef = useRef<any>(null);
+
+    const rootSx = {
+        width: "100%",
+        maxWidth: "100%",
+        height: "80vh",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        position: "relative",
+        overflow: "hidden",
+        boxSizing: "border-box",
+        [theme.breakpoints.down("md")]: {
+            height: "70vh",
+        },
+        [theme.breakpoints.down("sm")]: {
+            height: "80vh",
+        },
+    };
 
     // Prepare points data with all required properties
     const pointsData = useMemo(() => {
@@ -128,7 +145,7 @@ const GlobeComponent = (props: GlobeComponentProps) => {
     };
 
     return (
-        <Box className={`${classes.root} ${className || ""}`}>
+        <Box sx={rootSx} className={className || ""}>
             <Globe
                 ref={globeRef}
                 globeImageUrl="//unpkg.com/three-globe/example/img/earth-blue-marble.jpg"
@@ -174,23 +191,3 @@ const GlobeComponent = (props: GlobeComponentProps) => {
 };
 
 export default GlobeComponent;
-
-const useStyles = makeStyles((theme: Theme) => ({
-    root: {
-        width: "100%",
-        maxWidth: "100%",
-        height: "80vh",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        position: "relative",
-        overflow: "hidden",
-        boxSizing: "border-box",
-        [theme.breakpoints.down("md")]: {
-            height: "70vh",
-        },
-        [theme.breakpoints.down("sm")]: {
-            height: "80vh",
-        },
-    },
-}));

@@ -1,7 +1,5 @@
 import React from "react";
-import { Theme, Typography } from "@mui/material";
-
-import makeStyles from '@mui/styles/makeStyles';
+import { Typography, useTheme } from "@mui/material";
 
 import PageContainer from "../page-container";
 
@@ -11,24 +9,47 @@ type ParagraphSectionProps = {
   background?: string;
   className?: string;
   secondaryText?: boolean;
+  sx?: Record<string, any>;
 };
 
 const ParagraphSection = (props: ParagraphSectionProps) => {
-  const { title, subtitle, background, className, secondaryText } = props;
-  const classes = useStyles();
+  const { title, subtitle, background, className, secondaryText, sx } = props;
+  const theme = useTheme();
+
+  const rootSx = {
+    padding: "28vh 0 12vh",
+    display: "flex",
+    flexDirection: "column" as const,
+    textAlign: "left" as const,
+    ...sx,
+  };
+
+  const titleSx = { color: theme.palette.primary.main };
+  const titleSecondarySx = { color: theme.palette.secondary.main };
+  const subtitleSx = {
+    padding: "2rem 0",
+    whiteSpace: "pre-line" as const,
+  };
+  const subtitleSecondarySx = {
+    padding: "2rem 0",
+    whiteSpace: "pre-line" as const,
+    color: theme.palette.secondary.main,
+  };
+
   return (
     <PageContainer
-      className={`${classes.root} ${className}`}
+      sx={rootSx}
+      className={className}
       background={background}
     >
       {title && (
-        <Typography className={secondaryText ? classes.titleSecondary : classes.title} variant="h1">
+        <Typography sx={secondaryText ? titleSecondarySx : titleSx} variant="h1">
           {title}
         </Typography>
       )}
       {subtitle && (
         <Typography
-          className={secondaryText ? classes.subtitleSecondary : classes.subtitle}
+          sx={secondaryText ? subtitleSecondarySx : subtitleSx}
           variant="body1"
           color="textPrimary"
         >
@@ -40,23 +61,3 @@ const ParagraphSection = (props: ParagraphSectionProps) => {
 };
 
 export default ParagraphSection;
-
-const useStyles = makeStyles((theme: Theme) => ({
-  root: {
-    padding: "28vh 0 12vh",
-    display: "flex",
-    flexDirection: "column",
-    textAlign: "left",
-  },
-  title: { color: theme.palette.primary.main },
-  titleSecondary: { color: theme.palette.secondary.main },
-  subtitle: {
-    padding: "2rem 0",
-    whiteSpace: "pre-line",
-  },
-  subtitleSecondary: {
-    padding: "2rem 0",
-    whiteSpace: "pre-line",
-    color: theme.palette.secondary.main,
-  },
-}));

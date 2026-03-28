@@ -1,7 +1,5 @@
 import React, { useContext } from "react";
-import { Box, Typography, Fade, Theme, Divider } from "@mui/material";
-
-import makeStyles from '@mui/styles/makeStyles';
+import { Box, Typography, Fade, Divider, useTheme } from "@mui/material";
 
 import PageType from "../../types/page-type";
 import { PageContext } from "../../containers/app/app-hooks";
@@ -10,16 +8,29 @@ type PageTitleProps = {};
 
 const PageTitle = (props: PageTitleProps) => {
   const { currentPage, title } = useContext(PageContext);
-  const classes = useStyles();
+  const theme = useTheme();
   const showSubtitle = currentPage !== PageType.Home;
+
+  const rootSx = {
+    display: "flex",
+    flexDirection: "row" as const,
+    alignItems: "center",
+    height: "50%",
+    gap: theme.spacing(2),
+  };
+
+  const subtitleSx = {
+    color: theme.palette.primary.main,
+  };
+
   return (
-    <Box className={classes.root}>
+    <Box sx={rootSx}>
       <Typography variant="h3">{title}</Typography>
       <Fade in={showSubtitle}>
         <Divider orientation="vertical" variant="middle" />
       </Fade>
       <Fade in={showSubtitle}>
-        <Typography className={classes.subtitle} variant="h5">
+        <Typography sx={subtitleSx} variant="h5">
           {showSubtitle ? currentPage.title : ""}
         </Typography>
       </Fade>
@@ -28,16 +39,3 @@ const PageTitle = (props: PageTitleProps) => {
 };
 
 export default PageTitle;
-
-const useStyles = makeStyles((theme: Theme) => ({
-  root: {
-    display: "flex",
-    flexDirection: "row",
-    alignItems: "center",
-    height: "50%",
-    gap: theme.spacing(2),
-  },
-  subtitle: {
-    color: theme.palette.primary.main,
-  },
-}));

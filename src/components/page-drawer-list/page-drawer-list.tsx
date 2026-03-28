@@ -1,8 +1,6 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { Theme, List, ListItem, ListItemText, ListSubheader, Typography } from "@mui/material";
-
-import makeStyles from '@mui/styles/makeStyles';
+import { List, ListItem, ListItemText, ListSubheader, Typography, useTheme } from "@mui/material";
 
 import { PageContext } from "../../containers/app/app-hooks";
 
@@ -13,12 +11,31 @@ type PageDrawerListProps = {
 const PageDrawerList = (props: PageDrawerListProps) => {
   const { onItemClick } = props;
   const { pages, currentPage, onPageChange } = useContext(PageContext);
-  const classes = useStyles();
+  const theme = useTheme();
+
+  const listItemSx = {
+    "&:hover": {
+      color: theme.palette.primary.light,
+      opacity: 1,
+    },
+    "&:focus": {
+      color: theme.palette.primary.main,
+    },
+    "&.selected": {
+      color: theme.palette.primary.main,
+    },
+  };
+
+  const selectedItemSx = {
+    ...listItemSx,
+    color: theme.palette.primary.main,
+  };
+
   return (
-    <List className={classes.root} subheader={<Subheader />}>
+    <List sx={{ width: 250 }} subheader={<Subheader />}>
       {pages.map((page) => (
         <ListItem
-          className={`${classes.listItem} ${page === currentPage ? classes.selected : ""}`}
+          sx={page === currentPage ? selectedItemSx : listItemSx}
           key={page.path}
           component={Link}
           to={page.path}
@@ -41,33 +58,17 @@ const PageDrawerList = (props: PageDrawerListProps) => {
 
 export default PageDrawerList;
 
-const useStyles = makeStyles((theme: Theme) => ({
-  root: {
-    width: 250,
-  },
-  listItem: {
-    "&:hover": {
-      color: theme.palette.primary.light,
-      opacity: 1,
-    },
-    "&:focus": {
-      color: theme.palette.primary.main,
-    },
-  },
-  selected: {
-    color: theme.palette.primary.main,
-  },
-  subheader: {
+const Subheader = () => {
+  const theme = useTheme();
+  const title = "Content";
+
+  const subheaderSx = {
     color: theme.palette.primary.main,
     margin: "1.6rem 0%",
-  },
-}));
+  };
 
-const Subheader = () => {
-  const classes = useStyles();
-  const title = "Content";
   return (
-    <ListSubheader className={classes.subheader}>
+    <ListSubheader sx={subheaderSx}>
       <Typography variant="h2">{title}</Typography>
     </ListSubheader>
   );
