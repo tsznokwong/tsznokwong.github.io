@@ -44,9 +44,9 @@ npm run preview
 
 ## 🏗️ Tech Stack
 
-- **React** 18.3 - UI library
+- **React** 19.2 - UI library
 - **React Router** v7 - Client-side routing
-- **Material-UI** v6 - UI components (Emotion-based styling with Material Design 3)
+- **Material-UI** v7 - UI components (Emotion-based styling with Material Design 3)
 - **TypeScript** - Type safety
 - **Vite** 7.3 - Build tool & dev server
 - **GitHub Pages** - Hosting
@@ -99,6 +99,11 @@ npx tsc --noEmit
 - Static assets (PDFs, icons, manifest) copied automatically
 
 ## 🔄 Recent Migrations
+
+### MUI 6 → 7 (March 2026)
+- Updated Material-UI from v6 to v7
+- Upgraded to React 19 for improved performance
+- All components verified and working with latest MUI v7
 
 ### MUI 5 → 6 (December 2025)
 - Updated Material-UI from v5 to v6 with Material Design 3
