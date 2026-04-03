@@ -6,7 +6,7 @@
       "ES2020",
       "DOM",
       "DOM.Iterable"
-    ],
+     ],
     "module": "ESNext",
     "skipLibCheck": true,
     /* Bundler mode */
@@ -22,15 +22,16 @@
     "noFallthroughCasesInSwitch": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true
-  },
+    "forceConsistentCasingInFileNames": true,
+     "types": ["node"]
+   },
   "include": [
-    "src",
-    "src/vite-env.d.ts"
-  ],
-  "references": [
-    {
-      "path": "./tsconfig.node.json"
-    }
-  ]
+     "src",
+     "src/vite-env.d.ts"
+   ],
+   "references": [
+     {
+       "path": "./tsconfig.node.json"
+     }
+   ]
 }
