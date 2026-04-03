@@ -1,9 +1,9 @@
-import React from "react";
+import { describe, it, expect } from "vitest";
 import { render } from "@testing-library/react";
-import App from "./app";
 
-// test('renders learn react link', () => {
-//   const { getByText } = render(<App />);
-//   const linkElement = getByText(/learn react/i);
-//   expect(linkElement).toBeInTheDocument();
-// });
+describe("App smoke test", () => {
+  it("vitest is working", () => {
+    expect(1 + 1).toBe(2);
+  });
+});
+
