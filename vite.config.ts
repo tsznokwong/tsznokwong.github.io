@@ -21,4 +21,16 @@ export default defineConfig({
         },
     },
     base: '/',
+    test: {
+        globals: true,
+        environment: 'jsdom',
+        setupFiles: './src/setupTests.ts',
+        coverage: {
+            provider: 'v8',
+            reporter: ['text', 'json', 'html'],
+            reportsDirectory: 'coverage',
+            include: ['src/**/*'],
+            exclude: ['src/**/*.test.tsx', 'src/**/*.test.ts', 'src/**/index.ts'],
+         },
+     },
 })
