@@ -10,7 +10,7 @@
       "@mui/lab": "^7.0.1-beta.23",
       "@mui/material": "^7.3.9",
       "@types/jest": "^30.0.0",
-      "@types/node": "^25.5.0",
+      "@types/node": "^25.5.2",
       "@types/react": "^19.2.14",
       "@types/react-dom": "^19.2.0",
       "@types/react-scroll": "^1.8.10",
