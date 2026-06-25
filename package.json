@@ -15,7 +15,7 @@
       "@types/react-dom": "^19.2.0",
       "@types/react-scroll": "^1.8.10",
       "react": "^19.2.7",
-      "react-dom": "^19.2.6",
+      "react-dom": "^19.2.7",
       "react-globe.gl": "^2.38.0",
       "react-router-dom": "^7.18.0",
       "react-scroll": "^1.9.3",
