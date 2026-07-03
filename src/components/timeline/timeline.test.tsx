@@ -33,7 +33,7 @@ vi.mock('../page-bar/page-bar-hooks', () => ({
 vi.stubGlobal('IntersectionObserver', MockIntersectionObserver)
 
 // Helper to create a normal timeline item
-const makeNormalItem = (overrides: Partial<TimelineItemProps & { category: 'normal' }>): TimelineItemProps & { category: 'normal' } => ({
+const makeNormalItem = (overrides: Partial<TimelineItemProps & { category: 'normal' }> = {}): TimelineItemProps & { category: 'normal' } => ({
   category: 'normal',
   title: 'Test Title',
   subtitle: 'Test Subtitle',
