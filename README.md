@@ -46,7 +46,7 @@ npm run preview
 
 - **React** 19.2 - UI library
 - **React Router** v7 - Client-side routing
-- **Material-UI** v7 - UI components (Emotion-based styling with Material Design 3)
+- **Material-UI** v9 - UI components (Emotion-based styling with Material Design 3)
 - **TypeScript** - Type safety
 - **Vite** 7.3 - Build tool & dev server
 - **GitHub Pages** - Hosting
@@ -99,6 +99,12 @@ npx tsc --noEmit
 - Static assets (PDFs, icons, manifest) copied automatically
 
 ## 🔄 Recent Migrations
+
+### MUI 7 → 9 (August 2026)
+- Updated Material-UI from v7 to v9 (MUI skipped a public v8 release for `@mui/material`)
+- `@mui/lab` pinned to `9.0.0-beta.9` (exact version) — no stable v9 release exists yet
+- Migrated `page-menu.tsx`'s `Tabs` from the deprecated `TabIndicatorProps` prop to `slotProps.indicator`
+- Verified `Tab` + React Router `Link` composition does not require the new `nativeButton` prop, since `Link` renders a native `<a>`
 
 ### MUI 6 → 7 (March 2026)
 - Updated Material-UI from v6 to v7
