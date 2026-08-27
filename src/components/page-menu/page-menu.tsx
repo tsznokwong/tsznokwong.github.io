@@ -35,10 +35,12 @@ const PageMenu = (props: PageMenuProps) => {
       }}
       textColor="primary"
       variant="fullWidth"
-      TabIndicatorProps={{
-        style: {
-          height: "0",
-        },
+      slotProps={{
+        indicator: {
+          style: {
+            height: "0",
+          },
+        }
       }}
     >
       {pages.map((page) => (
