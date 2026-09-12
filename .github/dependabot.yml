@@ -16,3 +16,16 @@ updates:
       include: "scope"
     pull-request-branch-name:
       separator: "/"
+    # Wait before proposing new releases: most compromised or broken versions
+    # are yanked within days, and auto-merge ships straight to production.
+    cooldown:
+      semver-patch-days: 3
+      semver-minor-days: 7
+      semver-major-days: 14
+    # Only packages that must move together; everything else stays one PR per
+    # package so a bad update is a single-commit revert.
+    groups:
+      react:
+        patterns: ["react", "react-dom", "@types/react", "@types/react-dom"]
+      vitest:
+        patterns: ["vitest", "@vitest/*"]

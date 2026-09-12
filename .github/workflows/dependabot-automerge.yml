@@ -1,0 +1,52 @@
+name: Dependabot auto-merge
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches: [development]
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  automerge:
+    # Author AND sender: a human pushing to a Dependabot branch must not be auto-merged.
+    if: github.event.pull_request.user.login == 'dependabot[bot]' && github.event.sender.login == 'dependabot[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      # No npm ci: dependency code must never run alongside the App secret.
+      - uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+
+      - name: Fetch Dependabot metadata
+        id: metadata
+        uses: dependabot/fetch-metadata@25dd0e34f4fe68f24cc83900b1fe3fe149efef98 # v3.1.0
+
+      - name: Evaluate eligibility
+        id: eligibility
+        env:
+          UPDATED_DEPENDENCIES_JSON: ${{ steps.metadata.outputs.updated-dependencies-json }}
+        run: node scripts/automerge-eligible.ts
+
+      - name: Mint GitHub App token
+        id: app-token
+        if: steps.eligibility.outputs.eligible == 'true'
+        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
+        with:
+          client-id: ${{ secrets.AUTOMERGE_APP_CLIENT_ID }}
+          private-key: ${{ secrets.AUTOMERGE_APP_PRIVATE_KEY }}
+          permission-contents: write
+          permission-pull-requests: write
+
+      # --auto waits for the required checks (test, smoke) on the ruleset.
+      - name: Enable auto-merge
+        if: steps.eligibility.outputs.eligible == 'true'
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+        run: gh pr merge --auto --squash "$PR_URL"
