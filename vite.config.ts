@@ -1,5 +1,9 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import { configDefaults } from 'vitest/config'
+
+// Substituted into index.html's build-sha meta; CI sets the commit SHA.
+process.env.VITE_BUILD_SHA ??= 'dev'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -25,6 +29,8 @@ export default defineConfig({
         globals: true,
         environment: 'jsdom',
         setupFiles: './src/setupTests.ts',
+        // Playwright specs; run via `npm run smoke`.
+        exclude: [...configDefaults.exclude, 'e2e/**'],
         coverage: {
             provider: 'v8',
             reporter: ['text', 'json', 'html'],
