@@ -163,14 +163,15 @@ groups:
   `dependabot/fetch-metadata@25dd0e34f4fe68f24cc83900b1fe3fe149efef98 # v3.1.0` →
   eligibility script → if eligible:
   `actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0`
-  with `AUTOMERGE_APP_ID` / `AUTOMERGE_APP_PRIVATE_KEY` →
+  with `client-id: AUTOMERGE_APP_CLIENT_ID`, `private-key: AUTOMERGE_APP_PRIVATE_KEY`,
+  `permission-contents: write`, `permission-pull-requests: write` →
   `gh pr merge --auto --squash "$PR_URL"` with the App token.
 
 ### 9. Repository settings (manual / `gh api`, after PR 1 merges)
 
 - GitHub App: `contents: write`, `pull_requests: write`, installed on this
-  repo only; `AUTOMERGE_APP_ID` and `AUTOMERGE_APP_PRIVATE_KEY` as Dependabot
-  secrets.
+  repo only; `AUTOMERGE_APP_CLIENT_ID` and `AUTOMERGE_APP_PRIVATE_KEY` as
+  Dependabot secrets.
 - New active ruleset `development-gate` on `~DEFAULT_BRANCH`: pull request
   required (0 approvals), required status checks `test` and `smoke` (strict
   off), deletion and non-fast-forward blocked, no bypass actors. Applied only

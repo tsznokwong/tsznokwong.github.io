@@ -15,7 +15,7 @@
 - Node version comes only from `.nvmrc` (`24`); workflows use `node-version-file: .nvmrc`.
 - Third-party actions added by this plan are pinned by commit SHA with the tag in a comment: `dependabot/fetch-metadata@25dd0e34f4fe68f24cc83900b1fe3fe149efef98 # v3.1.0`, `actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0`. Existing `actions/*@v4` references stay as-is (out of scope).
 - Auto-merge workflow uses `pull_request`, never `pull_request_target`, and never runs `npm ci` (no dependency code executes alongside the App secret).
-- Secret names: `AUTOMERGE_APP_ID`, `AUTOMERGE_APP_PRIVATE_KEY` (Dependabot secrets).
+- Secret names: `AUTOMERGE_APP_CLIENT_ID`, `AUTOMERGE_APP_PRIVATE_KEY` (Dependabot secrets). `create-github-app-token` v3 deprecates `app-id`; use `client-id`.
 - Issue label: `deploy-smoke-failure`.
 - Required check job names: `test`, `smoke`.
 - Conventional Commits; every commit ends with the session attribution trailers.

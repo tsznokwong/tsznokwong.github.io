@@ -21,6 +21,10 @@ access to every repository the owner can reach.
 ## Consequences
 
 - One-time manual setup: create the App (`contents: write`,
-  `pull_requests: write`), install on this repo only, add `AUTOMERGE_APP_ID`
-  and `AUTOMERGE_APP_PRIVATE_KEY` as Dependabot secrets.
+  `pull_requests: write`), install on this repo only, add
+  `AUTOMERGE_APP_CLIENT_ID` and `AUTOMERGE_APP_PRIVATE_KEY` as Dependabot
+  secrets. `create-github-app-token` v3 deprecates `app-id` in favour of
+  `client-id`.
+- The minted token is narrowed to `permission-contents: write` and
+  `permission-pull-requests: write` even if the App is later granted more.
 - Merges are attributed to the App.
