@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useMemo } from "react";
 import { Box, useTheme } from "@mui/material";
 import Globe from "react-globe.gl";
 import { LocationData, GlobeConfig } from "../../types/location-type";
+import { toGlobeLabelText } from "./globe-utils";
 
 interface ArcData {
     startLat: number;
@@ -162,7 +163,7 @@ const GlobeComponent = (props: GlobeComponentProps) => {
                 pointAltitude={0}
                 pointRadius={0.25}
                 pointResolution={36}
-                labelText={(point: any) => (point as LocationData).city_name}
+                labelText={(point: any) => toGlobeLabelText((point as LocationData).city_name)}
                 labelSize={1.5}
                 labelDotRadius={0.8}
                 labelColor={() => "#ffffff"}
