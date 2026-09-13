@@ -1,0 +1,62 @@
+name: Report deploy failure
+description: Open, or comment on, the open deploy-smoke-failure issue for a failed deploy or post-deploy check.
+
+inputs:
+  sha:
+    description: Commit that was being deployed.
+    required: true
+  title:
+    description: Issue title prefix; the short SHA is appended.
+    required: true
+  summary:
+    description: Opening words of the issue body, followed by the SHA and commit subject.
+    required: true
+  site-url:
+    description: Site that was checked, if any.
+    required: false
+    default: ""
+  rollback:
+    description: Include git revert instructions ("true" when production may be broken).
+    required: false
+    default: "false"
+  github-token:
+    description: Token with issues write permission.
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - name: Open or update failure issue
+      shell: bash
+      env:
+        GH_TOKEN: ${{ inputs.github-token }}
+        GH_REPO: ${{ github.repository }}
+        OWNER: ${{ github.repository_owner }}
+        RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        SHA: ${{ inputs.sha }}
+        TITLE: ${{ inputs.title }}
+        SUMMARY: ${{ inputs.summary }}
+        SITE_URL: ${{ inputs.site-url }}
+        ROLLBACK: ${{ inputs.rollback }}
+      run: |
+        label=deploy-smoke-failure
+        gh label create "$label" --color B60205 --description "Deploy or post-deploy smoke test failed" --force
+        # gh api prints the error body to stdout on failure, so replace rather than append.
+        if ! subject=$(gh api "repos/${GH_REPO}/commits/${SHA}" --jq '.commit.message | split("\n")[0]' 2>/dev/null); then
+          subject="(unknown commit)"
+        fi
+        lines=("${SUMMARY} \`${SHA}\` — ${subject}" "")
+        if [ -n "$SITE_URL" ]; then
+          lines+=("- Site: ${SITE_URL}")
+        fi
+        lines+=("- Run: ${RUN_URL}")
+        if [ "$ROLLBACK" = "true" ]; then
+          lines+=("" "Roll back (see docs/runbooks/dependabot-rollback.md):" "" '```bash' "git revert ${SHA}" '```')
+        fi
+        body=$(printf '%s\n' "${lines[@]}")
+        existing=$(gh issue list --label "$label" --state open --json number --jq '.[0].number // empty')
+        if [ -n "$existing" ]; then
+          gh issue comment "$existing" --body "$body"
+        else
+          gh issue create --title "${TITLE} ${SHA:0:7}" --label "$label" --assignee "$OWNER" --body "$body"
+        fi
