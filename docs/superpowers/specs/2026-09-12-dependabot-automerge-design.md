@@ -17,7 +17,9 @@ alert and a documented one-command rollback if a deploy breaks production.
   `default`) are `disabled`. `gh pr merge --auto` waits only on *required*
   checks.
 - Events caused by `GITHUB_TOKEN` do not start workflow runs, so a
-  `GITHUB_TOKEN` merge would not deploy.
+  `GITHUB_TOKEN` merge would not deploy. The rule is documented; its
+  application to auto-merge rests on community reports. Sources in
+  [ADR 0003](../../adr/0003-github-app-token-for-auto-merge.md).
 - Dependabot-triggered workflows read only Dependabot secrets.
 - `test.yml` used Node 25, `deploy.yaml` Node 24.
 - Tests are jsdom-only; `react-globe.gl` is mocked in unit tests.
