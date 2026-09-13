@@ -64,32 +64,11 @@ jobs:
 
       - name: Open or update failure issue
         if: failure()
-        env:
-          GH_TOKEN: ${{ github.token }}
-          GH_REPO: ${{ github.repository }}
-          OWNER: ${{ github.repository_owner }}
-          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-        run: |
-          label=deploy-smoke-failure
-          gh label create "$label" --color B60205 --description "Post-deploy smoke test failed" --force
-          # gh api prints the error body to stdout on failure, so replace rather than append.
-          if ! subject=$(gh api "repos/${GH_REPO}/commits/${EXPECTED_SHA}" --jq '.commit.message | split("\n")[0]' 2>/dev/null); then
-            subject="(unknown commit)"
-          fi
-          body=$(printf '%s\n' \
-            "Post-deploy verification failed for \`${EXPECTED_SHA}\` — ${subject}" \
-            "" \
-            "- Site: ${SITE_URL}" \
-            "- Run: ${RUN_URL}" \
-            "" \
-            "Roll back (see docs/runbooks/dependabot-rollback.md):" \
-            "" \
-            '```bash' \
-            "git revert ${EXPECTED_SHA}" \
-            '```')
-          existing=$(gh issue list --label "$label" --state open --json number --jq '.[0].number // empty')
-          if [ -n "$existing" ]; then
-            gh issue comment "$existing" --body "$body"
-          else
-            gh issue create --title "Post-deploy smoke failed at ${EXPECTED_SHA:0:7}" --label "$label" --assignee "$OWNER" --body "$body"
-          fi
+        uses: ./.github/actions/report-deploy-failure
+        with:
+          sha: ${{ inputs.expected_sha }}
+          title: Post-deploy smoke failed at
+          summary: Post-deploy verification failed for
+          site-url: ${{ inputs.url }}
+          rollback: "true"
+          github-token: ${{ github.token }}

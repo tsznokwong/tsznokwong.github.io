@@ -136,7 +136,23 @@ Permissions: `contents: read`, `issues: write`.
 - `node-version-file: .nvmrc`; build step sets `VITE_BUILD_SHA`.
 - `concurrency: { group: deploy, cancel-in-progress: false }`.
 - New job `verify` (`needs: deploy`) → `uses: ./.github/workflows/post-deploy-verify.yml`
-  with `expected_sha: ${{ github.sha }}`.
+  with `expected_sha: ${{ github.sha }}`. Reusable-workflow runs appear as
+  the `verify / verify` job inside the Deployment run, not in the Post-deploy
+  verify workflow's run list (that list shows only manual dispatches).
+- New job `notify` (`needs: deploy`, `if: failure()`, `issues: write`): opens
+  or comments on the same `deploy-smoke-failure` issue, without revert
+  instructions because production still serves the previous version.
+  Autonomous decisions:
+  - **A separate `notify` job over relying on Actions failure email**, because
+    `verify` is skipped when `deploy` fails, and the email for an App-made
+    merge goes to the App instead of the owner, so an auto-merged break would
+    go unnoticed.
+  - **A shared composite action `.github/actions/report-deploy-failure` over
+    copying the issue script into `deploy.yaml`**, because the #280 leak fix
+    would otherwise have to be applied twice and could drift.
+  - **One `deploy-smoke-failure` label over a separate deploy-failure label**,
+    because either failure needs the same triage from the owner and one open
+    issue collects them all.
 
 ### 7. `.github/dependabot.yml` (PR 2)
 

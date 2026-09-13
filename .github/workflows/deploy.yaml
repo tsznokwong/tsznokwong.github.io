@@ -55,6 +55,25 @@ jobs:
       - name: Deploy
         run: npm run deploy
 
+  # verify is skipped when deploy fails, and App-made merges send failure email
+  # to the App, so without this a failed deploy after auto-merge goes unnoticed.
+  notify:
+    needs: deploy
+    if: failure()
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: ./.github/actions/report-deploy-failure
+        with:
+          sha: ${{ github.sha }}
+          title: Deploy failed at
+          summary: "Deploy job failed (production still serves the previous version) for"
+          github-token: ${{ github.token }}
+
   verify:
     needs: deploy
     permissions:
