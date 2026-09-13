@@ -72,7 +72,10 @@ jobs:
         run: |
           label=deploy-smoke-failure
           gh label create "$label" --color B60205 --description "Post-deploy smoke test failed" --force
-          subject=$(gh api "repos/${GH_REPO}/commits/${EXPECTED_SHA}" --jq '.commit.message | split("\n")[0]' 2>/dev/null || echo "(unknown commit)")
+          # gh api prints the error body to stdout on failure, so replace rather than append.
+          if ! subject=$(gh api "repos/${GH_REPO}/commits/${EXPECTED_SHA}" --jq '.commit.message | split("\n")[0]' 2>/dev/null); then
+            subject="(unknown commit)"
+          fi
           body=$(printf '%s\n' \
             "Post-deploy verification failed for \`${EXPECTED_SHA}\` — ${subject}" \
             "" \
