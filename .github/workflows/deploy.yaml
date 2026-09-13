@@ -10,6 +10,16 @@ on:
   push:
     branches: [development]
 
+# Serialise deploy + verify so a newer deploy cannot overwrite the site while
+# an older run is still waiting to observe its own SHA.
+concurrency:
+  group: deploy
+  cancel-in-progress: false
+
+# `npm run deploy` rebuilds via predeploy, so the SHA must be set workflow-wide.
+env:
+  VITE_BUILD_SHA: ${{ github.sha }}
+
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "deploy"
@@ -27,7 +37,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '24'
+          node-version-file: .nvmrc
           cache: 'npm'
 
       - name: Setup Git
@@ -44,3 +54,12 @@ jobs:
 
       - name: Deploy
         run: npm run deploy
+
+  verify:
+    needs: deploy
+    permissions:
+      contents: read
+      issues: write
+    uses: ./.github/workflows/post-deploy-verify.yml
+    with:
+      expected_sha: ${{ github.sha }}
