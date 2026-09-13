@@ -289,6 +289,22 @@
             "color": "#CD2E3A",
             "lat": 37.56,
             "lng": 126.99
+        },
+        {
+            "id": "copenhagen",
+            "city_name": "Copenhagen",
+            "description": "",
+            "color": "#C8102E",
+            "lat": 55.6761,
+            "lng": 12.5683
+        },
+        {
+            "id": "malmo",
+            "city_name": "Malmö",
+            "description": "",
+            "color": "#006AA7",
+            "lat": 55.6050,
+            "lng": 13.0038
         }
     ],
     "arcs": [
@@ -495,6 +511,16 @@
         {
             "startCity": "Fukuoka",
             "endCity": "Kumamoto",
+            "path": "Land"
+        },
+        {
+            "startCity": "London",
+            "endCity": "Copenhagen",
+            "path": "Flight"
+        },
+        {
+            "startCity": "Copenhagen",
+            "endCity": "Malmö",
             "path": "Land"
         }
     ],
