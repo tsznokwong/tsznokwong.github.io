@@ -29,3 +29,20 @@ updates:
         patterns: ["react", "react-dom", "@types/react", "@types/react-dom"]
       vitest:
         patterns: ["vitest", "@vitest/*"]
+    ignore:
+      # Types must match the runtime pinned in .nvmrc; bump both together.
+      - dependency-name: "@types/node"
+        update-types: ["version-update:semver-major"]
+
+  # Never auto-merged (scripts/automerge-eligible.ts): these run beside the
+  # App and deploy secrets. See docs/adr/0008.
+  - package-ecosystem: "github-actions"
+    directories: ["/", "/.github/actions/*"]
+    schedule:
+      interval: "weekly"
+    commit-message:
+      prefix: "ci"
+    pull-request-branch-name:
+      separator: "/"
+    cooldown:
+      default-days: 7

@@ -3,12 +3,17 @@ import { pathToFileURL } from "node:url";
 
 export type UpdatedDependency = {
   dependencyName: string;
+  packageEcosystem: string;
   updateType: string;
   prevVersion: string;
   newVersion: string;
 };
 
 export type Evaluation = { eligible: boolean; reasons: string[] };
+
+// fetch-metadata reports Dependabot's internal name, not the dependabot.yml
+// spelling "npm". Actions run beside deploy secrets, so only npm merges.
+const ALLOWED_ECOSYSTEM = "npm_and_yarn";
 
 const ALLOWED_UPDATE_TYPES = new Set([
   "version-update:semver-patch",
@@ -17,6 +22,9 @@ const ALLOWED_UPDATE_TYPES = new Set([
 
 const rejectionReason = (dep: UpdatedDependency): string | undefined => {
   const name = dep.dependencyName;
+  if (dep.packageEcosystem !== ALLOWED_ECOSYSTEM) {
+    return `${name}: ecosystem "${dep.packageEcosystem}" is not npm`;
+  }
   if (!ALLOWED_UPDATE_TYPES.has(dep.updateType)) {
     return `${name}: update type "${dep.updateType}" is not patch or minor`;
   }
