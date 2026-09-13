@@ -13,6 +13,7 @@ import {
 
 const dep = (overrides: Partial<UpdatedDependency> = {}): UpdatedDependency => ({
   dependencyName: "vite",
+  packageEcosystem: "npm_and_yarn",
   updateType: "version-update:semver-patch",
   prevVersion: "8.2.0",
   newVersion: "8.2.2",
@@ -34,10 +35,19 @@ describe("evaluate", () => {
     ["pre-release new version", dep({ newVersion: "8.3.0-rc.1" })],
     ["0.x previous version", dep({ prevVersion: "0.4.1", newVersion: "0.5.0" })],
     ["missing new version", dep({ newVersion: "" })],
+    ["github_actions update", dep({ packageEcosystem: "github_actions" })],
+    ["docker update", dep({ packageEcosystem: "docker" })],
+    ["missing ecosystem", dep({ packageEcosystem: "" })],
   ])("rejects a %s", (_, update) => {
     const result = evaluate([update]);
     expect(result.eligible).toBe(false);
     expect(result.reasons).toEqual([expect.stringContaining("vite")]);
+  });
+
+  it("names the ecosystem when rejecting a non-npm update", () => {
+    expect(evaluate([dep({ packageEcosystem: "github_actions" })]).reasons).toEqual([
+      expect.stringContaining('"github_actions"'),
+    ]);
   });
 
   it("rejects an empty list", () => {
@@ -84,6 +94,13 @@ describe("CLI", () => {
 
   it("writes eligible=true for an eligible update", () => {
     expect(run(JSON.stringify([dep()]))).toEqual({ status: 0, output: "eligible=true\n" });
+  });
+
+  it("writes eligible=false for a github_actions update", () => {
+    expect(run(JSON.stringify([dep({ packageEcosystem: "github_actions" })]))).toEqual({
+      status: 0,
+      output: "eligible=false\n",
+    });
   });
 
   it("writes eligible=false and exits 0 for invalid input", () => {
