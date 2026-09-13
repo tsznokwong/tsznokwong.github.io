@@ -190,11 +190,31 @@ groups:
 - GitHub App: `contents: write`, `pull_requests: write`, installed on this
   repo only; `AUTOMERGE_APP_CLIENT_ID` and `AUTOMERGE_APP_PRIVATE_KEY` as
   Dependabot secrets.
-- New active ruleset `development-gate` on `~DEFAULT_BRANCH`: pull request
-  required (0 approvals), required status checks `test` and `smoke` (strict
-  off), deletion and non-fast-forward blocked, no bypass actors. Applied only
-  after owner confirms the payload. Proposal to delete the redundant disabled
-  `default` ruleset requires owner confirmation.
+- Active ruleset `development-gate` on `~DEFAULT_BRANCH` (applied
+  2026-09-13): pull request required (0 approvals); deletion,
+  non-fast-forward and unsigned commits blocked; required status checks
+  (strict off) `test`, `smoke`, `Analyze (actions)`,
+  `Analyze (javascript-typescript)` (GitHub Actions, 15368), `CodeQL`
+  (GitHub Advanced Security, 57789) and `Socket Security: Pull Request Alerts`
+  (Socket, 156372); repository admins may bypass via pull request only. The
+  disabled `default` and `Protected` rulesets were deleted.
+  - User-directed: Socket and CodeQL blocking; admin PR-only bypass; keep
+    required signed commits; delete the unenforced rulesets.
+  - **Required status checks for CodeQL over the `code_scanning` ruleset
+    rule** (autonomous), because the `CodeQL` check already fails on new
+    alerts at the repository's configured severity, and every gate stays in
+    one rule.
+  - **Only `Socket Security: Pull Request Alerts` over also requiring
+    `Project Report`** (autonomous), because the alerts check is the one that
+    fails on supply-chain findings; the report is informational.
+  - **Strict off over requiring up-to-date branches** (autonomous), because
+    Dependabot rebases only on conflict, so strict mode would stall
+    auto-merge; post-deploy verify catches combined breaks.
+  - All six checks were confirmed to report on docs-only (#281) and
+    Dependabot (#267) PRs, so none can leave a PR waiting forever. Signed
+    commits hold because local commits are SSH-signed and GitHub signs
+    squash and merge commits; an unsigned commit on a PR branch blocks even a
+    squash merge.
 
 ### 10. Runbook — `docs/runbooks/dependabot-rollback.md`
 
