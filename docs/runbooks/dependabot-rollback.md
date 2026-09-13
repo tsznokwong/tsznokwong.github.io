@@ -15,12 +15,18 @@ an auto-merged Dependabot update.
 
    ```bash
    git switch -c revert/<package>-<version> origin/development
-   git revert <sha>
+   git revert <sha>        # squash commit (Dependabot auto-merges)
+   git revert -m 1 <sha>   # merge commit (PRs merged with "Create a merge commit")
    git push -u origin HEAD
    gh pr create --draft --fill
    ```
 
-   Mark ready and merge once `test` and `smoke` pass.
+   Use exactly one of the two `git revert` lines. The alert issue already picks
+   the right one; if it could not look the commit up, check the parent count
+   with `git rev-list --parents -n 1 <sha>` (two SHAs after `<sha>` means a
+   merge commit).
+
+   Mark ready and merge once the required checks pass.
 
    Do **not** reset `main` to an older deploy commit: that is a force-push, and
    the next deploy from `development` reintroduces the break.
