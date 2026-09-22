@@ -1,10 +1,9 @@
-import React, { useRef, useEffect, useMemo } from "react";
+import React, { useRef, useEffect, useMemo, useState } from "react";
 import { Box, useTheme } from "@mui/material";
 import Globe from "react-globe.gl";
 import { LocationData, GlobeConfig } from "../../types/location-type";
-import { toGlobeLabelText } from "./globe-utils";
-import EarthTexture from "../../assets/images/globe/earth-blue-marble.webp";
-import NightSkyTexture from "../../assets/images/globe/night-sky.webp";
+import EarthTexture8k from "../../assets/images/globe/earth-apple-8k.webp";
+import EarthTexture4k from "../../assets/images/globe/earth-apple-4k.webp";
 
 interface ArcData {
     startLat: number;
@@ -23,6 +22,89 @@ interface GlobeComponentProps {
     className?: string;
 }
 
+// Below this camera altitude every city label shows; above it only the
+// selected one does, so dense regions like Europe don't turn into a pile.
+const LABEL_ALTITUDE = 1.2;
+
+const ARC_COLORS: Record<string, string> = {
+    Flight: "255, 255, 255",
+    Land: "255, 159, 10",
+    Sea: "100, 210, 255",
+};
+
+const MARKER_CSS = `
+.globe-marker {
+    position: relative;
+    width: 0;
+    height: 0;
+    pointer-events: auto;
+    cursor: pointer;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif;
+}
+.globe-marker__dot {
+    position: absolute;
+    left: -6px;
+    top: -6px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--marker-color);
+    border: 2px solid #fff;
+    box-sizing: border-box;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
+    transition: transform 200ms ease;
+}
+.globe-marker:hover .globe-marker__dot,
+.globe-marker--selected .globe-marker__dot {
+    transform: scale(1.35);
+}
+.globe-marker--selected .globe-marker__dot::after {
+    content: "";
+    position: absolute;
+    inset: -8px;
+    border-radius: 50%;
+    border: 2px solid var(--marker-color);
+    animation: globe-marker-pulse 1.8s ease-out infinite;
+}
+@keyframes globe-marker-pulse {
+    from { transform: scale(0.5); opacity: 1; }
+    to { transform: scale(1.6); opacity: 0; }
+}
+.globe-marker__label {
+    position: absolute;
+    left: 10px;
+    top: -9px;
+    white-space: nowrap;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    color: #fff;
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.9), 0 1px 2px rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    transition: opacity 200ms ease;
+    pointer-events: none;
+}
+.globe--labels .globe-marker__label,
+.globe-marker:hover .globe-marker__label,
+.globe-marker--selected .globe-marker__label {
+    opacity: 1;
+}
+`;
+
+// Mobile GPUs commonly cap textures at 4096px; only send 8K where it can be used.
+const pickEarthTexture = (): string => {
+    if (typeof window === "undefined" || window.innerWidth < 900) {
+        return EarthTexture4k;
+    }
+    try {
+        const gl = document.createElement("canvas").getContext("webgl");
+        const maxSize = gl ? gl.getParameter(gl.MAX_TEXTURE_SIZE) : 0;
+        return maxSize >= 8192 ? EarthTexture8k : EarthTexture4k;
+    } catch {
+        return EarthTexture4k;
+    }
+};
+
 const GlobeComponent = (props: GlobeComponentProps) => {
     const {
         locations,
@@ -34,6 +116,10 @@ const GlobeComponent = (props: GlobeComponentProps) => {
     } = props;
     const theme = useTheme();
     const globeRef = useRef<any>(null);
+    const earthTexture = useMemo(pickEarthTexture, []);
+    const [showLabels, setShowLabels] = useState(
+        config.initial_point_of_view.altitude < LABEL_ALTITUDE
+    );
 
     const rootSx = {
         width: "100%",
@@ -45,6 +131,7 @@ const GlobeComponent = (props: GlobeComponentProps) => {
         position: "relative",
         overflow: "hidden",
         boxSizing: "border-box",
+        background: "radial-gradient(ellipse at center, #0b1526 0%, #03060c 70%)",
         [theme.breakpoints.down("md")]: {
             height: "70vh",
         },
@@ -53,16 +140,6 @@ const GlobeComponent = (props: GlobeComponentProps) => {
         },
     };
 
-    // Prepare points data with all required properties
-    const pointsData = useMemo(() => {
-        return locations.map((location) => ({
-            ...location,
-            lat: location.lat,
-            lng: location.lng,
-        }));
-    }, [locations]);
-
-    // Build location map for arc conversion
     const locationMap = useMemo(() => {
         const map = new Map<string, LocationData>();
         locations.forEach((loc) => {
@@ -71,7 +148,6 @@ const GlobeComponent = (props: GlobeComponentProps) => {
         return map;
     }, [locations]);
 
-    // Convert arc city pairs to coordinates
     const arcsData = useMemo<ArcData[]>(() => {
         return arcs
             .map((arc) => {
@@ -93,34 +169,14 @@ const GlobeComponent = (props: GlobeComponentProps) => {
             .filter((arc) => arc !== null) as ArcData[];
     }, [arcs, locationMap]);
 
-    // Get arc color based on path type
-    const getArcColor = (arc: ArcData): string => {
-        switch (arc.path) {
-            case "Flight":
-                return "#FFFFFF";
-            case "Land":
-                return "#FF8C00";
-            case "Sea":
-                return "#00D4FF";
-            default:
-                return "#FF0000";
-        }
+    const getArcColor = (arc: ArcData): string[] => {
+        const rgb = ARC_COLORS[arc.path] ?? "255, 69, 58";
+        return [`rgba(${rgb}, 0.25)`, `rgba(${rgb}, 0.9)`, `rgba(${rgb}, 0.25)`];
     };
 
-    // Get arc altitude based on path type
-    const getArcAltitude = (arc: ArcData): number => {
-        switch (arc.path) {
-            case "Flight":
-                return 0.15;
-            case "Land":
-            case "Sea":
-                return 0.02;
-            default:
-                return 0.15;
-        }
-    };
+    const getArcAltitude = (arc: ArcData): number =>
+        arc.path === "Land" || arc.path === "Sea" ? 0.02 : 0.15;
 
-    // Set initial camera position
     useEffect(() => {
         if (globeRef.current) {
             const { lat, lng, altitude } = config.initial_point_of_view;
@@ -128,56 +184,61 @@ const GlobeComponent = (props: GlobeComponentProps) => {
         }
     }, [config]);
 
-    // Handle point click
-    const handlePointClick = (point: any) => {
-        const typedPoint = point as LocationData;
-        onLocationSelect(typedPoint.id);
-        // Optionally animate to that location
-        if (globeRef.current && typedPoint.lat !== undefined && typedPoint.lng !== undefined) {
-            globeRef.current.pointOfView(
-                { lat: typedPoint.lat, lng: typedPoint.lng, altitude: 1.1 },
-                800
-            );
-        }
+    const flyTo = (location: LocationData) => {
+        onLocationSelect(location.id);
+        globeRef.current?.pointOfView(
+            { lat: location.lat, lng: location.lng, altitude: 1.1 },
+            800
+        );
     };
 
-    // Determine point color based on selection state
-    const getPointColor = (point: any): string => {
-        const typedPoint = point as LocationData;
-        return typedPoint.color || "#ffffaa";
+    // Rebuilt when the selection changes so the selected marker's class is current.
+    const markerElement = (d: object): HTMLElement => {
+        const location = d as LocationData;
+        const el = document.createElement("div");
+        el.className = "globe-marker";
+        if (location.id === selectedLocationId) {
+            el.classList.add("globe-marker--selected");
+        }
+        el.style.setProperty("--marker-color", location.color || "#0a84ff");
+
+        const dot = document.createElement("div");
+        dot.className = "globe-marker__dot";
+        const label = document.createElement("div");
+        label.className = "globe-marker__label";
+        label.textContent = location.city_name;
+        el.append(dot, label);
+
+        el.addEventListener("click", () => flyTo(location));
+        return el;
     };
+
+    const htmlElementsData = useMemo(
+        () => locations.map((location) => ({ ...location })),
+        // A fresh array forces globe.gl to rebuild the markers with the new selection.
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        [locations, selectedLocationId]
+    );
 
     return (
-        <Box sx={rootSx} className={className || ""}>
+        <Box sx={rootSx} className={`${className || ""} ${showLabels ? "globe--labels" : ""}`}>
+            <style>{MARKER_CSS}</style>
             <Globe
                 ref={globeRef}
-                globeImageUrl={EarthTexture}
-                backgroundImageUrl={NightSkyTexture}
+                globeImageUrl={earthTexture}
+                backgroundColor="rgba(0, 0, 0, 0)"
+                atmosphereColor="#6fb4ff"
                 atmosphereAltitude={config.atmosphere_altitude}
                 showAtmosphere={true}
                 showGraticules={false}
                 animateIn={true}
-                pointsData={pointsData as any}
-                pointLat={(point: any) => (point as LocationData).lat}
-                pointLng={(point: any) => (point as LocationData).lng}
-                pointLabel={(point: any) => (point as LocationData).city_name}
-                pointColor={getPointColor}
-                pointAltitude={0}
-                pointRadius={0.25}
-                pointResolution={36}
-                labelText={(point: any) => toGlobeLabelText((point as LocationData).city_name)}
-                labelSize={1.5}
-                labelDotRadius={0.8}
-                labelColor={() => "#ffffff"}
-                labelResolution={2}
-                labelIncludeDot={true}
-                onPointClick={handlePointClick}
-                onPointHover={(point: any) => {
-                    // Optional: add visual feedback on hover
-                    if (globeRef.current) {
-                        globeRef.current.pointOfView();
-                    }
-                }}
+                htmlElementsData={htmlElementsData}
+                htmlLat={(d: any) => (d as LocationData).lat}
+                htmlLng={(d: any) => (d as LocationData).lng}
+                htmlAltitude={0.005}
+                htmlElement={markerElement}
+                htmlTransitionDuration={0}
+                onZoom={(pov: any) => setShowLabels(pov.altitude < LABEL_ALTITUDE)}
                 arcsData={arcsData}
                 arcStartLat={(arc: any) => arc.startLat}
                 arcStartLng={(arc: any) => arc.startLng}
@@ -185,7 +246,7 @@ const GlobeComponent = (props: GlobeComponentProps) => {
                 arcEndLng={(arc: any) => arc.endLng}
                 arcColor={(arc: any) => getArcColor(arc)}
                 arcAltitude={(arc: any) => getArcAltitude(arc)}
-                arcStroke={0.1}
+                arcStroke={0.3}
                 enablePointerInteraction={true}
                 showPointerCursor={true}
             />
