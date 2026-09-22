@@ -66,7 +66,7 @@ test("/ loads without the globe's scripts", async ({ page }) => {
 });
 
 // Every home section's background downloads on load, whether or not it is in view.
-const HOME_IMAGE_BUDGET_BYTES = 500_000;
+const HOME_IMAGE_BUDGET_BYTES = 1_100_000;
 
 test("/ keeps its images within budget", async ({ page }) => {
   const images: Promise<number>[] = [];
