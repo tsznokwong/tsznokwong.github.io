@@ -3,6 +3,8 @@ import { Box, useTheme } from "@mui/material";
 import Globe from "react-globe.gl";
 import { LocationData, GlobeConfig } from "../../types/location-type";
 import { toGlobeLabelText } from "./globe-utils";
+import EarthTexture from "../../assets/images/globe/earth-blue-marble.webp";
+import NightSkyTexture from "../../assets/images/globe/night-sky.webp";
 
 interface ArcData {
     startLat: number;
@@ -149,8 +151,8 @@ const GlobeComponent = (props: GlobeComponentProps) => {
         <Box sx={rootSx} className={className || ""}>
             <Globe
                 ref={globeRef}
-                globeImageUrl="//unpkg.com/three-globe/example/img/earth-blue-marble.jpg"
-                backgroundImageUrl="//unpkg.com/three-globe/example/img/night-sky.png"
+                globeImageUrl={EarthTexture}
+                backgroundImageUrl={NightSkyTexture}
                 atmosphereAltitude={config.atmosphere_altitude}
                 showAtmosphere={true}
                 showGraticules={false}

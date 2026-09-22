@@ -1,6 +1,6 @@
 import { expect, test, type Page } from "@playwright/test";
 
-// Network failures of third-party assets (globe textures, Firebase) and the
+// Network failures of third-party scripts (Firebase) and the
 // GitHub Pages 404.html SPA fallback are not code regressions.
 const IGNORED_CONSOLE_ERROR = /^Failed to load resource/;
 
@@ -34,6 +34,47 @@ for (const route of routes) {
     expect(errors).toEqual([]);
   });
 }
+
+// The globe pulls in three.js, most of the bundle; only /travel should pay for it.
+// Counts the site's own scripts; third-party ones (Firebase) are out of scope.
+const HOME_SCRIPT_BUDGET_BYTES = 1_000_000;
+
+test("/ loads without the globe's scripts", async ({ page }) => {
+  const scripts: Promise<number>[] = [];
+  page.on("response", (response) => {
+    const ownScript =
+      response.request().resourceType() === "script" &&
+      new URL(response.url()).origin === new URL(page.url()).origin;
+    if (ownScript) {
+      scripts.push(response.body().then((body) => body.length));
+    }
+  });
+  await page.goto("/");
+  await expect(page.getByRole("heading", { level: 1, name: "Hello world" })).toBeVisible();
+  await page.waitForLoadState("networkidle");
+  const bytes = (await Promise.all(scripts)).reduce((sum, size) => sum + size, 0);
+  expect(bytes).toBeLessThan(HOME_SCRIPT_BUDGET_BYTES);
+});
+
+test("/travel/ serves globe textures from the site", async ({ page }) => {
+  const textures: { url: string; status: number }[] = [];
+  page.on("response", (response) => {
+    if (/earth-blue-marble|night-sky/.test(response.url())) {
+      textures.push({ url: response.url(), status: response.status() });
+    }
+  });
+  await page.goto("/travel/");
+  await expect(page.locator("canvas").first()).toBeVisible();
+  const loaded = () =>
+    ["earth-blue-marble", "night-sky"].filter((name) =>
+      textures.some((texture) => texture.url.includes(name) && texture.status === 200),
+    );
+  await expect.poll(loaded).toHaveLength(2);
+  const ownOrigin = new URL(page.url()).origin;
+  expect(textures.map((texture) => new URL(texture.url).origin)).toEqual(
+    textures.map(() => ownOrigin),
+  );
+});
 
 test("build SHA is embedded", async ({ page }) => {
   await page.goto("/");
