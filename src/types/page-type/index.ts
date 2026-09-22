@@ -2,7 +2,6 @@ import React from "react";
 import HomePage from "../../containers/home-page";
 import JourneyPage from "../../containers/journey-page";
 import TravelPage from "../../containers/travel-page";
-import TestPage from "../../containers/test-page";
 
 export type PageMeta = {
   title: string;
@@ -32,20 +31,12 @@ const Travel: PageMeta = {
   Page: TravelPage,
 };
 
-const Test: PageMeta = {
-  title: "Test",
-  path: "/test",
-  exactPath: false,
-  Page: TestPage,
-};
-
 const AllValues = [Home, Journey, Travel];
 
 const PageType = {
   Home: Home,
   Experience: Journey,
   Travel: Travel,
-  Test: Test,
   AllValues: AllValues,
   fromPath(path?: string): PageMeta {
     const meta = AllValues.filter(
