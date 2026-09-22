@@ -1,0 +1,83 @@
+name: PR preview
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches: [development]
+
+permissions:
+  contents: read
+
+# A newer push supersedes the preview still being built for the same PR.
+concurrency:
+  group: preview-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  # No secrets here: npm ci runs the PR's dependency code. See docs/adr/0013.
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+        env:
+          VITE_BUILD_SHA: ${{ github.event.pull_request.head.sha }}
+
+      - name: Upload build
+        uses: actions/upload-artifact@v7
+        with:
+          name: preview-build
+          path: build
+          retention-days: 1
+
+  # Holds the Cloudflare token on a fresh runner that never installs the
+  # project's dependencies; it only uploads the static build.
+  deploy:
+    needs: build
+    # Fork PRs get no secrets.
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - name: Download build
+        uses: actions/download-artifact@v8
+        with:
+          name: preview-build
+          path: build
+
+      - name: Deploy to Cloudflare Pages
+        id: deploy
+        uses: cloudflare/wrangler-action@ebbaa1584979971c8614a24965b4405ff95890e0 # v4.0.0
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          # Exact version: nothing else bumps it, and the action would
+          # otherwise install whatever wrangler is newest.
+          wranglerVersion: 4.132.0
+          command: pages deploy build --project-name=tsznokwong-preview --branch=pr-${{ github.event.pull_request.number }} --commit-hash=${{ github.event.pull_request.head.sha }}
+
+      - name: Comment preview URL
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR: ${{ github.event.pull_request.number }}
+          ALIAS_URL: ${{ steps.deploy.outputs.pages-deployment-alias-url }}
+          DEPLOY_URL: ${{ steps.deploy.outputs.deployment-url }}
+          SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          body="Preview: ${ALIAS_URL:-$DEPLOY_URL}
+
+          This commit (\`${SHA:0:7}\`): $DEPLOY_URL"
+          gh pr comment "$PR" --repo "$GITHUB_REPOSITORY" --edit-last --create-if-none --body "$body"
