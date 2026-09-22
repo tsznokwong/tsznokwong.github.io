@@ -7,6 +7,8 @@ const IGNORED_CONSOLE_ERROR = /^Failed to load resource/;
 const routes = [
   { path: "/", heading: "Hello world" },
   { path: "/journey", heading: "Journey Timeline" },
+  // GitHub Pages serves routes at their trailing-slash form.
+  { path: "/journey/", heading: "Journey Timeline" },
   { path: "/travel", heading: "Travel", canvas: true },
 ];
 
@@ -42,3 +44,25 @@ test("build SHA is embedded", async ({ page }) => {
     expect(sha).toBe(process.env.SMOKE_EXPECTED_SHA);
   }
 });
+
+// Link-preview scrapers read the raw HTML without running JavaScript.
+// Canonical trailing-slash paths: GitHub Pages redirects /travel to /travel/,
+// while vite preview's SPA fallback would serve the root HTML for /travel.
+const previews = [
+  { path: "/", title: "Joshua" },
+  { path: "/journey/", title: "Joshua | Journey" },
+  { path: "/travel/", title: "Joshua | Travel" },
+];
+
+for (const preview of previews) {
+  test(`${preview.path} serves link-preview tags`, async ({ request }) => {
+    const response = await request.get(preview.path);
+    expect(response.status()).toBe(200);
+    const html = await response.text();
+    expect(html).toContain(`<title>${preview.title}</title>`);
+    expect(html).toContain(`<meta property="og:title" content="${preview.title}" />`);
+    const image = html.match(/<meta property="og:image" content="([^"]+)"/)?.[1];
+    expect(image).toBeTruthy();
+    expect((await request.get(new URL(image!).pathname)).status()).toBe(200);
+  });
+}

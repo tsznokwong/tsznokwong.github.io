@@ -2,32 +2,24 @@ import React from "react";
 import HomePage from "../../containers/home-page";
 import JourneyPage from "../../containers/journey-page";
 import TravelPage from "../../containers/travel-page";
+import { HomeRoute, JourneyRoute, RouteMeta, TravelRoute } from "./routes";
 
-export type PageMeta = {
-  title: string;
-  path: string;
-  exactPath: boolean;
+export type PageMeta = RouteMeta & {
   Page: React.ElementType;
 };
 
 const Home: PageMeta = {
-  title: "Home",
-  path: "/",
-  exactPath: true,
+  ...HomeRoute,
   Page: HomePage,
 };
 
 const Journey: PageMeta = {
-  title: "Journey",
-  path: "/journey",
-  exactPath: false,
+  ...JourneyRoute,
   Page: JourneyPage,
 };
 
 const Travel: PageMeta = {
-  title: "Travel",
-  path: "/travel",
-  exactPath: false,
+  ...TravelRoute,
   Page: TravelPage,
 };
 
