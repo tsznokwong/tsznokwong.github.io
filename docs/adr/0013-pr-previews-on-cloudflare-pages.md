@@ -43,6 +43,14 @@ because each push leaves its own deployment reachable by its hash URL. All
 pages are listed before any delete, so deletion cannot shift unread
 deployments onto pages already read. Chosen by the user.
 
+One shared `preview` GitHub environment, with deployments created through
+the API with `auto_inactive: false`, over the workflow `environment:` key.
+With the key, each PR's deploy marks every other PR's deployment inactive,
+so only the latest PR keeps a live button. One environment per PR would avoid
+that, but environments pile up in Settings, and deleting them needs a token
+with Administration: write. Instead the script retires a PR's own older
+deployments on each push, and all of them on close. Chosen by the user.
+
 `wrangler-action` v4.0.0 and wrangler 4.132.0, over their newest releases,
 because the newest were hours old; this follows ADR 0006's cooldown.
 Autonomous.
@@ -62,6 +70,9 @@ Autonomous.
 - Dependabot bumps the action's SHA, but not `wranglerVersion`; that needs a
   manual bump.
 - Closing a PR (merged or not) deletes every deployment of its `pr-N`
-  branch, one per push, via `scripts/cleanup-preview.ts`. The cleanup job
-  runs the base branch's copy of the script, not the PR's, because it holds
-  the token. A reopened PR deploys again.
+  branch, one per push, via `scripts/cleanup-preview.ts`, and marks its GitHub
+  deployments inactive. A reopened PR deploys again.
+- Each PR shows a "View deployment" button, alongside the comment.
+- The deploy and cleanup jobs check out the PR head's `scripts/`, which run
+  with the tokens. That adds no exposure: on `pull_request` the workflow file
+  itself comes from the PR. They must stay dependency-free.

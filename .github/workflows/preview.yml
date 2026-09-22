@@ -43,7 +43,8 @@ jobs:
           retention-days: 1
 
   # Holds the Cloudflare token on a fresh runner that never installs the
-  # project's dependencies; it only uploads the static build.
+  # project's dependencies; it only uploads the static build and runs
+  # dependency-free scripts.
   deploy:
     needs: build
     # Fork PRs get no secrets.
@@ -51,8 +52,24 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
+      deployments: write
       pull-requests: write
     steps:
+      # The PR's own scripts: on pull_request the workflow file already comes
+      # from the PR, so a base-branch checkout would protect nothing.
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          sparse-checkout: |
+            scripts
+            .nvmrc
+          sparse-checkout-cone-mode: false
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+
       - name: Download build
         uses: actions/download-artifact@v8
         with:
@@ -69,6 +86,17 @@ jobs:
           # otherwise install whatever wrangler is newest.
           wranglerVersion: 4.132.0
           command: pages deploy build --project-name=tsznokwong-preview --branch=pr-${{ github.event.pull_request.number }} --commit-hash=${{ github.event.pull_request.head.sha }}
+
+      # Shows a "View deployment" button on the PR.
+      - name: Record GitHub deployment
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          MODE: record
+          PR: ${{ github.event.pull_request.number }}
+          SHA: ${{ github.event.pull_request.head.sha }}
+          PREVIEW_URL: ${{ steps.deploy.outputs.pages-deployment-alias-url || steps.deploy.outputs.deployment-url }}
+          LOG_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: node scripts/preview-deployment.ts
 
       - name: Comment preview URL
         env:
@@ -87,11 +115,18 @@ jobs:
   cleanup:
     if: github.event.action == 'closed' && github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
     steps:
-      # The base branch's script, not the PR's: this job holds the token.
+      # The head commit, not refs/pull/N/merge, which can be gone after close.
       - uses: actions/checkout@v7
         with:
-          ref: ${{ github.event.pull_request.base.ref }}
+          ref: ${{ github.event.pull_request.head.sha }}
+          sparse-checkout: |
+            scripts
+            .nvmrc
+          sparse-checkout-cone-mode: false
 
       - name: Setup Node
         uses: actions/setup-node@v7
@@ -105,3 +140,10 @@ jobs:
           PAGES_PROJECT: tsznokwong-preview
           PREVIEW_BRANCH: pr-${{ github.event.pull_request.number }}
         run: node scripts/cleanup-preview.ts
+
+      - name: Retire GitHub deployments
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          MODE: retire
+          PR: ${{ github.event.pull_request.number }}
+        run: node scripts/preview-deployment.ts
