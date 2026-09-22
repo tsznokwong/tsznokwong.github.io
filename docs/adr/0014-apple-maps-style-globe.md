@@ -27,5 +27,6 @@ DOM text is crisp, uses the system font and renders diacritics.
 
 - Texture ships as 8K (2.4 MB) for capable desktop GPUs and 4K (0.76 MB) for
   narrow screens or GPUs capped below 8192px.
-- HTML labels can overlap in dense clusters; screen-space collision handling
-  is needed.
+- HTML labels are decluttered in screen space each camera move
+  (`pickVisibleLabels`): the selected city first, then data order; a label is
+  hidden if it overlaps a placed label or the dot of a higher-ranked city.

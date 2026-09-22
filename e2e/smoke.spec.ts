@@ -85,17 +85,14 @@ test("/ keeps its images within budget", async ({ page }) => {
 test("/travel/ serves globe textures from the site", async ({ page }) => {
   const textures: { url: string; status: number }[] = [];
   page.on("response", (response) => {
-    if (/earth-blue-marble|night-sky/.test(response.url())) {
+    if (/earth-apple-(4k|8k)/.test(response.url())) {
       textures.push({ url: response.url(), status: response.status() });
     }
   });
   await page.goto("/travel/");
   await expect(page.locator("canvas").first()).toBeVisible();
-  const loaded = () =>
-    ["earth-blue-marble", "night-sky"].filter((name) =>
-      textures.some((texture) => texture.url.includes(name) && texture.status === 200),
-    );
-  await expect.poll(loaded).toHaveLength(2);
+  const loaded = () => textures.filter((texture) => texture.status === 200);
+  await expect.poll(loaded).toHaveLength(1);
   const ownOrigin = new URL(page.url()).origin;
   expect(textures.map((texture) => new URL(texture.url).origin)).toEqual(
     textures.map(() => ownOrigin),

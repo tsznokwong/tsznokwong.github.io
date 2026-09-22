@@ -1,7 +1,8 @@
-import React, { useRef, useEffect, useMemo, useState } from "react";
+import React, { useRef, useEffect, useMemo, useState, useCallback } from "react";
 import { Box, useTheme } from "@mui/material";
 import Globe from "react-globe.gl";
 import { LocationData, GlobeConfig } from "../../types/location-type";
+import { pickVisibleLabels, LabelBox } from "./globe-utils";
 import EarthTexture8k from "../../assets/images/globe/earth-apple-8k.webp";
 import EarthTexture4k from "../../assets/images/globe/earth-apple-4k.webp";
 
@@ -22,8 +23,8 @@ interface GlobeComponentProps {
     className?: string;
 }
 
-// Below this camera altitude every city label shows; above it only the
-// selected one does, so dense regions like Europe don't turn into a pile.
+// Below this camera altitude city labels show (decluttered); above it only the
+// selected or hovered one does.
 const LABEL_ALTITUDE = 1.2;
 
 const ARC_COLORS: Record<string, string> = {
@@ -43,10 +44,10 @@ const MARKER_CSS = `
 }
 .globe-marker__dot {
     position: absolute;
-    left: -6px;
-    top: -6px;
-    width: 12px;
-    height: 12px;
+    left: -7px;
+    top: -7px;
+    width: 14px;
+    height: 14px;
     border-radius: 50%;
     background: var(--marker-color);
     border: 2px solid #fff;
@@ -72,10 +73,10 @@ const MARKER_CSS = `
 }
 .globe-marker__label {
     position: absolute;
-    left: 10px;
-    top: -9px;
+    left: 12px;
+    top: -10px;
     white-space: nowrap;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 600;
     letter-spacing: 0.01em;
     color: #fff;
@@ -84,7 +85,7 @@ const MARKER_CSS = `
     transition: opacity 200ms ease;
     pointer-events: none;
 }
-.globe--labels .globe-marker__label,
+.globe--labels .globe-marker:not(.globe-marker--label-hidden) .globe-marker__label,
 .globe-marker:hover .globe-marker__label,
 .globe-marker--selected .globe-marker__label {
     opacity: 1;
@@ -116,6 +117,8 @@ const GlobeComponent = (props: GlobeComponentProps) => {
     } = props;
     const theme = useTheme();
     const globeRef = useRef<any>(null);
+    const rootRef = useRef<HTMLDivElement>(null);
+    const declutterFrame = useRef<number | null>(null);
     const earthTexture = useMemo(pickEarthTexture, []);
     const [showLabels, setShowLabels] = useState(
         config.initial_point_of_view.altitude < LABEL_ALTITUDE
@@ -184,19 +187,75 @@ const GlobeComponent = (props: GlobeComponentProps) => {
         }
     }, [config]);
 
-    const flyTo = (location: LocationData) => {
-        onLocationSelect(location.id);
-        globeRef.current?.pointOfView(
-            { lat: location.lat, lng: location.lng, altitude: 1.1 },
-            800
-        );
-    };
+    // Hide labels that would collide on screen, keeping the selected city's.
+    // Measured two frames out so globe.gl has repositioned the markers first.
+    const declutterLabels = useCallback(() => {
+        if (declutterFrame.current !== null) {
+            return;
+        }
+        declutterFrame.current = requestAnimationFrame(() => {
+            declutterFrame.current = requestAnimationFrame(() => {
+                declutterFrame.current = null;
+                const markers = Array.from(
+                    rootRef.current?.querySelectorAll<HTMLElement>(".globe-marker") ?? []
+                );
+                const boxes: LabelBox[] = [];
+                const dots: LabelBox[] = [];
+                const measure = (el: Element | null, id: string, into: LabelBox[]) => {
+                    // Markers behind the globe are display: none and have no rects.
+                    if (el && el.getClientRects().length > 0) {
+                        const { left, top, right, bottom } = el.getBoundingClientRect();
+                        into.push({ id, left, top, right, bottom });
+                    }
+                };
+                markers.forEach((marker) => {
+                    const id = marker.dataset.id ?? "";
+                    measure(marker.querySelector(".globe-marker__label"), id, boxes);
+                    measure(marker.querySelector(".globe-marker__dot"), id, dots);
+                });
+                const visible = pickVisibleLabels(
+                    boxes,
+                    selectedLocationId ? [selectedLocationId] : [],
+                    4,
+                    dots
+                );
+                markers.forEach((marker) =>
+                    marker.classList.toggle(
+                        "globe-marker--label-hidden",
+                        !visible.has(marker.dataset.id ?? "")
+                    )
+                );
+            });
+        });
+    }, [selectedLocationId]);
 
-    // Rebuilt when the selection changes so the selected marker's class is current.
-    const markerElement = (d: object): HTMLElement => {
+    useEffect(() => {
+        declutterLabels();
+        window.addEventListener("resize", declutterLabels);
+        return () => window.removeEventListener("resize", declutterLabels);
+    }, [declutterLabels]);
+
+    useEffect(
+        () => () => {
+            if (declutterFrame.current !== null) {
+                cancelAnimationFrame(declutterFrame.current);
+                declutterFrame.current = null;
+            }
+        },
+        []
+    );
+
+    // Read through a ref so a new callback from the parent doesn't rebuild markers.
+    const onLocationSelectRef = useRef(onLocationSelect);
+    onLocationSelectRef.current = onLocationSelect;
+
+    // globe.gl rebuilds every marker whenever this accessor changes identity,
+    // so it must only change with the selection.
+    const markerElement = useCallback((d: object): HTMLElement => {
         const location = d as LocationData;
         const el = document.createElement("div");
         el.className = "globe-marker";
+        el.dataset.id = location.id;
         if (location.id === selectedLocationId) {
             el.classList.add("globe-marker--selected");
         }
@@ -209,9 +268,15 @@ const GlobeComponent = (props: GlobeComponentProps) => {
         label.textContent = location.city_name;
         el.append(dot, label);
 
-        el.addEventListener("click", () => flyTo(location));
+        el.addEventListener("click", () => {
+            onLocationSelectRef.current(location.id);
+            globeRef.current?.pointOfView(
+                { lat: location.lat, lng: location.lng, altitude: 1.1 },
+                800
+            );
+        });
         return el;
-    };
+    }, [selectedLocationId]);
 
     const htmlElementsData = useMemo(
         () => locations.map((location) => ({ ...location })),
@@ -221,7 +286,7 @@ const GlobeComponent = (props: GlobeComponentProps) => {
     );
 
     return (
-        <Box sx={rootSx} className={`${className || ""} ${showLabels ? "globe--labels" : ""}`}>
+        <Box ref={rootRef} sx={rootSx} className={`${className || ""} ${showLabels ? "globe--labels" : ""}`}>
             <style>{MARKER_CSS}</style>
             <Globe
                 ref={globeRef}
@@ -238,7 +303,11 @@ const GlobeComponent = (props: GlobeComponentProps) => {
                 htmlAltitude={0.005}
                 htmlElement={markerElement}
                 htmlTransitionDuration={0}
-                onZoom={(pov: any) => setShowLabels(pov.altitude < LABEL_ALTITUDE)}
+                onGlobeReady={declutterLabels}
+                onZoom={(pov: any) => {
+                    setShowLabels(pov.altitude < LABEL_ALTITUDE);
+                    declutterLabels();
+                }}
                 arcsData={arcsData}
                 arcStartLat={(arc: any) => arc.startLat}
                 arcStartLng={(arc: any) => arc.startLng}
