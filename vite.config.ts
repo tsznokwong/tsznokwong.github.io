@@ -1,15 +1,26 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { configDefaults } from 'vitest/config'
+import { routeHtml } from './scripts/route-html-plugin'
+import { Routes, documentTitle, routeUrl } from './src/types/page-type/routes'
 
 // Substituted into index.html's build-sha meta; CI sets the commit SHA.
 process.env.VITE_BUILD_SHA ??= 'dev'
+
+// Per-route index.html with its own link-preview tags; see docs/adr/0010.
+const routeHtmlEntries = Routes.map((route) => ({
+    path: route.path,
+    title: documentTitle(route),
+    description: route.description,
+    url: routeUrl(route.path),
+    image: routeUrl('/') + 'og-image.png',
+}))
 
 // https://vitejs.dev/config/
 export default defineConfig({
     plugins: [react({
         jsxRuntime: 'classic',
-    })],
+    }), routeHtml(routeHtmlEntries)],
     server: {
         port: 3000,
         open: true,

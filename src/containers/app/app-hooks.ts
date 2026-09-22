@@ -2,6 +2,7 @@ import { useState, createContext, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
 import PageType, { PageMeta } from "../../types/page-type";
+import { SITE_TITLE, documentTitle } from "../../types/page-type/routes";
 
 export interface IPageContext {
   pages: PageMeta[];
@@ -14,7 +15,7 @@ export const DefaultPageContext = {
   pages: [PageType.Home, PageType.Experience, PageType.Travel],
   currentPage: PageType.Home,
   onPageChange: (page: PageMeta) => { },
-  title: "Joshua",
+  title: SITE_TITLE,
 };
 
 export const PageContext = createContext(DefaultPageContext);
@@ -24,12 +25,8 @@ export const usePage = (): IPageContext => {
   const [page, setPage] = useState(PageType.fromPath(location.pathname));
   const { pages, title } = DefaultPageContext;
   useEffect(() => {
-    if (page !== PageType.Home) {
-      document.title = `${title} | ${page.title}`;
-    } else {
-      document.title = title;
-    }
-  }, [page, title]);
+    document.title = documentTitle(page);
+  }, [page]);
   return {
     pages,
     currentPage: page,
