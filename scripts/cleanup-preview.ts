@@ -1,5 +1,7 @@
 import { pathToFileURL } from "node:url";
 
+import { apiUrl } from "./api-url.ts";
+
 export type CloudflareResponse = {
   success: boolean;
   errors: { message: string }[];
@@ -78,10 +80,10 @@ const main = async (): Promise<void> => {
   const accountId = requiredEnv("CLOUDFLARE_ACCOUNT_ID");
   const project = requiredEnv("PAGES_PROJECT");
   const branch = requiredEnv("PREVIEW_BRANCH");
-  const base = `https://api.cloudflare.com/client/v4/accounts/${accountId}/pages/projects/${project}/deployments/`;
+  const base = `https://api.cloudflare.com/client/v4/accounts/${accountId}/pages/projects/${project}/deployments`;
 
   const request: CloudflareRequest = async (method, path) => {
-    const response = await fetch(base + path, {
+    const response = await fetch(apiUrl(base, path), {
       method,
       headers: { Authorization: `Bearer ${token}` },
     });

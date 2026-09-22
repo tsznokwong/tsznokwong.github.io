@@ -1,5 +1,7 @@
 import { pathToFileURL } from "node:url";
 
+import { apiUrl } from "./api-url.ts";
+
 // `path` is relative to the repository's deployments endpoint. Throws on a
 // non-2xx response.
 export type GitHubRequest = (
@@ -82,11 +84,11 @@ const requiredEnv = (name: string): string => {
 
 const main = async (): Promise<void> => {
   const token = requiredEnv("GITHUB_TOKEN");
-  const base = `${process.env.GITHUB_API_URL ?? "https://api.github.com"}/repos/${requiredEnv("GITHUB_REPOSITORY")}/deployments/`;
+  const base = `${process.env.GITHUB_API_URL ?? "https://api.github.com"}/repos/${requiredEnv("GITHUB_REPOSITORY")}/deployments`;
   const pr = Number(requiredEnv("PR"));
 
   const request: GitHubRequest = async (method, path, body) => {
-    const response = await fetch(base + path, {
+    const response = await fetch(apiUrl(base, path), {
       method,
       headers: {
         Accept: "application/vnd.github+json",
