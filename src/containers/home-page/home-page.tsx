@@ -5,8 +5,8 @@ import ParagraphSection from "../../components/paragraph-section/paragraph-secti
 import Data from "../../assets/data/home-page.json";
 import Portrait0 from "../../assets/images/portrait-0.svg";
 import Firebird from "../../assets/images/hkust-firebird.svg";
-import LionRock from "../../assets/images/lion-rock.png";
-import LondonLandscape from "../../assets/images/london-landscape.png";
+import LionRock from "../../assets/images/lion-rock.webp";
+import LondonLandscape from "../../assets/images/london-landscape.webp";
 
 type HomePageProps = {};
 

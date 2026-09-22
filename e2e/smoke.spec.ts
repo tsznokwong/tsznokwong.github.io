@@ -65,6 +65,23 @@ test("/ loads without the globe's scripts", async ({ page }) => {
   expect(bytes).toBeLessThan(HOME_SCRIPT_BUDGET_BYTES);
 });
 
+// Every home section's background downloads on load, whether or not it is in view.
+const HOME_IMAGE_BUDGET_BYTES = 1_100_000;
+
+test("/ keeps its images within budget", async ({ page }) => {
+  const images: Promise<number>[] = [];
+  page.on("response", (response) => {
+    if (response.request().resourceType() === "image") {
+      images.push(response.body().then((body) => body.length));
+    }
+  });
+  await page.goto("/");
+  await expect(page.getByRole("heading", { level: 1, name: "Hello world" })).toBeVisible();
+  await page.waitForLoadState("networkidle");
+  const bytes = (await Promise.all(images)).reduce((sum, size) => sum + size, 0);
+  expect(bytes).toBeLessThan(HOME_IMAGE_BUDGET_BYTES);
+});
+
 test("/travel/ serves globe textures from the site", async ({ page }) => {
   const textures: { url: string; status: number }[] = [];
   page.on("response", (response) => {
