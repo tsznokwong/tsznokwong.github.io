@@ -2,13 +2,13 @@ name: PR preview
 
 on:
   pull_request:
-    types: [opened, synchronize, reopened]
+    types: [opened, synchronize, reopened, closed]
     branches: [development]
 
 permissions:
   contents: read
 
-# A newer push supersedes the preview still being built for the same PR.
+# A newer push, or closing the PR, supersedes the preview still being built.
 concurrency:
   group: preview-${{ github.event.pull_request.number }}
   cancel-in-progress: true
@@ -16,6 +16,7 @@ concurrency:
 jobs:
   # No secrets here: npm ci runs the PR's dependency code. See docs/adr/0013.
   build:
+    if: github.event.action != 'closed'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
@@ -46,7 +47,7 @@ jobs:
   deploy:
     needs: build
     # Fork PRs get no secrets.
-    if: github.event.pull_request.head.repo.full_name == github.repository
+    if: github.event.action != 'closed' && github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -81,3 +82,26 @@ jobs:
 
           This commit (\`${SHA:0:7}\`): $DEPLOY_URL"
           gh pr comment "$PR" --repo "$GITHUB_REPOSITORY" --edit-last --create-if-none --body "$body"
+
+  # Deletes every deployment of this PR's branch, not only the latest one.
+  cleanup:
+    if: github.event.action == 'closed' && github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    steps:
+      # The base branch's script, not the PR's: this job holds the token.
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.pull_request.base.ref }}
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+
+      - name: Delete preview deployments
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          PAGES_PROJECT: tsznokwong-preview
+          PREVIEW_BRANCH: pr-${{ github.event.pull_request.number }}
+        run: node scripts/cleanup-preview.ts

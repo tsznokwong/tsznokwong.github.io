@@ -38,6 +38,11 @@ runs read the Dependabot secret store, so the same workflow previews
 Dependabot PRs. `pull_request_target` would hand secrets to a run that checks
 out untrusted code.
 
+Deleting every deployment of a closed PR's branch over only its latest,
+because each push leaves its own deployment reachable by its hash URL. All
+pages are listed before any delete, so deletion cannot shift unread
+deployments onto pages already read. Chosen by the user.
+
 `wrangler-action` v4.0.0 and wrangler 4.132.0, over their newest releases,
 because the newest were hours old; this follows ADR 0006's cooldown.
 Autonomous.
@@ -56,5 +61,7 @@ Autonomous.
   to the production hostname.
 - Dependabot bumps the action's SHA, but not `wranglerVersion`; that needs a
   manual bump.
-- Preview deployments are not deleted when a PR closes; Cloudflare keeps them
-  until removed by hand.
+- Closing a PR (merged or not) deletes every deployment of its `pr-N`
+  branch, one per push, via `scripts/cleanup-preview.ts`. The cleanup job
+  runs the base branch's copy of the script, not the PR's, because it holds
+  the token. A reopened PR deploys again.
