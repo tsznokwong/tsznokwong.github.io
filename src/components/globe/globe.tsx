@@ -3,6 +3,7 @@ import { Box, useTheme } from "@mui/material";
 import Globe from "react-globe.gl";
 import { LocationData, GlobeConfig } from "../../types/location-type";
 import { pickVisibleLabels, LabelBox } from "./globe-utils";
+import { createStarfield, disposeStarfield } from "./starfield";
 import EarthTexture8k from "../../assets/images/globe/earth-apple-8k.webp";
 import EarthTexture4k from "../../assets/images/globe/earth-apple-4k.webp";
 
@@ -26,6 +27,11 @@ interface GlobeComponentProps {
 // Below this camera altitude city labels show (decluttered); above it only the
 // selected or hovered one does.
 const LABEL_ALTITUDE = 1.2;
+
+// Stars sit far outside the globe (radius 100) but inside the camera's far plane.
+const STAR_COUNT = 20000;
+const STAR_RADIUS = 20000;
+const STAR_SEED = 20260922;
 
 const ARC_COLORS: Record<string, string> = {
     Flight: "255, 255, 255",
@@ -179,6 +185,25 @@ const GlobeComponent = (props: GlobeComponentProps) => {
 
     const getArcAltitude = (arc: ArcData): number =>
         arc.path === "Land" || arc.path === "Sea" ? 0.02 : 0.15;
+
+    useEffect(() => {
+        const globe = globeRef.current;
+        if (typeof globe?.scene !== "function") {
+            return;
+        }
+        const reduceMotion =
+            typeof window.matchMedia === "function" &&
+            window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        const stars = createStarfield({
+            count: STAR_COUNT,
+            radius: STAR_RADIUS,
+            seed: STAR_SEED,
+            pixelRatio: window.devicePixelRatio || 1,
+            twinkle: !reduceMotion,
+        });
+        globe.scene().add(stars);
+        return () => disposeStarfield(stars);
+    }, []);
 
     useEffect(() => {
         if (globeRef.current) {
