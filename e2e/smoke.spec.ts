@@ -1,8 +1,17 @@
 import { expect, test, type Page } from "@playwright/test";
 
-// Network failures of third-party scripts (Firebase) and the
-// GitHub Pages 404.html SPA fallback are not code regressions.
+// Network failures of third-party scripts and the GitHub Pages 404.html SPA
+// fallback are not code regressions.
 const IGNORED_CONSOLE_ERROR = /^Failed to load resource/;
+
+const ANALYTICS_BEACON = /static\.cloudflareinsights\.com/;
+const ANALYTICS_TOKEN = "53281c2246f04683be50e1c982c5d38c";
+
+// Keeps smoke runs, including the post-deploy run on the live site, out of the
+// visit counts, and proves every page renders when an ad blocker drops analytics.
+test.beforeEach(async ({ page }) => {
+  await page.route(ANALYTICS_BEACON, (route) => route.abort("blockedbyclient"));
+});
 
 const routes = [
   { path: "/", heading: "Hello world" },
@@ -36,7 +45,7 @@ for (const route of routes) {
 }
 
 // The globe pulls in three.js, most of the bundle; only /travel should pay for it.
-// Counts the site's own scripts; third-party ones (Firebase) are out of scope.
+// Counts the site's own scripts; third-party ones (analytics) are out of scope.
 const HOME_SCRIPT_BUDGET_BYTES = 1_000_000;
 
 test("/ loads without the globe's scripts", async ({ page }) => {
@@ -76,6 +85,19 @@ test("/travel/ serves globe textures from the site", async ({ page }) => {
   );
 });
 
+test("/ loads no Firebase or Google Analytics", async ({ page }) => {
+  const google: string[] = [];
+  page.on("request", (request) => {
+    if (/gstatic\.com|firebase|google-analytics|googletagmanager/.test(request.url())) {
+      google.push(request.url());
+    }
+  });
+  await page.goto("/");
+  await expect(page.getByRole("heading", { level: 1, name: "Hello world" })).toBeVisible();
+  await page.waitForLoadState("networkidle");
+  expect(google).toEqual([]);
+});
+
 test("build SHA is embedded", async ({ page }) => {
   await page.goto("/");
   const sha = await page.locator('meta[name="build-sha"]').getAttribute("content");
@@ -105,5 +127,14 @@ for (const preview of previews) {
     const image = html.match(/<meta property="og:image" content="([^"]+)"/)?.[1];
     expect(image).toBeTruthy();
     expect((await request.get(new URL(image!).pathname)).status()).toBe(200);
+  });
+
+  // A classic <script> without defer would hold back the app until the beacon loads.
+  test(`${preview.path} loads the analytics beacon without blocking`, async ({ request }) => {
+    const html = await (await request.get(preview.path)).text();
+    const beacon = html.match(/<script[^>]*cloudflareinsights[^>]*>/)?.[0];
+    expect(beacon).toBeTruthy();
+    expect(beacon).toMatch(/type=['"]module['"]|\sdefer|\sasync/);
+    expect(beacon).toContain(ANALYTICS_TOKEN);
   });
 }
