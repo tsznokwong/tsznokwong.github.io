@@ -1,11 +1,13 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, lazy, Suspense } from "react";
 import { Container, Box, useTheme } from "@mui/material";
 
 import ParagraphSection from "../../components/paragraph-section";
-import Globe from "../../components/globe";
 import LocationCard from "../../components/location-card";
 import Data from "../../assets/data/travel-page.json";
 import { TravelPageData, LocationData } from "../../types/location-type";
+
+// The globe pulls in three.js, most of the bundle; load it only on this page.
+const Globe = lazy(() => import("../../components/globe"));
 
 type TravelPageProps = {};
 
@@ -93,13 +95,15 @@ const TravelPage = (props: TravelPageProps) => {
                 subtitle={(Data as TravelPageData).subtitle}
             />
             <Box sx={globeContainerWrapperSx}>
-                <Globe
-                    locations={locations}
-                    selectedLocationId={selectedLocationId}
-                    onLocationSelect={setSelectedLocationId}
-                    config={(Data as TravelPageData).globe_config}
-                    arcs={arcs}
-                />
+                <Suspense fallback={null}>
+                    <Globe
+                        locations={locations}
+                        selectedLocationId={selectedLocationId}
+                        onLocationSelect={setSelectedLocationId}
+                        config={(Data as TravelPageData).globe_config}
+                        arcs={arcs}
+                    />
+                </Suspense>
                 <Box sx={cardContainerSx}>
                     <LocationCard location={selectedLocation} />
                 </Box>
