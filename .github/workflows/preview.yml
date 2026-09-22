@@ -53,7 +53,6 @@ jobs:
     permissions:
       contents: read
       deployments: write
-      pull-requests: write
     steps:
       # The PR's own scripts: on pull_request the workflow file already comes
       # from the PR, so a base-branch checkout would protect nothing.
@@ -97,19 +96,6 @@ jobs:
           PREVIEW_URL: ${{ steps.deploy.outputs.pages-deployment-alias-url || steps.deploy.outputs.deployment-url }}
           LOG_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: node scripts/preview-deployment.ts
-
-      - name: Comment preview URL
-        env:
-          GH_TOKEN: ${{ github.token }}
-          PR: ${{ github.event.pull_request.number }}
-          ALIAS_URL: ${{ steps.deploy.outputs.pages-deployment-alias-url }}
-          DEPLOY_URL: ${{ steps.deploy.outputs.deployment-url }}
-          SHA: ${{ github.event.pull_request.head.sha }}
-        run: |
-          body="Preview: ${ALIAS_URL:-$DEPLOY_URL}
-
-          This commit (\`${SHA:0:7}\`): $DEPLOY_URL"
-          gh pr comment "$PR" --repo "$GITHUB_REPOSITORY" --edit-last --create-if-none --body "$body"
 
   # Deletes every deployment of this PR's branch, not only the latest one.
   cleanup:

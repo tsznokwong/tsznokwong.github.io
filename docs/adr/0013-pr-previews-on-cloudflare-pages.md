@@ -61,8 +61,6 @@ Autonomous.
   `CLOUDFLARE_API_TOKEN` (Cloudflare Pages: Edit) and `CLOUDFLARE_ACCOUNT_ID`
   in both the Actions and Dependabot secret stores. Without them the deploy
   job fails, but the build job still runs.
-- Each PR comments `https://pr-N.tsznokwong-preview.pages.dev`, updated on
-  every push.
 - Fork PRs build but skip the deploy, because they get no secrets.
 - Previews use the production link-preview URLs and Cloudflare analytics
   token, so previews count as visits unless the analytics site is restricted
@@ -72,7 +70,8 @@ Autonomous.
 - Closing a PR (merged or not) deletes every deployment of its `pr-N`
   branch, one per push, via `scripts/cleanup-preview.ts`, and marks its GitHub
   deployments inactive. A reopened PR deploys again.
-- Each PR shows a "View deployment" button, alongside the comment.
+- Each PR shows a "View deployment" button for `https://pr-N.tsznokwong-preview.pages.dev`,
+  instead of a bot comment.
 - The deploy and cleanup jobs check out the PR head's `scripts/`, which run
   with the tokens. That adds no exposure: on `pull_request` the workflow file
   itself comes from the PR. They must stay dependency-free.
