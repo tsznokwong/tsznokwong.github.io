@@ -42,3 +42,22 @@ export const pickVisibleLabels = (
     });
     return new Set(placed.map((b) => b.id));
 };
+
+export type DisplayEnvironment = {
+    innerWidth: number;
+    devicePixelRatio: number;
+    finePointer: boolean;
+    // A getter so the WebGL probe only runs when everything else qualifies.
+    readonly maxTextureSize: number;
+};
+
+// The 8K texture decodes to ~128 MB of GPU memory, so only send it where the
+// extra detail is visible and memory is plentiful: large, high-density,
+// mouse/trackpad screens. Touch devices (phones, iPads) get 4K.
+export const earthTextureSize = (env: DisplayEnvironment): "8k" | "4k" =>
+    env.innerWidth >= 1200 &&
+    env.devicePixelRatio >= 2 &&
+    env.finePointer &&
+    env.maxTextureSize >= 8192
+        ? "8k"
+        : "4k";

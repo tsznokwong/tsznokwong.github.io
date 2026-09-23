@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { pickVisibleLabels, LabelBox } from './globe-utils'
+import { pickVisibleLabels, LabelBox, earthTextureSize } from './globe-utils'
 
 const box = (id: string, left: number, top: number, width = 50, height = 16): LabelBox => ({
   id,
@@ -52,5 +52,36 @@ describe('pickVisibleLabels', () => {
     const labels = [box('a', 0, 0), box('b', 100, 0)]
     const dots = [box('a', -10, 2, 10, 10), box('b', 30, 2, 10, 10)]
     expect([...pickVisibleLabels(labels, ['b'], 2, dots)]).toEqual(['b'])
+  })
+})
+
+describe('earthTextureSize', () => {
+  const desktop = { innerWidth: 1440, devicePixelRatio: 2, finePointer: true, maxTextureSize: 16384 }
+
+  it('serves 8K to large, high-density screens with a mouse or trackpad', () => {
+    expect(earthTextureSize(desktop)).toBe('8k')
+  })
+
+  it.each([
+    ['a narrow window', { innerWidth: 1100 }],
+    ['a 1x display', { devicePixelRatio: 1 }],
+    ['a touch device such as an iPad', { finePointer: false }],
+    ['a GPU capped below 8192px', { maxTextureSize: 4096 }],
+  ])('serves 4K to %s', (_, override) => {
+    expect(earthTextureSize({ ...desktop, ...override })).toBe('4k')
+  })
+
+  it('does not probe the GPU unless everything else qualifies', () => {
+    let probed = false
+    const lazy = {
+      ...desktop,
+      finePointer: false,
+      get maxTextureSize() {
+        probed = true
+        return 16384
+      },
+    }
+    expect(earthTextureSize(lazy)).toBe('4k')
+    expect(probed).toBe(false)
   })
 })

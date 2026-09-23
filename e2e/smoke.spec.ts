@@ -82,17 +82,27 @@ test("/ keeps its images within budget", async ({ page }) => {
   expect(bytes).toBeLessThan(HOME_IMAGE_BUDGET_BYTES);
 });
 
+// The 4K globe texture is ~0.76 MB; leave headroom for a re-bake.
+const GLOBE_TEXTURE_BUDGET_BYTES = 1_000_000;
+
 test("/travel/ serves globe textures from the site", async ({ page }) => {
-  const textures: { url: string; status: number }[] = [];
+  const textures: { url: string; status: number; bytes: Promise<number> }[] = [];
   page.on("response", (response) => {
     if (/earth-apple-(4k|8k)/.test(response.url())) {
-      textures.push({ url: response.url(), status: response.status() });
+      textures.push({
+        url: response.url(),
+        status: response.status(),
+        bytes: response.body().then((body) => body.length),
+      });
     }
   });
   await page.goto("/travel/");
   await expect(page.locator("canvas").first()).toBeVisible();
   const loaded = () => textures.filter((texture) => texture.status === 200);
   await expect.poll(loaded).toHaveLength(1);
+  // A 1x desktop viewport gets the 4K texture; 8K is for high-density screens.
+  expect(textures[0].url).toContain("earth-apple-4k");
+  expect(await textures[0].bytes).toBeLessThan(GLOBE_TEXTURE_BUDGET_BYTES);
   const ownOrigin = new URL(page.url()).origin;
   expect(textures.map((texture) => new URL(texture.url).origin)).toEqual(
     textures.map(() => ownOrigin),

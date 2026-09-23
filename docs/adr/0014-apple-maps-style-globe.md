@@ -25,8 +25,13 @@ DOM text is crisp, uses the system font and renders diacritics.
 
 ## Consequences
 
-- Texture ships as 8K (2.4 MB) for capable desktop GPUs and 4K (0.76 MB) for
-  narrow screens or GPUs capped below 8192px.
+- Texture ships as 8K (2.4 MB, ~128 MB decoded on the GPU) only for windows
+  at least 1200px wide with devicePixelRatio >= 2, a fine pointer and
+  MAX_TEXTURE_SIZE >= 8192; everything else, including tablets and phones,
+  gets 4K (0.76 MB).
+- Markers are DOM buttons (role, tabindex, Enter/Space) so cities are
+  reachable by keyboard; selection toggles classes on existing markers
+  because changing the `htmlElement` accessor makes three-globe rebuild them.
 - HTML labels are decluttered in screen space each camera move
   (`pickVisibleLabels`): the selected city first, then data order; a label is
   hidden if it overlaps a placed label or the dot of a higher-ranked city.
