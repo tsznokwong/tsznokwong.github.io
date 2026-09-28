@@ -61,11 +61,11 @@ Autonomous.
   `CLOUDFLARE_API_TOKEN` (Cloudflare Pages: Edit) and `CLOUDFLARE_ACCOUNT_ID`
   in both the Actions and Dependabot secret stores. Without them the deploy
   job fails, but the build job still runs.
-- The two stores hold different tokens, both with Cloudflare Pages: Edit:
-  the Actions store an account-owned token with no expiry (Manage Account →
-  Account API Tokens), the Dependabot store a second token added 2026-09-28,
-  because the first token's value was not kept. Rotating or revoking one
-  leaves the other store working; replace both to retire access.
+- The two stores hold different tokens, both account-owned (Manage Account →
+  Account API Tokens) with Cloudflare Pages: Edit: the Actions store the
+  original token, which has no expiry, and the Dependabot store a second one
+  added 2026-09-28, because the first token's value was not kept. Rotating or
+  revoking one leaves the other store working; replace both to retire access.
 - Fork PRs build but skip the deploy, because they get no secrets.
 - Previews use the production link-preview URLs and Cloudflare analytics
   token, so previews count as visits unless the analytics site is restricted
