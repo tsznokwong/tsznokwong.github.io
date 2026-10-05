@@ -19,7 +19,7 @@
       "react-globe.gl": "^2.38.0",
       "react-router-dom": "^7.18.4",
       "react-scroll": "^1.9.3",
-      "three": "^0.186.0",
+      "three": "^0.186.1",
       "typescript": "^7.0.2"
    },
    "scripts": {
