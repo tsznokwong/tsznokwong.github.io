@@ -9,7 +9,7 @@
     {
       "category": "normal",
       "title": "Bloomberg LP",
-      "subtitle": "Software Engineer & Engineering Champion (Core Products - FX/Commodities Structuring)",
+      "subtitle": "Software Engineer & Engineering Champion (Fixed Income & Derivatives - FX & Commodities Structuring)",
       "timestamp": "Since Aug 2022",
       "highlights": [
         {
@@ -17,7 +17,7 @@
           "subtitle": "C++, Python"
         }
       ],
-      "details": "Software Engineer and Engineering Champion (Technical Lead) within Fixed Income & Derivatives, specialising in FX & Commodities Structuring {OVML <GO>}.\n\nTechnical Leadership\n- Driving the technical direction for FiD Structuring engineering teams, empowering engineers to strengthen operational resilience and innovate.\n- Serving as a Technical Representative for the team, fostering a culture of continuous improvement and innovation.\n\nDepartmental Community\n- Steering engineering pods as a Board Member of the joint FiD and Core Financial Analytics (FiDxCFA) Working group, improving developer experience and promoting best practices across the department.\n- Coordinated multi-region cross-department FiDxCFA Developer Day for 700+ engineers across New York, London & Princeton, building community and sharing technological innovation within the department.\n\nMentorship\n- Mentored new joiners and fresh graduates through Bloomberg Women in Technology (BWIT).",
+      "details": "Software Engineer and Engineering Champion (Technical Lead) within Fixed Income & Derivatives, specialising in FX & Commodities Structuring {OVML <GO>}.\n\nTechnical Leadership\n- Driving the technical direction for FiD Structuring engineering teams, empowering engineers to strengthen operational resilience and innovate.\n- Serving as a Technical Representative for the team, fostering a culture of continuous improvement and innovation.\n\nDepartmental Community\n- Steering engineering pods as a Board Member of the joint FiD and Core Financial Analytics (FiDxCFA) Working group, improving developer experience and promoting best practices across departments.\n- Coordinated multi-region cross-department FiDxCFA Developer Day for 700+ engineers across New York, London & Princeton, building community and sharing technological innovation within the department.\n\nMentorship\n- Mentoring Tech Reps in FiD Structuring and new joiners in the team.\n- Mentored fresh graduates through Bloomberg Women in Technology (BWIT) program.",
       "type": "Work",
       "infolink": "https://www.bloomberg.com/company/"
     },
@@ -60,6 +60,10 @@
           "subtitle": "2017-18 Fall, 2018-19 Fall & Spring, 2020-21 Fall & Spring, 2021-22 Fall & Spring"
         },
         {
+          "title": "Final Year Project",
+          "subtitle": "Stock Covariance Prediction with Multivariate Time Series Machine Learning for Portfolio Optimisation"
+        },
+        {
           "title": "Highlighted Courses",
           "subtitle": "Introduction to Advanced Algorithmic Techniques, Theory of Computation, Machine Learning, Practicing Cybersecurity: Attacks and Counter-measures, Computer Language Processing and Compiler Design, Quantum Information, Independent Work - Algorithmic Game Theory, Applied Game Theory, Cases-based Problem Solving, Managerial Microeconomics, Negotiation, Derivatives Securities, Innovation Protection, Psychology and Everyday Life, World Religions"
         }
@@ -70,7 +74,7 @@
     {
       "category": "normal",
       "title": "USThing",
-      "subtitle": "Person-In-Charge / Senior Developer & Designer",
+      "subtitle": "Person-In-Charge / Senior iOS Developer & Designer",
       "timestamp": "Oct 2017 - May 2022",
       "highlights": [
         {
@@ -137,7 +141,7 @@
       "category": "normal",
       "title": "Bloomberg LP",
       "subtitle": "Summer Engineering Intern (Software Infrastructure - APAC Market Data Feeds Team)",
-      "timestamp": "Since Jun 2021",
+      "timestamp": "Jun - Aug 2021",
       "highlights": [
         {
           "title": "Programming Languages",
@@ -519,6 +523,14 @@
       "details": "Promoted IT, organised events & recruited members to society",
       "type": "Activities",
       "infolink": "https://www.facebook.com/spccompsoc"
+    },
+    {
+      "category": "normal",
+      "title": "St. Paul’s College Astronomy Club",
+      "subtitle": "Vice-chairman",
+      "timestamp": "2015 - 2016",
+      "type": "Activities",
+      "infolink": "http://spc.edu.hk"
     },
     {
       "category": "normal",
