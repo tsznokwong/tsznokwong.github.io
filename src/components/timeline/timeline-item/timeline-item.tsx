@@ -46,7 +46,7 @@ export type TimelineItemProps =
 const TimelineItem = (props: TimelineItemProps) => {
   const theme = useTheme();
   const [isVisible, setVisible] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLLIElement>(null);
 
   const oppositeContentSx = {
     flex: 0,
