@@ -9,7 +9,6 @@
       "@mui/icons-material": "^9.4.0",
       "@mui/lab": "9.0.0-beta.10",
       "@mui/material": "^9.4.0",
-      "@types/jest": "^30.0.0",
       "@types/node": "^24.19.2",
       "@types/react": "^19.2.18",
       "@types/react-dom": "^19.3.0",
