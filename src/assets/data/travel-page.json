@@ -305,6 +305,30 @@
             "color": "#006AA7",
             "lat": 55.6050,
             "lng": 13.0038
+        },
+        {
+            "id": "barcelona",
+            "city_name": "Barcelona",
+            "description": "",
+            "color": "#AA151B",
+            "lat": 41.3874,
+            "lng": 2.1686
+        },
+        {
+            "id": "granada",
+            "city_name": "Granada",
+            "description": "",
+            "color": "#AA151B",
+            "lat": 37.1773,
+            "lng": -3.5986
+        },
+        {
+            "id": "seville",
+            "city_name": "Seville",
+            "description": "",
+            "color": "#AA151B",
+            "lat": 37.3891,
+            "lng": -5.9845
         }
     ],
     "arcs": [
@@ -522,6 +546,26 @@
             "startCity": "Copenhagen",
             "endCity": "Malmö",
             "path": "Land"
+        },
+        {
+            "startCity": "London",
+            "endCity": "Barcelona",
+            "path": "Flight"
+        },
+        {
+            "startCity": "Barcelona",
+            "endCity": "Granada",
+            "path": "Flight"
+        },
+        {
+            "startCity": "Granada",
+            "endCity": "Seville",
+            "path": "Land"
+        },
+        {
+            "startCity": "Seville",
+            "endCity": "London",
+            "path": "Flight"
         }
     ],
     "globe_config": {
