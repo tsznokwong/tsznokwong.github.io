@@ -329,6 +329,30 @@
             "color": "#AA151B",
             "lat": 37.3891,
             "lng": -5.9845
+        },
+        {
+            "id": "margate",
+            "city_name": "Margate",
+            "description": "",
+            "color": "#E62117",
+            "lat": 51.3813,
+            "lng": 1.3862
+        },
+        {
+            "id": "portsmouth",
+            "city_name": "Portsmouth",
+            "description": "",
+            "color": "#E62117",
+            "lat": 50.8198,
+            "lng": -1.0880
+        },
+        {
+            "id": "manchester",
+            "city_name": "Manchester",
+            "description": "",
+            "color": "#E62117",
+            "lat": 53.4808,
+            "lng": -2.2426
         }
     ],
     "arcs": [
@@ -566,6 +590,21 @@
             "startCity": "Seville",
             "endCity": "London",
             "path": "Flight"
+        },
+        {
+            "startCity": "London",
+            "endCity": "Margate",
+            "path": "Land"
+        },
+        {
+            "startCity": "London",
+            "endCity": "Portsmouth",
+            "path": "Land"
+        },
+        {
+            "startCity": "London",
+            "endCity": "Manchester",
+            "path": "Land"
         }
     ],
     "globe_config": {
